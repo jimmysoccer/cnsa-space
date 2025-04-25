@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,6 +53,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Space theme custom colors
+				space: {
+					dark: '#0b0f1c', // Deep space blue
+					light: '#e6f0ff', // Astronaut white
+					accent: '#3388ff', // Star-light blue
+					secondary: '#1a2e4c', // Secondary blue
+					gray: '#8a95a7'  // Space gray
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -62,6 +71,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				orbitron: ['Orbitron', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,12 +97,41 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+				'star-drift': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-5px)' },
+				},
+				'pulse-glow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.6' },
+				},
+				'rotate-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' },
+				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'star-drift': 'star-drift 3s ease-in-out infinite',
+				'float': 'float 5s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'rotate-slow': 'rotate-slow 20s linear infinite',
+				'fade-in': 'fade-in 0.7s ease-out forwards',
+			},
+			backgroundImage: {
+				'space-gradient': 'linear-gradient(to bottom, #0b0f1c, #1a2e4c)',
+				'mission-card': 'linear-gradient(to bottom, rgba(26, 46, 76, 0.7), rgba(11, 15, 28, 0.9))',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
