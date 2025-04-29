@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { LayoutGrid, ListOrdered, Timeline } from 'lucide-react';
+import { AlignJustify, LayoutGrid, ListOrdered, LayoutDashboard } from 'lucide-react';
 import { Task, ViewType } from '../types/task';
 import { 
   Tabs, 
@@ -11,6 +10,7 @@ import {
 import TaskTimelineView from '../components/tasks/TaskTimelineView';
 import TaskGridView from '../components/tasks/TaskGridView';
 import TaskListView from '../components/tasks/TaskListView';
+import TaskCardView from '../components/tasks/TaskCardView';
 
 // Sample task data
 const tasks: Task[] = [
@@ -164,8 +164,12 @@ const Tasks = () => {
             <div className="flex justify-center mb-8">
               <TabsList className="bg-space-dark/50 backdrop-blur-sm">
                 <TabsTrigger value="timeline" className="flex items-center gap-2 data-[state=active]:bg-space-accent/20 data-[state=active]:text-space-accent">
-                  <Timeline className="h-4 w-4" />
+                  <AlignJustify className="h-4 w-4" />
                   <span>时间线视图</span>
+                </TabsTrigger>
+                <TabsTrigger value="card" className="flex items-center gap-2 data-[state=active]:bg-space-accent/20 data-[state=active]:text-space-accent">
+                  <LayoutDashboard className="h-4 w-4" />
+                  <span>卡片视图</span>
                 </TabsTrigger>
                 <TabsTrigger value="grid" className="flex items-center gap-2 data-[state=active]:bg-space-accent/20 data-[state=active]:text-space-accent">
                   <LayoutGrid className="h-4 w-4" />
@@ -180,6 +184,10 @@ const Tasks = () => {
 
             <TabsContent value="timeline" className="mt-0">
               <TaskTimelineView tasks={tasks} />
+            </TabsContent>
+            
+            <TabsContent value="card" className="mt-0">
+              <TaskCardView tasks={tasks} />
             </TabsContent>
             
             <TabsContent value="grid" className="mt-0">

@@ -13,4 +13,4 @@ export interface Task {
   progress: number;
 }
 
-export type ViewType = 'timeline' | 'grid' | 'list';
+export type ViewType = 'timeline' | 'grid' | 'list' | 'card';
