@@ -1,9 +1,8 @@
-
 import React, { useEffect, useRef } from 'react';
 
 const UniverseAnimation: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  
+
   // Stars data
   interface Star {
     x: number;
@@ -32,8 +31,14 @@ const UniverseAnimation: React.FC = () => {
 
     // Create stars
     const stars: Star[] = [];
-    const starCount = Math.floor(canvas.width * canvas.height / 4000); // Adjust density
-    const colorPalette = ['#ffffff', '#e6f0ff', '#3388ff', '#7aa6ff', '#aac4ff'];
+    const starCount = Math.floor((canvas.width * canvas.height) / 4000); // Adjust density
+    const colorPalette = [
+      '#ffffff',
+      '#e6f0ff',
+      '#3388ff',
+      '#7aa6ff',
+      '#aac4ff',
+    ];
 
     for (let i = 0; i < starCount; i++) {
       stars.push({
@@ -41,15 +46,15 @@ const UniverseAnimation: React.FC = () => {
         y: Math.random() * canvas.height,
         radius: Math.random() * 1.5 + 0.5,
         color: colorPalette[Math.floor(Math.random() * colorPalette.length)],
-        speed: Math.random() * 0.05 + 0.01
+        speed: Math.random() * 0.05 + 0.01,
       });
     }
 
     // Mouse interaction
     let mouseX = 0;
     let mouseY = 0;
-    let mouseRadius = 100;
-    let interactionEnabled = true;
+    const mouseRadius = 100;
+    const interactionEnabled = true;
 
     const handleMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
@@ -88,7 +93,7 @@ const UniverseAnimation: React.FC = () => {
         color: '#ffcc33', // Sun
         orbitRadius: 0,
         orbitSpeed: 0,
-        angle: 0
+        angle: 0,
       },
       {
         x: 0, // Will be calculated
@@ -97,7 +102,7 @@ const UniverseAnimation: React.FC = () => {
         color: '#e67e22', // Mercury
         orbitRadius: 60,
         orbitSpeed: 0.03,
-        angle: Math.random() * Math.PI * 2
+        angle: Math.random() * Math.PI * 2,
       },
       {
         x: 0, // Will be calculated
@@ -106,7 +111,7 @@ const UniverseAnimation: React.FC = () => {
         color: '#3498db', // Earth
         orbitRadius: 100,
         orbitSpeed: 0.02,
-        angle: Math.random() * Math.PI * 2
+        angle: Math.random() * Math.PI * 2,
       },
       {
         x: 0, // Will be calculated
@@ -115,7 +120,7 @@ const UniverseAnimation: React.FC = () => {
         color: '#e74c3c', // Mars
         orbitRadius: 140,
         orbitSpeed: 0.015,
-        angle: Math.random() * Math.PI * 2
+        angle: Math.random() * Math.PI * 2,
       },
       {
         x: 0, // Will be calculated
@@ -124,7 +129,7 @@ const UniverseAnimation: React.FC = () => {
         color: '#f39c12', // Jupiter
         orbitRadius: 190,
         orbitSpeed: 0.01,
-        angle: Math.random() * Math.PI * 2
+        angle: Math.random() * Math.PI * 2,
       },
       {
         x: 0, // Will be calculated
@@ -136,8 +141,8 @@ const UniverseAnimation: React.FC = () => {
         angle: Math.random() * Math.PI * 2,
         hasRing: true,
         ringColor: '#d4ac6e',
-        ringWidth: 5
-      }
+        ringWidth: 5,
+      },
     ];
 
     // Animation loop
@@ -146,10 +151,10 @@ const UniverseAnimation: React.FC = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Draw stars and animate
-      stars.forEach(star => {
+      stars.forEach((star) => {
         // Move stars slowly
         star.y += star.speed;
-        
+
         // Reset stars that go off screen
         if (star.y > canvas.height) {
           star.y = 0;
@@ -161,7 +166,7 @@ const UniverseAnimation: React.FC = () => {
           const dx = mouseX - star.x;
           const dy = mouseY - star.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          
+
           if (distance < mouseRadius) {
             const alpha = 1 - distance / mouseRadius;
             ctx.globalAlpha = Math.min(1, star.radius / 1.5 + alpha);
@@ -176,16 +181,17 @@ const UniverseAnimation: React.FC = () => {
         ctx.fillStyle = star.color;
         ctx.fill();
       });
-      
+
       ctx.globalAlpha = 0.7; // Make planets slightly transparent
 
       // Update and draw planets
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
-      
-      planets.forEach(planet => {
+
+      planets.forEach((planet) => {
         // Update planet position
-        if (planet.orbitRadius > 0) { // Skip the sun
+        if (planet.orbitRadius > 0) {
+          // Skip the sun
           planet.angle += planet.orbitSpeed;
           planet.x = centerX + Math.cos(planet.angle) * planet.orbitRadius;
           planet.y = centerY + Math.sin(planet.angle) * planet.orbitRadius;
@@ -209,12 +215,12 @@ const UniverseAnimation: React.FC = () => {
         if (planet.hasRing) {
           ctx.beginPath();
           ctx.ellipse(
-            planet.x, 
-            planet.y, 
-            planet.radius + 10, 
-            planet.radius / 2, 
-            planet.angle, 
-            0, 
+            planet.x,
+            planet.y,
+            planet.radius + 10,
+            planet.radius / 2,
+            planet.angle,
+            0,
             Math.PI * 2
           );
           ctx.strokeStyle = planet.ringColor || '#d4ac6e';
@@ -238,9 +244,9 @@ const UniverseAnimation: React.FC = () => {
   }, []);
 
   return (
-    <canvas 
-      ref={canvasRef} 
-      className="absolute inset-0 w-full h-full -z-10"
+    <canvas
+      ref={canvasRef}
+      className='absolute inset-0 w-full h-full -z-10'
       style={{ pointerEvents: 'none' }}
     />
   );

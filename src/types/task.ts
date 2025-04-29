@@ -1,4 +1,3 @@
-
 export interface Task {
   id: number;
   title: string;
@@ -7,10 +6,13 @@ export interface Task {
   endDate: string;
   status: 'planned' | 'in-progress' | 'completed' | 'delayed';
   priority: 'low' | 'medium' | 'high';
-  target: string;
+  target: string[];
   category: string;
   assignee: string;
   progress: number;
+  technology: string[];
+  achievements: string[];
+  image: string;
 }
 
 export type ViewType = 'timeline' | 'grid' | 'list' | 'card';
