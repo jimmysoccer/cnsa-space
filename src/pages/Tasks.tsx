@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { LayoutGrid, ListOrdered, Timeline } from 'lucide-react';
+import { LayoutGrid, ListOrdered, AlignJustify } from 'lucide-react';
 import { Task, ViewType } from '../types/task';
 import { 
   Tabs, 
@@ -164,7 +164,7 @@ const Tasks = () => {
             <div className="flex justify-center mb-8">
               <TabsList className="bg-space-dark/50 backdrop-blur-sm">
                 <TabsTrigger value="timeline" className="flex items-center gap-2 data-[state=active]:bg-space-accent/20 data-[state=active]:text-space-accent">
-                  <Timeline className="h-4 w-4" />
+                  <AlignJustify className="h-4 w-4" />
                   <span>时间线视图</span>
                 </TabsTrigger>
                 <TabsTrigger value="grid" className="flex items-center gap-2 data-[state=active]:bg-space-accent/20 data-[state=active]:text-space-accent">
