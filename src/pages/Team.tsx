@@ -6,92 +6,92 @@ import { Github, Mail, Star } from 'lucide-react';
 const teamMembers = [
   {
     id: 1,
-    name: "Dr. Sarah Chen",
-    role: "Mission Director",
-    specialty: "Astrophysics",
+    name: "陈博士",
+    role: "任务主管",
+    specialty: "天体物理学",
     image: "https://randomuser.me/api/portraits/women/44.jpg",
-    bio: "Dr. Chen leads our mission planning team with over 15 years of experience in astrophysics and space mission coordination.",
+    bio: "陈博士拥有15年以上的天体物理学和太空任务协调经验，领导着我们的任务规划团队。",
     email: "s.chen@astrox.example",
     github: "schen-astro"
   },
   {
     id: 2,
-    name: "Prof. James Wilson",
-    role: "Lead Engineer",
-    specialty: "Propulsion",
+    name: "威尔逊教授",
+    role: "首席工程师",
+    specialty: "推进系统",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
-    bio: "Professor Wilson specializes in advanced propulsion systems and has developed patented technology for our interplanetary missions.",
+    bio: "威尔逊教授专注于先进推进系统，为我们的行星际任务开发了专利技术。",
     email: "j.wilson@astrox.example",
     github: "jwilson-rockets"
   },
   {
     id: 3,
-    name: "Dr. Elena Petrov",
-    role: "Exoplanet Researcher",
-    specialty: "Planetary Science",
+    name: "彼得洛夫博士",
+    role: "系外行星研究员",
+    specialty: "行星科学",
     image: "https://randomuser.me/api/portraits/women/68.jpg",
-    bio: "Dr. Petrov leads our exoplanet research division, focusing on identifying potentially habitable worlds beyond our solar system.",
+    bio: "彼得洛夫博士领导我们的系外行星研究部门，专注于识别太阳系外的潜在宜居世界。",
     email: "e.petrov@astrox.example",
     github: "elenap-exoplanets"
   },
   {
     id: 4,
-    name: "Alex Rodriguez",
-    role: "Communications Engineer",
-    specialty: "Deep Space Networks",
+    name: "罗德里格兹",
+    role: "通信工程师",
+    specialty: "深空网络",
     image: "https://randomuser.me/api/portraits/men/67.jpg",
-    bio: "Alex has designed our revolutionary deep space communication arrays that maintain contact with our furthest probes.",
+    bio: "罗德里格兹设计了我们的革命性深空通信阵列，能与我们最远的探测器保持联系。",
     email: "a.rodriguez@astrox.example",
     github: "alex-deepspace"
   },
   {
     id: 5,
-    name: "Dr. Mei Lin",
-    role: "AI Systems Architect",
-    specialty: "Machine Learning",
+    name: "林博士",
+    role: "人工智能系统架构师",
+    specialty: "机器学习",
     image: "https://randomuser.me/api/portraits/women/79.jpg",
-    bio: "Dr. Lin develops the autonomous systems and machine learning algorithms that allow our spacecraft to make decisions millions of miles from Earth.",
+    bio: "林博士开发自主系统和机器学习算法，使我们的飞船能在距离地球数百万公里的地方做出决策。",
     email: "m.lin@astrox.example",
     github: "meilin-ai"
   },
   {
     id: 6,
-    name: "Dr. Omar Hassan",
-    role: "Life Support Systems",
-    specialty: "Bioengineering",
+    name: "哈桑博士",
+    role: "生命保障系统",
+    specialty: "生物工程",
     image: "https://randomuser.me/api/portraits/men/52.jpg",
-    bio: "Dr. Hassan specializes in closed-loop life support systems for long-duration space missions and future Mars habitats.",
+    bio: "哈桑博士专注于长期太空任务和未来火星栖息地的闭环生命保障系统。",
     email: "o.hassan@astrox.example",
     github: "ohassan-biolife"
   },
   {
     id: 7,
-    name: "Sophia Nakamura",
-    role: "Navigation Specialist",
-    specialty: "Orbital Mechanics",
+    name: "中村小姐",
+    role: "导航专家",
+    specialty: "轨道力学",
     image: "https://randomuser.me/api/portraits/women/33.jpg",
-    bio: "Sophia calculates the precise trajectories needed for our spacecraft to reach distant targets while minimizing fuel consumption.",
+    bio: "中村计算飞船到达远距离目标所需的精确轨迹，同时最大限度地减少燃料消耗。",
     email: "s.nakamura@astrox.example",
     github: "snakamura-orbits"
   },
   {
     id: 8,
-    name: "Dr. Marcus Johnson",
-    role: "Materials Scientist",
-    specialty: "Extreme Environments",
+    name: "约翰逊博士",
+    role: "材料科学家",
+    specialty: "极端环境",
     image: "https://randomuser.me/api/portraits/men/41.jpg",
-    bio: "Dr. Johnson develops advanced materials capable of withstanding the extreme conditions of space, from temperature variations to radiation.",
+    bio: "约翰逊博士开发能够承受太空极端条件的先进材料，从温度变化到辐射。",
     email: "m.johnson@astrox.example",
     github: "mjohnson-materials"
   }
 ];
 
 const Team = () => {
-  const [filter, setFilter] = useState('All');
+  const [filter, setFilter] = useState('全部');
   
-  const specialties = ['All', ...new Set(teamMembers.map(member => member.specialty))];
+  const specialties = ['全部', ...new Set(teamMembers.map(member => member.specialty))];
   
-  const filteredMembers = filter === 'All' 
+  const filteredMembers = filter === '全部' 
     ? teamMembers 
     : teamMembers.filter(member => member.specialty === filter);
 
@@ -102,10 +102,10 @@ const Team = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-orbitron font-bold mb-6">
-              Our Research Team
+              我们的研究团队
             </h1>
             <p className="text-lg text-space-light/80 mb-8">
-              Meet the brilliant minds behind our groundbreaking space missions and technological innovations.
+              认识我们开创性太空任务和技术创新背后的杰出人才。
             </p>
           </div>
         </div>
@@ -160,14 +160,14 @@ const Team = () => {
                       <a 
                         href={`mailto:${member.email}`} 
                         className="p-2 rounded-full bg-space-secondary/80 text-space-light/70 hover:text-space-accent transition-colors"
-                        aria-label={`Email ${member.name}`}
+                        aria-label={`邮件联系 ${member.name}`}
                       >
                         <Mail size={16} />
                       </a>
                       <a 
                         href={`https://github.com/${member.github}`} 
                         className="p-2 rounded-full bg-space-secondary/80 text-space-light/70 hover:text-space-accent transition-colors"
-                        aria-label={`${member.name}'s GitHub`}
+                        aria-label={`${member.name}的GitHub`}
                       >
                         <Github size={16} />
                       </a>
@@ -179,7 +179,7 @@ const Team = () => {
 
             {filteredMembers.length === 0 && (
               <div className="text-center py-10">
-                <p className="text-space-light/70 text-lg">No team members found with this specialty.</p>
+                <p className="text-space-light/70 text-lg">没有找到具有该专业的团队成员。</p>
               </div>
             )}
           </div>
@@ -191,13 +191,13 @@ const Team = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-orbitron font-bold mb-6">
-              Join Our Research Team
+              加入我们的研究团队
             </h2>
             <p className="text-lg text-space-light/80 mb-8">
-              We're always looking for brilliant minds passionate about space exploration and advancing humanity's reach into the cosmos.
+              我们一直在寻找对太空探索充满热情、致力于推进人类在宇宙中足迹的杰出人才。
             </p>
             <a href="/contact" className="space-button inline-flex">
-              Learn About Careers
+              了解职业机会
             </a>
           </div>
         </div>

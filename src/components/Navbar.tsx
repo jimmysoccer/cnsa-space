@@ -9,11 +9,11 @@ const Navbar = () => {
   const location = useLocation();
 
   const navigationLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Missions', path: '/missions' },
-    { name: 'Team', path: '/team' },
-    { name: 'Technology', path: '/technology' },
-    { name: 'Contact', path: '/contact' },
+    { name: '首页', path: '/' },
+    { name: '任务', path: '/missions' },
+    { name: '团队', path: '/team' },
+    { name: '技术', path: '/technology' },
+    { name: '联系我们', path: '/contact' },
   ];
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const Navbar = () => {
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center">
               <Rocket className="h-8 w-8 text-space-accent animate-pulse-glow" />
-              <span className="ml-2 text-xl font-orbitron font-bold text-space-light">AstroX</span>
+              <span className="ml-2 text-xl font-orbitron font-bold text-space-light">天行者</span>
             </Link>
           </div>
 

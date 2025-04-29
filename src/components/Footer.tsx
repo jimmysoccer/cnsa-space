@@ -15,9 +15,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* AstroX section */}
           <div className="space-y-4">
-            <h3 className="text-space-accent font-orbitron text-xl">AstroX</h3>
+            <h3 className="text-space-accent font-orbitron text-xl">天行者</h3>
             <p className="text-space-gray max-w-xs">
-              Innovating for tomorrow's space missions, exploring beyond the horizon since 2025.
+              为明天的太空任务创新，自2025年以来一直探索超越地平线的未知。
             </p>
             <div className="flex space-x-4">
               <a href="https://twitter.com" className="text-space-gray hover:text-space-accent transition-colors">
@@ -34,26 +34,26 @@ const Footer = () => {
 
           {/* Useful Links */}
           <div className="space-y-4">
-            <h3 className="text-space-accent font-orbitron text-xl">Useful Links</h3>
+            <h3 className="text-space-accent font-orbitron text-xl">常用链接</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/missions" className="text-space-gray hover:text-space-accent transition-colors">
-                  Our Missions
+                  我们的任务
                 </Link>
               </li>
               <li>
                 <Link to="/team" className="text-space-gray hover:text-space-accent transition-colors">
-                  Meet the Team
+                  认识团队
                 </Link>
               </li>
               <li>
                 <Link to="/technology" className="text-space-gray hover:text-space-accent transition-colors">
-                  Technologies
+                  技术展示
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-space-gray hover:text-space-accent transition-colors">
-                  Contact Us
+                  联系我们
                 </Link>
               </li>
             </ul>
@@ -61,18 +61,18 @@ const Footer = () => {
 
           {/* Stay Updated */}
           <div className="space-y-4">
-            <h3 className="text-space-accent font-orbitron text-xl">Stay Updated</h3>
+            <h3 className="text-space-accent font-orbitron text-xl">获取更新</h3>
             <p className="text-space-gray">
-              Subscribe to our newsletter to receive updates on our latest missions and breakthroughs.
+              订阅我们的通讯，获取关于最新任务和突破性进展的更新。
             </p>
             <div className="flex flex-col sm:flex-row gap-2">
               <input
                 type="email"
-                placeholder="Your email"
+                placeholder="您的邮箱"
                 className="bg-space-secondary/50 border border-space-accent/30 rounded-md px-4 py-2 text-space-light focus:outline-none focus:border-space-accent"
               />
               <button className="bg-space-accent hover:bg-space-accent/80 text-white font-medium py-2 px-4 rounded-md transition-colors">
-                Subscribe
+                订阅
               </button>
             </div>
           </div>
@@ -81,14 +81,14 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="border-t border-space-accent/20 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-space-gray text-sm">
-            © {new Date().getFullYear()} AstroX Space Technologies. All rights reserved.
+            © {new Date().getFullYear()} 天行者太空技术。保留所有权利。
           </p>
           <div className="flex space-x-6 mt-4 sm:mt-0">
             <a href="#" className="text-space-gray hover:text-space-accent text-sm transition-colors">
-              Privacy Policy
+              隐私政策
             </a>
             <a href="#" className="text-space-gray hover:text-space-accent text-sm transition-colors">
-              Terms of Service
+              服务条款
             </a>
           </div>
         </div>

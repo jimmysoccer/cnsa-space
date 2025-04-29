@@ -24,7 +24,7 @@ const Contact = () => {
 
     // Simulate form submission
     setTimeout(() => {
-      console.log('Form submitted:', formData);
+      console.log('表单已提交:', formData);
       setIsSubmitting(false);
       setSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -43,10 +43,10 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-orbitron font-bold mb-6">
-              Contact Us
+              联系我们
             </h1>
             <p className="text-lg text-space-light/80 mb-8">
-              Have questions about our space missions or technologies? Get in touch with our team.
+              对我们的太空任务或技术有疑问？请与我们的团队联系。
             </p>
           </div>
         </div>
@@ -59,18 +59,18 @@ const Contact = () => {
             {/* Contact form */}
             <div className="lg:w-1/2">
               <div className="bg-space-dark/70 backdrop-blur-md rounded-lg p-8 border border-space-accent/20">
-                <h2 className="text-2xl font-orbitron font-bold mb-6">Send Us a Message</h2>
+                <h2 className="text-2xl font-orbitron font-bold mb-6">给我们留言</h2>
 
                 {submitted ? (
                   <div className="bg-space-accent/20 border border-space-accent text-space-light rounded-lg p-4 text-center">
-                    <p className="font-orbitron mb-2">Thank you for your message!</p>
-                    <p className="text-space-light/80">We'll get back to you as soon as possible.</p>
+                    <p className="font-orbitron mb-2">感谢您的留言！</p>
+                    <p className="text-space-light/80">我们会尽快回复您。</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <label htmlFor="name" className="block text-space-light mb-2 font-medium">
-                        Your Name
+                        您的姓名
                       </label>
                       <input
                         type="text"
@@ -85,7 +85,7 @@ const Contact = () => {
 
                     <div>
                       <label htmlFor="email" className="block text-space-light mb-2 font-medium">
-                        Email Address
+                        电子邮箱
                       </label>
                       <input
                         type="email"
@@ -100,7 +100,7 @@ const Contact = () => {
 
                     <div>
                       <label htmlFor="subject" className="block text-space-light mb-2 font-medium">
-                        Subject
+                        主题
                       </label>
                       <input
                         type="text"
@@ -115,7 +115,7 @@ const Contact = () => {
 
                     <div>
                       <label htmlFor="message" className="block text-space-light mb-2 font-medium">
-                        Your Message
+                        您的留言
                       </label>
                       <textarea
                         id="message"
@@ -133,7 +133,7 @@ const Contact = () => {
                       disabled={isSubmitting}
                       className={`space-button w-full ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                     >
-                      {isSubmitting ? 'Sending...' : 'Send Message'} <ArrowRight size={18} />
+                      {isSubmitting ? '发送中...' : '发送留言'} <ArrowRight size={18} />
                     </button>
                   </form>
                 )}
@@ -143,7 +143,7 @@ const Contact = () => {
             {/* Contact info and map */}
             <div className="lg:w-1/2">
               <div className="bg-space-dark/70 backdrop-blur-md rounded-lg p-8 border border-space-accent/20 mb-8">
-                <h2 className="text-2xl font-orbitron font-bold mb-6">Contact Information</h2>
+                <h2 className="text-2xl font-orbitron font-bold mb-6">联系信息</h2>
                 
                 <div className="space-y-6">
                   <div className="flex">
@@ -153,10 +153,10 @@ const Contact = () => {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-lg font-orbitron mb-1">Our Location</h3>
+                      <h3 className="text-lg font-orbitron mb-1">我们的地址</h3>
                       <p className="text-space-light/80">
-                        1234 Cosmic Way, Research Park<br />
-                        Houston, TX 78701
+                        宇宙大道1234号，科研园区<br />
+                        休斯顿，德克萨斯州 78701
                       </p>
                     </div>
                   </div>
@@ -168,12 +168,12 @@ const Contact = () => {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-lg font-orbitron mb-1">Email Address</h3>
+                      <h3 className="text-lg font-orbitron mb-1">电子邮箱</h3>
                       <a href="mailto:contact@astrox.example" className="text-space-light/80 hover:text-space-accent transition-colors">
                         contact@astrox.example
                       </a>
                       <p className="text-space-light/60 text-sm mt-1">
-                        For press inquiries: <a href="mailto:press@astrox.example" className="hover:text-space-accent transition-colors">press@astrox.example</a>
+                        媒体咨询: <a href="mailto:press@astrox.example" className="hover:text-space-accent transition-colors">press@astrox.example</a>
                       </p>
                     </div>
                   </div>
@@ -185,12 +185,12 @@ const Contact = () => {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-lg font-orbitron mb-1">Phone</h3>
+                      <h3 className="text-lg font-orbitron mb-1">电话</h3>
                       <p className="text-space-light/80">
                         +1 (555) 123-4567
                       </p>
                       <p className="text-space-light/60 text-sm mt-1">
-                        Monday to Friday, 9:00 AM to 5:00 PM EST
+                        周一至周五，上午9:00至下午5:00（美东时间）
                       </p>
                     </div>
                   </div>
@@ -204,7 +204,7 @@ const Contact = () => {
                   <div className="absolute inset-0 bg-space-secondary flex items-center justify-center">
                     <div className="text-center">
                       <MapPin className="h-8 w-8 text-space-accent mx-auto mb-2" />
-                      <p className="text-space-light/70">Interactive map would load here</p>
+                      <p className="text-space-light/70">互动地图将在此加载</p>
                     </div>
                   </div>
                 </div>
@@ -219,35 +219,35 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-orbitron font-bold mb-12 text-center">
-              Frequently Asked Questions
+              常见问题
             </h2>
 
             <div className="space-y-6">
               <div className="bg-space-secondary/30 rounded-lg p-6 border border-space-accent/20">
-                <h3 className="text-xl font-orbitron mb-3">Can I visit your research facility?</h3>
+                <h3 className="text-xl font-orbitron mb-3">我可以参观你们的研究设施吗？</h3>
                 <p className="text-space-light/80">
-                  Yes, we offer guided tours of our facility on the first Friday of each month. Tours must be booked in advance through our visitor center.
+                  是的，我们在每月第一个星期五提供设施导览。参观必须通过我们的访客中心提前预订。
                 </p>
               </div>
 
               <div className="bg-space-secondary/30 rounded-lg p-6 border border-space-accent/20">
-                <h3 className="text-xl font-orbitron mb-3">Do you offer internship opportunities?</h3>
+                <h3 className="text-xl font-orbitron mb-3">你们提供实习机会吗？</h3>
                 <p className="text-space-light/80">
-                  We have summer internships for undergraduate and graduate students in aerospace, physics, engineering, and computer science fields. Applications open in January each year.
+                  我们为航空航天、物理、工程和计算机科学领域的本科生和研究生提供暑期实习。申请于每年1月开放。
                 </p>
               </div>
 
               <div className="bg-space-secondary/30 rounded-lg p-6 border border-space-accent/20">
-                <h3 className="text-xl font-orbitron mb-3">How can I collaborate with AstroX on research?</h3>
+                <h3 className="text-xl font-orbitron mb-3">如何与天行者合作研究？</h3>
                 <p className="text-space-light/80">
-                  We're open to collaborative research projects with academic institutions and industry partners. Please contact our research department with a detailed proposal.
+                  我们欢迎与学术机构和行业伙伴开展合作研究项目。请向我们的研究部门提交详细提案。
                 </p>
               </div>
 
               <div className="bg-space-secondary/30 rounded-lg p-6 border border-space-accent/20">
-                <h3 className="text-xl font-orbitron mb-3">Are your mission launches open to the public?</h3>
+                <h3 className="text-xl font-orbitron mb-3">你们的任务发射对公众开放吗？</h3>
                 <p className="text-space-light/80">
-                  Public viewing areas are available for most of our launches, with details published on our website approximately one month before each scheduled launch date.
+                  大多数发射都设有公共观看区，详情会在每次计划发射日期前约一个月在我们的网站上发布。
                 </p>
               </div>
             </div>

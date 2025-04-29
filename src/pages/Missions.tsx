@@ -7,93 +7,93 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription, DialogClose } fr
 const missions = [
   {
     id: 1,
-    name: "Stellar Observer",
-    date: "March 2024",
-    status: "Active",
+    name: "恒星观测者",
+    date: "2024年3月",
+    status: "进行中",
     image: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    description: "Our deep space telescope observing star formations in distant galaxies to better understand the evolution of the universe.",
+    description: "我们的深空望远镜观测遥远星系中的恒星形成，以更好地了解宇宙的演化。",
     objectives: [
-      "Map star formations in distant galaxies",
-      "Study the effects of dark matter on galaxy formation",
-      "Observe supernovae in real-time"
+      "绘制遥远星系中的恒星形成图",
+      "研究暗物质对星系形成的影响",
+      "实时观测超新星"
     ],
-    technology: "Advanced infrared and gamma ray sensors with neural network-based image processing.",
-    achievements: "Has already captured over 500,000 high-resolution images of previously unobserved galaxies."
+    technology: "先进的红外线和伽马射线传感器，配合基于神经网络的图像处理技术。",
+    achievements: "已经捕获超过500,000张之前未观测到的星系高分辨率图像。"
   },
   {
     id: 2,
-    name: "Mars Pathfinder",
-    date: "January 2023",
-    status: "Active",
+    name: "火星探路者",
+    date: "2023年1月",
+    status: "进行中",
     image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    description: "Rover mission exploring the Martian surface for signs of ancient microbial life and potential resources for future human exploration.",
+    description: "探索火星表面，寻找古代微生物生命迹象和未来人类探索可能利用的资源。",
     objectives: [
-      "Search for evidence of past microbial life",
-      "Map potential resources for future missions",
-      "Test oxygen production from Martian atmosphere"
+      "寻找过去微生物生命的证据",
+      "绘制未来任务可能使用的资源分布图",
+      "测试从火星大气中提取氧气的技术"
     ],
-    technology: "Self-navigating rover with spectroscopy and sample collection capabilities.",
-    achievements: "Confirmed presence of subsurface ice and collected over 30 rock samples for analysis."
+    technology: "自主导航探测车，具有光谱分析和样本采集能力。",
+    achievements: "确认了地下冰的存在，并收集了超过30个岩石样本进行分析。"
   },
   {
     id: 3,
-    name: "Europa Explorer",
-    date: "2025 (Planned)",
-    status: "In Development",
+    name: "欧罗巴探索者",
+    date: "2025年（计划中）",
+    status: "开发中",
     image: "https://images.unsplash.com/photo-1518877593221-1f28583780b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    description: "Mission to explore Jupiter's moon Europa and its subsurface ocean, searching for conditions suitable for life.",
+    description: "探索木星的卫星欧罗巴及其地下海洋，寻找适合生命存在的条件。",
     objectives: [
-      "Map Europa's ice shell thickness",
-      "Sample and analyze water plumes",
-      "Search for biosignatures in the ocean"
+      "测绘欧罗巴冰壳厚度",
+      "采样并分析水汽喷流",
+      "在海洋中寻找生物特征"
     ],
-    technology: "Ice-penetrating radar, mass spectrometer, and autonomous landing system.",
-    achievements: "Currently in final development phase. Launch window scheduled for mid-2025."
+    technology: "冰层穿透雷达、质谱仪和自主着陆系统。",
+    achievements: "目前处于最终开发阶段。发射窗口定于2025年中。"
   },
   {
     id: 4,
-    name: "Lunar Gateway",
-    date: "September 2023",
-    status: "Active",
+    name: "月球门户",
+    date: "2023年9月",
+    status: "进行中",
     image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    description: "Space station orbiting the Moon to serve as a science laboratory and staging point for both robotic and human exploration of the lunar surface.",
+    description: "环绕月球的空间站，作为科学实验室和月球表面机器人及人类探索的中转站。",
     objectives: [
-      "Establish permanent human presence near the Moon",
-      "Support lunar surface missions",
-      "Test deep space habitation systems"
+      "在月球附近建立永久人类存在",
+      "支持月球表面任务",
+      "测试深空栖息系统"
     ],
-    technology: "Modular space station with radiation shielding and artificial gravity sections.",
-    achievements: "Successfully docked with 4 supply missions and hosted 3 crew rotations."
+    technology: "模块化空间站，配备辐射屏蔽和人工重力区域。",
+    achievements: "已成功与4次补给任务对接并接待了3次乘员轮换。"
   },
   {
     id: 5,
-    name: "TRAPPIST Explorer",
-    date: "2027 (Planned)",
-    status: "Planning",
+    name: "TRAPPIST探索者",
+    date: "2027年（计划中）",
+    status: "规划中",
     image: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    description: "Next-generation exoplanet telescope designed to study the atmospheres of planets in the TRAPPIST-1 system.",
+    description: "新一代系外行星望远镜，旨在研究TRAPPIST-1系统中行星的大气层。",
     objectives: [
-      "Analyze atmospheric composition of TRAPPIST-1 planets",
-      "Search for biosignature gases",
-      "Measure surface temperatures and conditions"
+      "分析TRAPPIST-1行星的大气层成分",
+      "寻找生物特征气体",
+      "测量表面温度和条件"
     ],
-    technology: "Revolutionary spectrograph capable of detecting atmospheric gases in Earth-sized planets 40 light years away.",
-    achievements: "Design phase completed. Component testing underway."
+    technology: "革命性的光谱仪，能够在40光年外的类地行星上检测大气气体。",
+    achievements: "设计阶段已完成。正在进行组件测试。"
   },
   {
     id: 6,
-    name: "Asteroid Redirect",
-    date: "October 2022",
-    status: "Completed",
+    name: "小行星重定向",
+    date: "2022年10月",
+    status: "已完成",
     image: "https://images.unsplash.com/photo-1518877593221-1f28583780b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    description: "Mission to test asteroid deflection technology by changing the orbit of a small near-Earth asteroid.",
+    description: "通过改变一个近地小行星的轨道来测试小行星偏转技术。",
     objectives: [
-      "Demonstrate kinetic impactor technique",
-      "Measure orbital changes with precision",
-      "Test autonomous navigation systems"
+      "演示动能撞击技术",
+      "精确测量轨道变化",
+      "测试自主导航系统"
     ],
-    technology: "Kinetic impactor spacecraft with real-time navigation and impact analysis systems.",
-    achievements: "Successfully altered asteroid's orbit by 10 minutes - proving planetary defense capability."
+    technology: "动能撞击航天器，配备实时导航和撞击分析系统。",
+    achievements: "成功改变了小行星的轨道10分钟 - 证明了行星防御能力。"
   }
 ];
 
@@ -113,10 +113,10 @@ const Missions = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-orbitron font-bold mb-6">
-              Our Space Missions
+              我们的太空任务
             </h1>
             <p className="text-lg text-space-light/80 mb-8">
-              Discover the ongoing and planned space exploration missions pushing the boundaries of human knowledge and technology.
+              探索正在进行和计划中的太空探索任务，这些任务正在推动人类知识和技术的边界。
             </p>
           </div>
         </div>
@@ -126,7 +126,7 @@ const Missions = () => {
       <section className="bg-space-secondary/30 py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-orbitron font-bold mb-10 text-center">
-            Mission Timeline
+            任务时间线
           </h2>
           
           <div className="max-w-6xl mx-auto relative">
@@ -136,8 +136,8 @@ const Missions = () => {
             <div className="space-y-12">
               {missions
                 .sort((a, b) => {
-                  if (a.date.includes('Planned') && !b.date.includes('Planned')) return 1;
-                  if (!a.date.includes('Planned') && b.date.includes('Planned')) return -1;
+                  if (a.date.includes('计划') && !b.date.includes('计划')) return 1;
+                  if (!a.date.includes('计划') && b.date.includes('计划')) return -1;
                   return 0;
                 })
                 .map((mission, index) => (
@@ -154,8 +154,8 @@ const Missions = () => {
                         <Calendar size={16} className="text-space-accent mr-2" />
                         <span className="text-space-light/70">{mission.date}</span>
                         <span className={`ml-3 text-xs px-2 py-1 rounded-full font-medium ${
-                          mission.status === 'Active' ? 'bg-green-500/20 text-green-400' : 
-                          mission.status === 'Completed' ? 'bg-blue-500/20 text-blue-300' :
+                          mission.status === '进行中' ? 'bg-green-500/20 text-green-400' : 
+                          mission.status === '已完成' ? 'bg-blue-500/20 text-blue-300' :
                           'bg-yellow-500/20 text-yellow-300'
                         }`}>
                           {mission.status}
@@ -166,7 +166,7 @@ const Missions = () => {
                         onClick={() => handleOpenMission(mission)}
                         className="inline-flex items-center text-space-accent hover:text-space-light text-sm"
                       >
-                        Mission Details <ArrowRight size={16} className="ml-1" />
+                        任务详情 <ArrowRight size={16} className="ml-1" />
                       </button>
                     </div>
                   </div>
@@ -196,8 +196,8 @@ const Missions = () => {
                   <Calendar size={16} className="text-space-accent mr-2" />
                   <span className="text-space-light/70 mr-4">{selectedMission.date}</span>
                   <span className={`text-xs px-2 py-1 rounded-full font-medium ${
-                    selectedMission.status === 'Active' ? 'bg-green-500/20 text-green-400' : 
-                    selectedMission.status === 'Completed' ? 'bg-blue-500/20 text-blue-300' :
+                    selectedMission.status === '进行中' ? 'bg-green-500/20 text-green-400' : 
+                    selectedMission.status === '已完成' ? 'bg-blue-500/20 text-blue-300' :
                     'bg-yellow-500/20 text-yellow-300'
                   }`}>
                     {selectedMission.status}
@@ -210,23 +210,23 @@ const Missions = () => {
                   {selectedMission.description}
                 </DialogDescription>
                 
-                <h4 className="font-orbitron text-space-accent mb-2">Mission Objectives</h4>
+                <h4 className="font-orbitron text-space-accent mb-2">任务目标</h4>
                 <ul className="list-disc list-inside mb-4 text-space-light/80">
                   {selectedMission.objectives.map((objective, index) => (
                     <li key={index} className="mb-1">{objective}</li>
                   ))}
                 </ul>
                 
-                <h4 className="font-orbitron text-space-accent mb-2">Technology</h4>
+                <h4 className="font-orbitron text-space-accent mb-2">技术</h4>
                 <p className="text-space-light/80 mb-4">{selectedMission.technology}</p>
                 
-                <h4 className="font-orbitron text-space-accent mb-2">Achievements</h4>
+                <h4 className="font-orbitron text-space-accent mb-2">成就</h4>
                 <p className="text-space-light/80">{selectedMission.achievements}</p>
               </div>
             </div>
             
             <DialogClose className="absolute right-4 top-4 text-space-light/70 hover:text-space-light">
-              <span className="sr-only">Close</span>
+              <span className="sr-only">关闭</span>
               <Info className="h-6 w-6" />
             </DialogClose>
           </DialogContent>
