@@ -1,7 +1,7 @@
-
 import React, { useEffect } from 'react';
 import { ArrowRight, Rocket, Calendar, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import UniverseAnimation from '../components/UniverseAnimation';
 
 const Home = () => {
   // Countdown to next mission
@@ -39,15 +39,10 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center overflow-hidden space-stars">
-        {/* Space objects floating animation */}
-        <div className="absolute w-32 h-32 top-1/4 left-1/4 opacity-20 animate-float">
-          <div className="w-full h-full rounded-full bg-space-accent/30 blur-xl"></div>
-        </div>
-        <div className="absolute w-48 h-48 bottom-1/3 right-1/4 opacity-15 animate-float" style={{animationDelay: '2s'}}>
-          <div className="w-full h-full rounded-full bg-space-accent/20 blur-xl"></div>
-        </div>
+      {/* Hero Section with Universe Animation */}
+      <section className="relative h-screen flex items-center overflow-hidden">
+        {/* Universe Animation */}
+        <UniverseAnimation />
         
         <div className="container mx-auto px-4 z-10 pt-16">
           <div className="max-w-3xl mx-auto text-center">
