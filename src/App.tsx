@@ -11,6 +11,7 @@ import Missions from "./pages/Missions";
 import Team from "./pages/Team";
 import Technology from "./pages/Technology";
 import Contact from "./pages/Contact";
+import Tasks from "./pages/Tasks";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="team" element={<Team />} />
             <Route path="technology" element={<Technology />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="tasks" element={<Tasks />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
