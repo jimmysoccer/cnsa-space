@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Mail, MapPin, Phone, ArrowRight } from 'lucide-react';
+import { contactHeaderBg } from '@/assets/images/image';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -39,8 +40,17 @@ const Contact = () => {
   return (
     <div className="min-h-screen pt-16">
       {/* Hero section */}
-      <section className="bg-space-dark py-20 md:py-28">
-        <div className="container mx-auto px-4">
+      <section 
+        className="bg-space-dark py-20 md:py-28 relative"
+        style={{ 
+          backgroundImage: contactHeaderBg,
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className='absolute inset-0 bg-space-dark/70 backdrop-blur-sm'></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-orbitron font-bold mb-6">
               联系我们

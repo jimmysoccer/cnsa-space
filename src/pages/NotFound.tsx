@@ -13,11 +13,12 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">哎呀！页面未找到</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
+    <div className="min-h-screen flex items-center justify-center bg-space-dark relative overflow-hidden space-stars">
+      <div className="absolute inset-0 bg-space-dark/30 backdrop-blur-sm"></div>
+      <div className="text-center relative z-10 p-8">
+        <h1 className="text-6xl font-orbitron font-bold mb-4 text-space-light">404</h1>
+        <p className="text-xl text-space-light/80 mb-6">哎呀！页面未找到</p>
+        <a href="/" className="space-button inline-flex">
           返回首页
         </a>
       </div>
