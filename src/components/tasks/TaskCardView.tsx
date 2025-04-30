@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Task } from '../../types/task';
 import {
@@ -14,8 +15,16 @@ import {
   Clock,
   CheckCircle2,
   AlertCircle,
+  ArrowRight,
 } from 'lucide-react';
 import { format } from 'date-fns';
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from '@/components/ui/dialog';
 
 interface TaskCardViewProps {
   tasks: Task[];
@@ -23,6 +32,8 @@ interface TaskCardViewProps {
 
 const TaskCardView: React.FC<TaskCardViewProps> = ({ tasks }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedTask, setSelectedTask] = useState<Task | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const itemsPerPage = 9; // 3 rows * 3 columns
 
   const totalPages = Math.ceil(tasks.length / itemsPerPage);
@@ -37,6 +48,11 @@ const TaskCardView: React.FC<TaskCardViewProps> = ({ tasks }) => {
 
   const handleNextPage = () => {
     if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  };
+
+  const handleOpenTask = (task: Task) => {
+    setSelectedTask(task);
+    setDialogOpen(true);
   };
 
   // Sort tasks by status priority
@@ -105,7 +121,8 @@ const TaskCardView: React.FC<TaskCardViewProps> = ({ tasks }) => {
         {paginatedTasks.map((task) => (
           <Card
             key={task.id}
-            className='bg-space-dark/50 backdrop-blur-sm border border-space-accent/20 hover:border-space-accent/50 transition-all duration-300'
+            className='bg-space-dark/50 backdrop-blur-sm border border-space-accent/20 hover:border-space-accent/50 transition-all duration-300 cursor-pointer'
+            onClick={() => handleOpenTask(task)}
           >
             <CardHeader>
               <div className='flex justify-between items-start'>
@@ -140,7 +157,7 @@ const TaskCardView: React.FC<TaskCardViewProps> = ({ tasks }) => {
                 <div className='flex items-center'>
                   <Target className='h-4 w-4 text-space-accent mr-2' />
                   <span className='text-xs text-space-light/70'>
-                    {task.target}
+                    {task.target.join(', ')}
                   </span>
                 </div>
               </div>
@@ -171,6 +188,8 @@ const TaskCardView: React.FC<TaskCardViewProps> = ({ tasks }) => {
           </Card>
         ))}
       </div>
+      
+      {/* Pagination controls */}
       <div className='flex justify-center items-center mt-4'>
         <button
           onClick={handlePreviousPage}
@@ -190,6 +209,71 @@ const TaskCardView: React.FC<TaskCardViewProps> = ({ tasks }) => {
           &gt;
         </button>
       </div>
+
+      {/* Task details modal */}
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        {selectedTask && (
+          <DialogContent className='sm:max-w-3xl bg-space-secondary border-space-accent/30'>
+            <DialogTitle className='font-orbitron text-2xl text-space-accent'>
+              {selectedTask.title}
+            </DialogTitle>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+              <div>
+                <img
+                  src={selectedTask.image}
+                  alt={selectedTask.title}
+                  className='w-full h-64 object-cover rounded-lg'
+                />
+                <div className='mt-4 flex items-center'>
+                  <Calendar size={16} className='text-space-accent mr-2' />
+                  <span className='text-space-light/70 mr-4'>
+                    {formatDate(selectedTask.startDate)} - {formatDate(selectedTask.endDate)}
+                  </span>
+                  <span
+                    className={`text-xs px-2 py-1 rounded-full font-medium ${getStatusColor(
+                      selectedTask.status
+                    )}`}
+                  >
+                    {getStatusText(selectedTask.status)}
+                  </span>
+                </div>
+              </div>
+
+              <div>
+                <DialogDescription className='text-space-light/90 mb-4'>
+                  {selectedTask.description}
+                </DialogDescription>
+
+                <h4 className='font-orbitron text-space-accent mb-2'>
+                  任务目标
+                </h4>
+                <ul className='list-disc list-inside mb-4 text-space-light/80'>
+                  {selectedTask.target.map((objective, index) => (
+                    <li key={index} className='mb-1'>
+                      {objective}
+                    </li>
+                  ))}
+                </ul>
+
+                <h4 className='font-orbitron text-space-accent mb-2'>技术</h4>
+                <p className='text-space-light/80 mb-4'>
+                  {selectedTask.technology.join(', ')}
+                </p>
+
+                <h4 className='font-orbitron text-space-accent mb-2'>成就</h4>
+                <ul className='list-disc list-inside text-space-light/80'>
+                  {selectedTask.achievements.map((achievement, index) => (
+                    <li key={index} className='mb-1'>
+                      {achievement}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </DialogContent>
+        )}
+      </Dialog>
     </div>
   );
 };
