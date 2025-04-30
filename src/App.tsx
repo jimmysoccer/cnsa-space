@@ -6,11 +6,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
-import Missions from './pages/Missions';
 import Team from './pages/Team';
 import Technology from './pages/Technology';
 import Contact from './pages/Contact';
 import Tasks from './pages/Tasks';
+import { NavBarItems, NavBarItemsObj } from './constants/navConstants';
 
 const queryClient = new QueryClient();
 
@@ -23,10 +23,13 @@ const App = () => (
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path='team' element={<Team />} />
-            <Route path='technology' element={<Technology />} />
-            <Route path='contact' element={<Contact />} />
-            <Route path='tasks' element={<Tasks />} />
+            <Route path={NavBarItemsObj.team.path} element={<Team />} />
+            <Route
+              path={NavBarItemsObj.technology.path}
+              element={<Technology />}
+            />
+            <Route path={NavBarItemsObj.contact.path} element={<Contact />} />
+            <Route path={NavBarItemsObj.tasks.path} element={<Tasks />} />
             <Route path='*' element={<NotFound />} />
           </Route>
         </Routes>

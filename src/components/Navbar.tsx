@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Rocket } from 'lucide-react';
+import { NavBarItems } from '@/constants/navConstants';
+import { webLogoSrc } from '@/assets/images/image';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-
-  const navigationLinks = [
-    { name: '首页', path: '/' },
-    { name: '任务', path: '/tasks' },
-    { name: '团队', path: '/team' },
-    { name: '技术', path: '/technology' },
-    { name: '联系我们', path: '/contact' },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,9 +39,13 @@ const Navbar = () => {
           {/* Logo and brand name */}
           <div className='flex-shrink-0 flex items-center'>
             <Link to='/' className='flex items-center'>
-              <Rocket className='h-8 w-8 text-space-accent animate-pulse-glow' />
-              <span className='ml-2 text-xl font-orbitron font-bold text-space-light'>
-                天行者
+              <img
+                src={webLogoSrc}
+                alt='Logo'
+                className='h-8 w-8 rounded-full object-cover'
+              />
+              <span className='ml-2 text-xl font-orbitron font-bold bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text'>
+                问天阁
               </span>
             </Link>
           </div>
@@ -55,7 +53,7 @@ const Navbar = () => {
           {/* Desktop navigation links */}
           <div className='hidden md:block'>
             <div className='ml-10 flex items-center space-x-4'>
-              {navigationLinks.map((link) => (
+              {NavBarItems.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
@@ -90,7 +88,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       <div className={`${isOpen ? 'block' : 'hidden'} md:hidden`}>
         <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-space-dark/90 backdrop-blur-md'>
-          {navigationLinks.map((link) => (
+          {NavBarItems.map((link) => (
             <Link
               key={link.name}
               to={link.path}

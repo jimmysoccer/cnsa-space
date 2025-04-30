@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Github, Twitter, Youtube } from 'lucide-react';
+import { NavBarItems } from '@/constants/navConstants';
 
 const Footer = () => {
   return (
@@ -46,38 +47,16 @@ const Footer = () => {
               常用链接
             </h3>
             <ul className='space-y-2'>
-              <li>
-                <Link
-                  to='/missions'
-                  className='text-space-gray hover:text-space-accent transition-colors'
-                >
-                  我们的任务
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to='/team'
-                  className='text-space-gray hover:text-space-accent transition-colors'
-                >
-                  认识团队
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to='/technology'
-                  className='text-space-gray hover:text-space-accent transition-colors'
-                >
-                  技术展示
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to='/contact'
-                  className='text-space-gray hover:text-space-accent transition-colors'
-                >
-                  联系我们
-                </Link>
-              </li>
+              {NavBarItems.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.path}
+                    className='text-space-gray hover:text-space-accent transition-colors'
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
