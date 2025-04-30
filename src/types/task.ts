@@ -1,3 +1,4 @@
+
 export interface Task {
   id: number;
   title: string;
@@ -15,4 +16,4 @@ export interface Task {
   image: string;
 }
 
-export type ViewType = 'timeline' | 'grid' | 'list' | 'card';
+export type ViewType = 'timeline' | 'list' | 'card';
