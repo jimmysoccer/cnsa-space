@@ -1,21 +1,8 @@
 import React, { useState } from 'react';
-import {
-  Calendar,
-  Clock,
-  Flag,
-  CheckCircle2,
-  Info,
-  ArrowRight,
-} from 'lucide-react';
+import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { Task } from '../../types/task';
-import { format } from 'date-fns';
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-  DialogClose,
-} from '@/components/ui/dialog';
+import TaskDetailModal from './TaskDetailModal';
+import { getStatusText } from '@/utils/task-status';
 
 interface TaskTimelineViewProps {
   tasks: Task[];
@@ -26,61 +13,12 @@ const TaskTimelineView: React.FC<TaskTimelineViewProps> = ({ tasks }) => {
   const sortedTasks = [...tasks].sort(
     (a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
   );
-  const [selectedMission, setSelectedMission] = useState<Task>(null);
-  const [open, setOpen] = useState(false);
+  const [selectedTask, setselectedTask] = useState<Task>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
-  const handleOpenMission = (mission) => {
-    setSelectedMission(mission);
-    setOpen(true);
-  };
-
-  const getStatusIcon = (status: Task['status']) => {
-    switch (status) {
-      case 'planned':
-        return <Clock className='h-5 w-5 text-yellow-300' />;
-      case 'in-progress':
-        return <Flag className='h-5 w-5 text-green-400' />;
-      case 'completed':
-        return <CheckCircle2 className='h-5 w-5 text-blue-300' />;
-      case 'delayed':
-        return <Clock className='h-5 w-5 text-red-400' />;
-      default:
-        return <Clock className='h-5 w-5' />;
-    }
-  };
-
-  const getStatusColor = (status: Task['status']) => {
-    switch (status) {
-      case 'planned':
-        return 'bg-yellow-500/20 text-yellow-300';
-      case 'in-progress':
-        return 'bg-green-500/20 text-green-400';
-      case 'completed':
-        return 'bg-blue-500/20 text-blue-300';
-      case 'delayed':
-        return 'bg-red-500/20 text-red-400';
-      default:
-        return 'bg-gray-500/20 text-gray-300';
-    }
-  };
-
-  const getStatusText = (status: Task['status']) => {
-    switch (status) {
-      case 'planned':
-        return '计划中';
-      case 'in-progress':
-        return '进行中';
-      case 'completed':
-        return '已完成';
-      case 'delayed':
-        return '已延期';
-      default:
-        return '未知状态';
-    }
-  };
-
-  const formatDate = (dateString: string) => {
-    return format(new Date(dateString), 'yyyy年MM月dd日');
+  const handleOpenTask = (mission) => {
+    setselectedTask(mission);
+    setDialogOpen(true);
   };
 
   return (
@@ -146,7 +84,7 @@ const TaskTimelineView: React.FC<TaskTimelineViewProps> = ({ tasks }) => {
                         {mission.description}
                       </p>
                       <button
-                        onClick={() => handleOpenMission(mission)}
+                        onClick={() => handleOpenTask(mission)}
                         className='inline-flex items-center text-space-accent hover:text-space-light text-sm'
                       >
                         任务详情 <ArrowRight size={16} className='ml-1' />
@@ -160,69 +98,11 @@ const TaskTimelineView: React.FC<TaskTimelineViewProps> = ({ tasks }) => {
       </section>
 
       {/* Mission details modal */}
-      <Dialog open={open} onOpenChange={setOpen}>
-        {selectedMission && (
-          <DialogContent className='sm:max-w-3xl bg-space-secondary border-space-accent/30'>
-            <DialogTitle className='font-orbitron text-2xl text-space-accent'>
-              {selectedMission.title}
-            </DialogTitle>
-
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-              <div>
-                <img
-                  src={selectedMission.image}
-                  alt={selectedMission.title}
-                  className='w-full h-64 object-cover rounded-lg'
-                />
-                <div className='mt-4 flex items-center'>
-                  <Calendar size={16} className='text-space-accent mr-2' />
-                  <span className='text-space-light/70 mr-4'>
-                    {selectedMission.endDate}
-                  </span>
-                  <span
-                    className={`text-xs px-2 py-1 rounded-full font-medium ${
-                      selectedMission.status === 'in-progress'
-                        ? 'bg-green-500/20 text-green-400'
-                        : selectedMission.status === 'completed'
-                        ? 'bg-blue-500/20 text-blue-300'
-                        : 'bg-yellow-500/20 text-yellow-300'
-                    }`}
-                  >
-                    {getStatusText(selectedMission.status)}
-                  </span>
-                </div>
-              </div>
-
-              <div>
-                <DialogDescription className='text-space-light/90 mb-4'>
-                  {selectedMission.description}
-                </DialogDescription>
-
-                <h4 className='font-orbitron text-space-accent mb-2'>
-                  任务目标
-                </h4>
-                <ul className='list-disc list-inside mb-4 text-space-light/80'>
-                  {selectedMission.target.map((objective, index) => (
-                    <li key={index} className='mb-1'>
-                      {objective}
-                    </li>
-                  ))}
-                </ul>
-
-                <h4 className='font-orbitron text-space-accent mb-2'>技术</h4>
-                <p className='text-space-light/80 mb-4'>
-                  {selectedMission.technology}
-                </p>
-
-                <h4 className='font-orbitron text-space-accent mb-2'>成就</h4>
-                <p className='text-space-light/80'>
-                  {selectedMission.achievements}
-                </p>
-              </div>
-            </div>
-          </DialogContent>
-        )}
-      </Dialog>
+      <TaskDetailModal
+        selectedTask={selectedTask}
+        dialogOpen={dialogOpen}
+        setDialogOpen={setDialogOpen}
+      />
     </div>
   );
 };

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Task } from '../../types/task';
 import {
@@ -9,20 +8,10 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import {
-  Calendar,
-  Clock,
-  ArrowUpCircle,
-  CheckCircle,
-  AlertCircle,
-} from 'lucide-react';
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-} from '@/components/ui/dialog';
-import { format } from 'date-fns';
+import { Calendar } from 'lucide-react';
+import { getPriorityBadge, getStatusBadge } from '@/utils/task-status';
+import { formatDateToYYYYMMDD } from '@/utils/date';
+import TaskDetailModal from './TaskDetailModal';
 
 interface TaskListViewProps {
   tasks: Task[];
@@ -53,88 +42,6 @@ const TaskListView: React.FC<TaskListViewProps> = ({ tasks }) => {
   const handleOpenTask = (task: Task) => {
     setSelectedTask(task);
     setDialogOpen(true);
-  };
-
-  const getStatusBadge = (status: Task['status']) => {
-    switch (status) {
-      case 'planned':
-        return (
-          <div className='flex items-center'>
-            <Clock className='h-4 w-4 text-yellow-300 mr-1.5' />
-            <span className='text-xs px-2 py-0.5 rounded-full bg-yellow-500/20 text-yellow-300'>
-              计划中
-            </span>
-          </div>
-        );
-      case 'in-progress':
-        return (
-          <div className='flex items-center'>
-            <ArrowUpCircle className='h-4 w-4 text-green-400 mr-1.5' />
-            <span className='text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-400'>
-              进行中
-            </span>
-          </div>
-        );
-      case 'completed':
-        return (
-          <div className='flex items-center'>
-            <CheckCircle className='h-4 w-4 text-blue-300 mr-1.5' />
-            <span className='text-xs px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300'>
-              已完成
-            </span>
-          </div>
-        );
-      case 'delayed':
-        return (
-          <div className='flex items-center'>
-            <AlertCircle className='h-4 w-4 text-red-400 mr-1.5' />
-            <span className='text-xs px-2 py-0.5 rounded-full bg-red-500/20 text-red-400'>
-              已延期
-            </span>
-          </div>
-        );
-      default:
-        return <span>未知状态</span>;
-    }
-  };
-
-  const getPriorityBadge = (priority: Task['priority']) => {
-    const getColor = () => {
-      switch (priority) {
-        case 'high':
-          return 'bg-red-400/20 text-red-300';
-        case 'medium':
-          return 'bg-yellow-400/20 text-yellow-300';
-        case 'low':
-          return 'bg-green-400/20 text-green-300';
-        default:
-          return '';
-      }
-    };
-
-    const getText = () => {
-      switch (priority) {
-        case 'high':
-          return '高';
-        case 'medium':
-          return '中';
-        case 'low':
-          return '低';
-        default:
-          return '未知';
-      }
-    };
-
-    return (
-      <span className={`text-xs px-2 py-0.5 rounded-full ${getColor()}`}>
-        {getText()}
-      </span>
-    );
-  };
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
   };
 
   return (
@@ -171,13 +78,13 @@ const TaskListView: React.FC<TaskListViewProps> = ({ tasks }) => {
               <TableCell className='whitespace-nowrap'>
                 <div className='flex items-center'>
                   <Calendar className='h-3 w-3 text-space-accent mr-1.5' />
-                  <span>{formatDate(task.startDate)}</span>
+                  <span>{formatDateToYYYYMMDD(task.startDate)}</span>
                 </div>
               </TableCell>
               <TableCell className='whitespace-nowrap'>
                 <div className='flex items-center'>
                   <Calendar className='h-3 w-3 text-space-accent mr-1.5' />
-                  <span>{formatDate(task.endDate)}</span>
+                  <span>{formatDateToYYYYMMDD(task.endDate)}</span>
                 </div>
               </TableCell>
               <TableCell>{task.target}</TableCell>
@@ -219,69 +126,11 @@ const TaskListView: React.FC<TaskListViewProps> = ({ tasks }) => {
       </div>
 
       {/* Task details dialog */}
-      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        {selectedTask && (
-          <DialogContent className='sm:max-w-3xl bg-space-secondary border-space-accent/30'>
-            <DialogTitle className='font-orbitron text-2xl text-space-accent'>
-              {selectedTask.title}
-            </DialogTitle>
-
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-              <div>
-                <img
-                  src={selectedTask.image}
-                  alt={selectedTask.title}
-                  className='w-full h-64 object-cover rounded-lg'
-                />
-                <div className='mt-4 flex items-center'>
-                  <Calendar size={16} className='text-space-accent mr-2' />
-                  <span className='text-space-light/70 mr-4'>
-                    {formatDate(selectedTask.startDate)} - {formatDate(selectedTask.endDate)}
-                  </span>
-                  <span
-                    className={`text-xs px-2 py-1 rounded-full font-medium ${getStatusColorClass(
-                      selectedTask.status
-                    )}`}
-                  >
-                    {getStatusText(selectedTask.status)}
-                  </span>
-                </div>
-              </div>
-
-              <div>
-                <DialogDescription className='text-space-light/90 mb-4'>
-                  {selectedTask.description}
-                </DialogDescription>
-
-                <h4 className='font-orbitron text-space-accent mb-2'>
-                  任务目标
-                </h4>
-                <ul className='list-disc list-inside mb-4 text-space-light/80'>
-                  {selectedTask.target.map((objective, index) => (
-                    <li key={index} className='mb-1'>
-                      {objective}
-                    </li>
-                  ))}
-                </ul>
-
-                <h4 className='font-orbitron text-space-accent mb-2'>技术</h4>
-                <p className='text-space-light/80 mb-4'>
-                  {selectedTask.technology.join(', ')}
-                </p>
-
-                <h4 className='font-orbitron text-space-accent mb-2'>成就</h4>
-                <ul className='list-disc list-inside text-space-light/80'>
-                  {selectedTask.achievements.map((achievement, index) => (
-                    <li key={index} className='mb-1'>
-                      {achievement}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </DialogContent>
-        )}
-      </Dialog>
+      <TaskDetailModal
+        selectedTask={selectedTask}
+        dialogOpen={dialogOpen}
+        setDialogOpen={setDialogOpen}
+      />
     </div>
   );
 };

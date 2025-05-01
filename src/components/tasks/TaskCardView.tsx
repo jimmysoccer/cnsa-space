@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Task } from '../../types/task';
 import {
@@ -8,23 +7,14 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Calendar, Target } from 'lucide-react';
 import {
-  Calendar,
-  Target,
-  Flag,
-  Clock,
-  CheckCircle2,
-  AlertCircle,
-  ArrowRight,
-} from 'lucide-react';
-import { format } from 'date-fns';
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-  DialogClose,
-} from '@/components/ui/dialog';
+  getStatusColor,
+  getStatusIcon,
+  getStatusText,
+} from '@/utils/task-status';
+import { formatDateToYYYYMMDD } from '@/utils/date';
+import TaskDetailModal from './TaskDetailModal';
 
 interface TaskCardViewProps {
   tasks: Task[];
@@ -66,55 +56,6 @@ const TaskCardView: React.FC<TaskCardViewProps> = ({ tasks }) => {
     return statusOrder[a.status] - statusOrder[b.status];
   });
 
-  const getStatusIcon = (status: Task['status']) => {
-    switch (status) {
-      case 'planned':
-        return <Clock className='h-4 w-4 text-yellow-300' />;
-      case 'in-progress':
-        return <Flag className='h-4 w-4 text-green-400' />;
-      case 'completed':
-        return <CheckCircle2 className='h-4 w-4 text-blue-300' />;
-      case 'delayed':
-        return <AlertCircle className='h-4 w-4 text-red-400' />;
-      default:
-        return <Clock className='h-4 w-4' />;
-    }
-  };
-
-  const getStatusColor = (status: Task['status']) => {
-    switch (status) {
-      case 'planned':
-        return 'bg-yellow-500/20 text-yellow-300';
-      case 'in-progress':
-        return 'bg-green-500/20 text-green-400';
-      case 'completed':
-        return 'bg-blue-500/20 text-blue-300';
-      case 'delayed':
-        return 'bg-red-500/20 text-red-400';
-      default:
-        return 'bg-gray-500/20 text-gray-300';
-    }
-  };
-
-  const getStatusText = (status: Task['status']) => {
-    switch (status) {
-      case 'planned':
-        return '计划中';
-      case 'in-progress':
-        return '进行中';
-      case 'completed':
-        return '已完成';
-      case 'delayed':
-        return '已延期';
-      default:
-        return '未知状态';
-    }
-  };
-
-  const formatDate = (dateString: string) => {
-    return format(new Date(dateString), 'yyyy年MM月dd日');
-  };
-
   return (
     <div>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
@@ -150,7 +91,8 @@ const TaskCardView: React.FC<TaskCardViewProps> = ({ tasks }) => {
                 <div className='flex items-center'>
                   <Calendar className='h-4 w-4 text-space-accent mr-2' />
                   <span className='text-xs text-space-light/70'>
-                    {formatDate(task.startDate)} - {formatDate(task.endDate)}
+                    {formatDateToYYYYMMDD(task.startDate)} -{' '}
+                    {formatDateToYYYYMMDD(task.endDate)}
                   </span>
                 </div>
 
@@ -188,7 +130,7 @@ const TaskCardView: React.FC<TaskCardViewProps> = ({ tasks }) => {
           </Card>
         ))}
       </div>
-      
+
       {/* Pagination controls */}
       <div className='flex justify-center items-center mt-4'>
         <button
@@ -211,69 +153,11 @@ const TaskCardView: React.FC<TaskCardViewProps> = ({ tasks }) => {
       </div>
 
       {/* Task details modal */}
-      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        {selectedTask && (
-          <DialogContent className='sm:max-w-3xl bg-space-secondary border-space-accent/30'>
-            <DialogTitle className='font-orbitron text-2xl text-space-accent'>
-              {selectedTask.title}
-            </DialogTitle>
-
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-              <div>
-                <img
-                  src={selectedTask.image}
-                  alt={selectedTask.title}
-                  className='w-full h-64 object-cover rounded-lg'
-                />
-                <div className='mt-4 flex items-center'>
-                  <Calendar size={16} className='text-space-accent mr-2' />
-                  <span className='text-space-light/70 mr-4'>
-                    {formatDate(selectedTask.startDate)} - {formatDate(selectedTask.endDate)}
-                  </span>
-                  <span
-                    className={`text-xs px-2 py-1 rounded-full font-medium ${getStatusColor(
-                      selectedTask.status
-                    )}`}
-                  >
-                    {getStatusText(selectedTask.status)}
-                  </span>
-                </div>
-              </div>
-
-              <div>
-                <DialogDescription className='text-space-light/90 mb-4'>
-                  {selectedTask.description}
-                </DialogDescription>
-
-                <h4 className='font-orbitron text-space-accent mb-2'>
-                  任务目标
-                </h4>
-                <ul className='list-disc list-inside mb-4 text-space-light/80'>
-                  {selectedTask.target.map((objective, index) => (
-                    <li key={index} className='mb-1'>
-                      {objective}
-                    </li>
-                  ))}
-                </ul>
-
-                <h4 className='font-orbitron text-space-accent mb-2'>技术</h4>
-                <p className='text-space-light/80 mb-4'>
-                  {selectedTask.technology.join(', ')}
-                </p>
-
-                <h4 className='font-orbitron text-space-accent mb-2'>成就</h4>
-                <ul className='list-disc list-inside text-space-light/80'>
-                  {selectedTask.achievements.map((achievement, index) => (
-                    <li key={index} className='mb-1'>
-                      {achievement}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </DialogContent>
-        )}
-      </Dialog>
+      <TaskDetailModal
+        selectedTask={selectedTask}
+        dialogOpen={dialogOpen}
+        setDialogOpen={setDialogOpen}
+      />
     </div>
   );
 };
