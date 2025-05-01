@@ -1,10 +1,5 @@
-
 import React, { useState } from 'react';
-import {
-  AlignJustify,
-  LayoutGrid,
-  ListOrdered,
-} from 'lucide-react';
+import { AlignJustify, LayoutGrid, ListOrdered } from 'lucide-react';
 import { Task, ViewType } from '../types/task';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import TaskTimelineView from '../components/tasks/TaskTimelineView';
@@ -19,20 +14,20 @@ const Tasks = () => {
   return (
     <div className=' pt-16'>
       {/* Hero section */}
-      <section 
-        className='bg-space-dark py-20 md:py-28 relative' 
-        style={{ 
+      <section
+        className='bg-space-dark py-20 md:py-28 relative'
+        style={{
           backgroundImage: tasksHeaderBg,
-          backgroundSize: 'cover', 
+          backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
+          backgroundRepeat: 'no-repeat',
         }}
       >
         <div className='absolute inset-0 bg-space-dark/70 backdrop-blur-sm'></div>
         <div className='container mx-auto px-4 relative z-10'>
           <div className='max-w-4xl mx-auto text-center'>
             <h1 className='text-4xl md:text-5xl font-orbitron font-bold mb-6'>
-              我们的太空任务
+              天工开物·巡宇录
             </h1>
             <p className='text-lg text-space-light/80 mb-8'>
               探索正在进行和计划中的太空探索任务，这些任务正在推动人类知识和技术的边界。

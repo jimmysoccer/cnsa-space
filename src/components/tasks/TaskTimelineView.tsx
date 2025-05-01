@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { Task } from '../../types/task';
 import TaskDetailModal from './TaskDetailModal';
-import { getStatusText } from '@/utils/task-status';
+import { getStatusColor, getStatusText } from '@/utils/task-status';
 
 interface TaskTimelineViewProps {
   tasks: Task[];
@@ -69,13 +69,9 @@ const TaskTimelineView: React.FC<TaskTimelineViewProps> = ({ tasks }) => {
                           {mission.endDate}
                         </span>
                         <span
-                          className={`ml-3 text-xs px-2 py-1 rounded-full font-medium ${
-                            mission.status === 'in-progress'
-                              ? 'bg-green-500/20 text-green-400'
-                              : mission.status === 'completed'
-                              ? 'bg-blue-500/20 text-blue-300'
-                              : 'bg-yellow-500/20 text-yellow-300'
-                          }`}
+                          className={`ml-3 text-xs px-2 py-1 rounded-full font-medium ${getStatusColor(
+                            mission.status
+                          )}`}
                         >
                           {getStatusText(mission.status)}
                         </span>

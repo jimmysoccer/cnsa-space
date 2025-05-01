@@ -58,7 +58,11 @@ export const getStatusBadge = (status: Task['status']) => {
       return (
         <div className='flex items-center'>
           <Clock className='h-4 w-4 text-yellow-300 mr-1.5' />
-          <span className='text-xs px-2 py-0.5 rounded-full bg-yellow-500/20 text-yellow-300'>
+          <span
+            className={`text-xs px-2 py-0.5 rounded-full ${getStatusColor(
+              status
+            )}`}
+          >
             计划中
           </span>
         </div>
@@ -67,7 +71,11 @@ export const getStatusBadge = (status: Task['status']) => {
       return (
         <div className='flex items-center'>
           <ArrowUpCircle className='h-4 w-4 text-green-400 mr-1.5' />
-          <span className='text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-400'>
+          <span
+            className={`text-xs px-2 py-0.5 rounded-full ${getStatusColor(
+              status
+            )}`}
+          >
             进行中
           </span>
         </div>
@@ -76,7 +84,11 @@ export const getStatusBadge = (status: Task['status']) => {
       return (
         <div className='flex items-center'>
           <CheckCircle className='h-4 w-4 text-blue-300 mr-1.5' />
-          <span className='text-xs px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300'>
+          <span
+            className={`text-xs px-2 py-0.5 rounded-full ${getStatusColor(
+              status
+            )}`}
+          >
             已完成
           </span>
         </div>
@@ -85,7 +97,11 @@ export const getStatusBadge = (status: Task['status']) => {
       return (
         <div className='flex items-center'>
           <AlertCircle className='h-4 w-4 text-red-400 mr-1.5' />
-          <span className='text-xs px-2 py-0.5 rounded-full bg-red-500/20 text-red-400'>
+          <span
+            className={`text-xs px-2 py-0.5 rounded-full ${getStatusColor(
+              status
+            )}`}
+          >
             已延期
           </span>
         </div>
