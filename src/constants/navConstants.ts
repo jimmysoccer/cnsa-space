@@ -1,7 +1,7 @@
 export const NavBarItems = [
   { name: '观星', path: '/' }, // 首页如“观星台”
   { name: '巡宇', path: '/tasks' }, // 直接点题
-  { name: '星匠', path: '/team' },
+  { name: '星枢', path: '/team' },
   { name: '天工', path: '/technology' }, // 技术即“天工”
   { name: '问天', path: '/contact' }, // 最后一栏升华主题
 ];
@@ -9,7 +9,7 @@ export const NavBarItems = [
 export const NavBarItemsObj = {
   home: { name: '观星', path: '/' },
   tasks: { name: '巡宇', path: '/tasks' },
-  team: { name: '星匠', path: '/team' },
+  team: { name: '星枢', path: '/team' },
   technology: { name: '天工', path: '/technology' },
   contact: { name: '问天', path: '/contact' },
   notFound: { name: '404', path: '/not-found' },

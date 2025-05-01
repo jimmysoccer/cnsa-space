@@ -15,25 +15,14 @@ const Footer = () => {
         <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
           {/* AstroX section */}
           <div className='space-y-4'>
-            <h3 className='text-space-accent font-orbitron text-xl'>天行者</h3>
+            <h3 className='text-space-accent font-orbitron text-xl'>问天阁</h3>
             <p className='text-space-gray max-w-xs'>
-              为明天的太空任务创新，自2025年以来一直探索超越地平线的未知。
+              问天阁 - 中国航天任务全记录与知识库
             </p>
             <div className='flex space-x-4'>
               <a
-                href='https://twitter.com'
-                className='text-space-gray hover:text-space-accent transition-colors'
-              >
-                <Twitter size={20} />
-              </a>
-              <a
-                href='https://youtube.com'
-                className='text-space-gray hover:text-space-accent transition-colors'
-              >
-                <Youtube size={20} />
-              </a>
-              <a
-                href='https://github.com'
+                href='https://github.com/jimmysoccer'
+                target='_blank'
                 className='text-space-gray hover:text-space-accent transition-colors'
               >
                 <Github size={20} />
@@ -84,7 +73,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className='border-t border-space-accent/20 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center'>
           <p className='text-space-gray text-sm'>
-            © {new Date().getFullYear()} 天行者太空技术。保留所有权利。
+            © {new Date().getFullYear()} 问天阁。保留所有权利。
           </p>
           <div className='flex space-x-6 mt-4 sm:mt-0'>
             <a

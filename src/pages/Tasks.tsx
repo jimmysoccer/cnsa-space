@@ -27,10 +27,10 @@ const Tasks = () => {
         <div className='container mx-auto px-4 relative z-10'>
           <div className='max-w-4xl mx-auto text-center'>
             <h1 className='text-4xl md:text-5xl font-orbitron font-bold mb-6'>
-              天工开物·巡宇录
+              天工开物 · 巡宇录
             </h1>
             <p className='text-lg text-space-light/80 mb-8'>
-              探索正在进行和计划中的太空探索任务，这些任务正在推动人类知识和技术的边界。
+              如古观星台续写新篇，问天阁实时追踪中国航天的天路足迹。从嫦娥揽月到天宫巡天，正在进行的每一次太空叩问，都在为炎黄子孙打开新的星图。
             </p>
           </div>
         </div>

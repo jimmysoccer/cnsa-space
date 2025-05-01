@@ -9,10 +9,10 @@ const Technology = () => {
         <div className='container mx-auto px-4'>
           <div className='max-w-4xl mx-auto text-center'>
             <h1 className='text-4xl md:text-5xl font-orbitron font-bold mb-6'>
-              我们的太空技术
+              天工开物 · 星矩
             </h1>
             <p className='text-lg text-space-light/80 mb-8'>
-              探索推动我们任务并扩展人类太空足迹的尖端技术。
+              天工铸器，星矩定轨。此间详录中国航天重器之精微：从火箭凌云之姿到卫星巡天之术，每一处精妙设计，都是华夏匠人与星辰的对话。
             </p>
           </div>
         </div>
