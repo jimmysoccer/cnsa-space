@@ -1,4 +1,3 @@
-
 export interface Mission {
   id: number;
   title: string;
@@ -12,7 +11,7 @@ export interface Mission {
   progress: number;
   technology: string[];
   achievements: string[];
-  image: string;
+  images: string[];
   priority?: string; // Add priority property as optional
   gallery?: string[]; // Optional array of additional mission images
 }

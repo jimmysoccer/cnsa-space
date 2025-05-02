@@ -1,4 +1,3 @@
-
 import { Mission } from '@/types/mission';
 import { Clock, Flag, CheckCircle2 } from 'lucide-react';
 import { ArrowUpCircle, CheckCircle, AlertCircle } from 'lucide-react';
@@ -52,7 +51,7 @@ export const getStatusBadge = (status: Mission['status']) => {
   switch (status) {
     case 'planned':
       return (
-        <div className='flex items-center'>
+        <div className='flex items-center whitespace-nowrap'>
           <Clock className='h-4 w-4 text-yellow-300 mr-1.5' />
           <span
             className={`text-xs px-2 py-0.5 rounded-full ${getStatusColor(
@@ -65,7 +64,7 @@ export const getStatusBadge = (status: Mission['status']) => {
       );
     case 'in-progress':
       return (
-        <div className='flex items-center'>
+        <div className='flex items-center whitespace-nowrap'>
           <ArrowUpCircle className='h-4 w-4 text-green-400 mr-1.5' />
           <span
             className={`text-xs px-2 py-0.5 rounded-full ${getStatusColor(
@@ -78,7 +77,7 @@ export const getStatusBadge = (status: Mission['status']) => {
       );
     case 'completed':
       return (
-        <div className='flex items-center'>
+        <div className='flex items-center whitespace-nowrap'>
           <CheckCircle className='h-4 w-4 text-blue-300 mr-1.5' />
           <span
             className={`text-xs px-2 py-0.5 rounded-full ${getStatusColor(
@@ -91,7 +90,7 @@ export const getStatusBadge = (status: Mission['status']) => {
       );
     case 'delayed':
       return (
-        <div className='flex items-center'>
+        <div className='flex items-center whitespace-nowrap'>
           <AlertCircle className='h-4 w-4 text-red-400 mr-1.5' />
           <span
             className={`text-xs px-2 py-0.5 rounded-full ${getStatusColor(
@@ -111,7 +110,9 @@ export const getStatusBadge = (status: Mission['status']) => {
 export const getPriorityBadge = (priority: string) => {
   return (
     <div className='flex items-center'>
-      <span className={`text-xs px-2 py-0.5 rounded-full bg-space-accent/20 text-space-accent`}>
+      <span
+        className={`text-xs px-2 py-0.5 rounded-full bg-space-accent/20 text-space-accent`}
+      >
         {priority}
       </span>
     </div>

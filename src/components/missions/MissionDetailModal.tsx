@@ -10,8 +10,19 @@ import { formatDateToYYYYMMDD } from '@/utils/date';
 import { getStatusColor, getStatusText } from '@/utils/mission-status';
 import { NavBarItemsObj } from '@/constants/navConstants';
 import { Link } from 'react-router-dom';
+import { Mission } from '@/types/mission';
+import { DefaultMissionImage } from '@/constants/missionConstants';
+interface MissionDetailModalProps {
+  selectedMission: Mission | null;
+  dialogOpen: boolean;
+  setDialogOpen: (open: boolean) => void;
+}
 
-const MissionDetailModal = ({ selectedMission, dialogOpen, setDialogOpen }) => {
+const MissionDetailModal: React.FC<MissionDetailModalProps> = ({
+  selectedMission,
+  dialogOpen,
+  setDialogOpen,
+}) => {
   return (
     <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
       {selectedMission && (
@@ -23,7 +34,7 @@ const MissionDetailModal = ({ selectedMission, dialogOpen, setDialogOpen }) => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
             <div>
               <img
-                src={selectedMission.image}
+                src={selectedMission.images[0] || DefaultMissionImage}
                 alt={selectedMission.title}
                 className='w-full h-64 object-cover rounded-lg'
               />

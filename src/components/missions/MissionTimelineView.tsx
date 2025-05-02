@@ -62,7 +62,9 @@ const MissionTimelineView: React.FC<MissionTimelineViewProps> = ({
                     <div className='md:w-1/2 bg-space-dark/50 backdrop-blur-sm rounded-lg p-6 border border-space-accent/20'>
                       <img
                         src={
-                          mission.image ? mission.image : DefaultMissionImage
+                          mission.images
+                            ? mission.images[0]
+                            : DefaultMissionImage
                         }
                         alt={mission.title}
                         className='w-full h-auto max-h-[200px] rounded-lg mb-4'

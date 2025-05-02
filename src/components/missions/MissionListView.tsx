@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import {
   Table,
@@ -55,7 +54,6 @@ const MissionListView: React.FC<MissionListViewProps> = ({ missions }) => {
           <TableRow className='hover:bg-transparent border-space-accent/30'>
             <TableHead className='text-space-accent'>任务名称</TableHead>
             <TableHead className='text-space-accent'>状态</TableHead>
-            <TableHead className='text-space-accent'>优先级</TableHead>
             <TableHead className='text-space-accent'>开始日期</TableHead>
             <TableHead className='text-space-accent'>结束日期</TableHead>
             <TableHead className='text-space-accent'>目标</TableHead>
@@ -81,9 +79,6 @@ const MissionListView: React.FC<MissionListViewProps> = ({ missions }) => {
                 </p>
               </TableCell>
               <TableCell>{getStatusBadge(mission.status)}</TableCell>
-              <TableCell>
-                {mission.priority ? getPriorityBadge(mission.priority) : '-'}
-              </TableCell>
               <TableCell className='whitespace-nowrap'>
                 <div className='flex items-center'>
                   <Calendar className='h-3 w-3 text-space-accent mr-1.5' />
@@ -113,7 +108,7 @@ const MissionListView: React.FC<MissionListViewProps> = ({ missions }) => {
               <TableCell className='text-center'>
                 <Link
                   to={`${NavBarItemsObj.missions.path}/${mission.id}`}
-                  className='px-3 py-1 text-xs bg-space-accent/20 text-space-accent rounded hover:bg-space-accent/30 transition-colors'
+                  className='whitespace-nowrap px-3 py-1 text-xs bg-space-accent/20 text-space-accent rounded hover:bg-space-accent/30 transition-colors'
                   onClick={(e) => e.stopPropagation()}
                 >
                   查看详情

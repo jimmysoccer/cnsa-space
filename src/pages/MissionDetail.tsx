@@ -1,18 +1,21 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, ArrowLeft, Clock, Target, Users, Folder } from 'lucide-react';
+import {
+  Calendar,
+  ArrowLeft,
+  Clock,
+  Target,
+  Users,
+  Folder,
+} from 'lucide-react';
 import { formatDateToYYYYMMDD } from '@/utils/date';
 
 import { Button } from '@/components/ui/button';
 import { Mission } from '@/types/mission';
 import { NavBarItemsObj } from '@/constants/navConstants';
 import { MISSIONS } from '@/constants/missionConstants';
-import {
-  getStatusColor,
-  getStatusText,
-} from '@/utils/mission-status';
+import { getStatusColor, getStatusText } from '@/utils/mission-status';
 import MissionGallery from '@/components/missions/MissionGallery';
 import MissionAchievements from '@/components/missions/MissionAchievements';
 import MissionTechnology from '@/components/missions/MissionTechnology';
@@ -64,7 +67,7 @@ const MissionDetail = () => {
       <div
         className='w-full h-64 bg-cover bg-center relative'
         style={{
-          backgroundImage: `url(${mission.image})`,
+          backgroundImage: `url(${mission?.images[0]})`,
         }}
       >
         <div className='absolute inset-0 bg-space-dark/70 backdrop-blur-sm'></div>
@@ -109,8 +112,8 @@ const MissionDetail = () => {
           {/* Main content area */}
           <div className='lg:col-span-2'>
             {/* Gallery Section */}
-            {mission.gallery && mission.gallery.length > 0 && (
-              <MissionGallery images={mission.gallery} title={mission.title} />
+            {mission.images && mission.images.length > 0 && (
+              <MissionGallery images={mission.images} title={mission.title} />
             )}
 
             <div className='bg-space-dark/50 backdrop-blur-sm rounded-lg p-6 border border-space-accent/20 mb-6'>
@@ -134,7 +137,10 @@ const MissionDetail = () => {
               </h2>
               <div className='space-y-2'>
                 {mission.target.map((target, index) => (
-                  <div key={index} className='flex items-center bg-space-dark/40 rounded-md p-3'>
+                  <div
+                    key={index}
+                    className='flex items-center bg-space-dark/40 rounded-md p-3'
+                  >
                     <div className='w-2 h-2 rounded-full bg-space-accent mr-3'></div>
                     <span className='text-space-light'>{target}</span>
                   </div>
@@ -201,20 +207,36 @@ const MissionDetail = () => {
                 <div className='pt-4 border-t border-space-accent/20'>
                   <div className='grid grid-cols-2 gap-4'>
                     <div className='text-center p-3 bg-space-dark/40 rounded-md'>
-                      <p className='text-space-light/60 text-xs mb-1'>当前状态</p>
-                      <p className='text-space-light font-medium'>{getStatusText(mission.status)}</p>
+                      <p className='text-space-light/60 text-xs mb-1'>
+                        当前状态
+                      </p>
+                      <p className='text-space-light font-medium'>
+                        {getStatusText(mission.status)}
+                      </p>
                     </div>
                     <div className='text-center p-3 bg-space-dark/40 rounded-md'>
-                      <p className='text-space-light/60 text-xs mb-1'>技术数量</p>
-                      <p className='text-space-light font-medium'>{mission.technology.length}</p>
+                      <p className='text-space-light/60 text-xs mb-1'>
+                        技术数量
+                      </p>
+                      <p className='text-space-light font-medium'>
+                        {mission.technology.length}
+                      </p>
                     </div>
                     <div className='text-center p-3 bg-space-dark/40 rounded-md'>
-                      <p className='text-space-light/60 text-xs mb-1'>成就数量</p>
-                      <p className='text-space-light font-medium'>{mission.achievements.length}</p>
+                      <p className='text-space-light/60 text-xs mb-1'>
+                        成就数量
+                      </p>
+                      <p className='text-space-light font-medium'>
+                        {mission.achievements.length}
+                      </p>
                     </div>
                     <div className='text-center p-3 bg-space-dark/40 rounded-md'>
-                      <p className='text-space-light/60 text-xs mb-1'>任务类别</p>
-                      <p className='text-space-light font-medium'>{mission.category}</p>
+                      <p className='text-space-light/60 text-xs mb-1'>
+                        任务类别
+                      </p>
+                      <p className='text-space-light font-medium'>
+                        {mission.category}
+                      </p>
                     </div>
                   </div>
                 </div>

@@ -58,7 +58,9 @@ const Navbar = () => {
                   key={link.name}
                   to={link.path}
                   className={`px-3 py-2 rounded-md font-orbitron text-sm transition-all duration-300 ${
-                    location.pathname === link.path
+                    location.pathname === link.path ||
+                    (link.path === '/missions' &&
+                      location.pathname.startsWith('/missions/'))
                       ? 'text-space-accent font-semibold'
                       : 'text-space-light hover:text-space-accent'
                   }`}
