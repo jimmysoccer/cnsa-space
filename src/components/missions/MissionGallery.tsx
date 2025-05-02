@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/carousel';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Card, CardContent } from '@/components/ui/card';
-import { images, GalleryHorizontal } from 'lucide-react';
+import { Image, GalleryHorizontal } from 'lucide-react';
 import { DefaultMissionImage } from '@/constants/missionConstants';
 
 interface MissionGalleryProps {
