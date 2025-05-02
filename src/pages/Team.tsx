@@ -1,12 +1,5 @@
-
 import React, { useState } from 'react';
-import { 
-  University, 
-  ExternalLink, 
-  Calendar, 
-  MapPin, 
-  Star
-} from 'lucide-react';
+import { University, ExternalLink, Calendar, MapPin, Star } from 'lucide-react';
 import { teamHeaderBg } from '@/assets/images/image';
 import { academicInstitutions } from '@/constants/institutionConstants';
 import {
@@ -16,14 +9,14 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from '@/components/ui/card';
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
-  DialogTitle
-} from "@/components/ui/dialog";
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 const Team = () => {
   const [filter, setFilter] = useState('全部');
@@ -32,13 +25,17 @@ const Team = () => {
 
   const specialties = [
     '全部',
-    ...new Set(academicInstitutions.map((institution) => institution.specialty)),
+    ...new Set(
+      academicInstitutions.map((institution) => institution.specialty)
+    ),
   ];
 
   const filteredInstitutions =
     filter === '全部'
       ? academicInstitutions
-      : academicInstitutions.filter((institution) => institution.specialty === filter);
+      : academicInstitutions.filter(
+          (institution) => institution.specialty === filter
+        );
 
   const openInstitutionDialog = (institution) => {
     setSelectedInstitution(institution);
@@ -61,10 +58,11 @@ const Team = () => {
         <div className='container mx-auto px-4 relative z-10'>
           <div className='max-w-4xl mx-auto text-center'>
             <h1 className='text-4xl md:text-5xl font-orbitron font-bold mb-6'>
-              天工开物 · 学府志
+              天工开物 · 星枢志
             </h1>
             <p className='text-lg text-space-light/80 mb-8'>
-              集结华夏高等学府之力，共铸中国太空探索新纪元。
+              从基础科研的深耕到工程突破的飞跃，这里汇聚中国航天的智慧之光；
+              以实验室为起点，以星辰大海为征途，我们正在书写问鼎苍穹的新篇章。
             </p>
           </div>
         </div>
@@ -92,41 +90,41 @@ const Team = () => {
 
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
               {filteredInstitutions.map((institution) => (
-                <Card 
-                  key={institution.id} 
-                  className="bg-space-dark/60 border-space-secondary/30 overflow-hidden hover:border-space-accent/50 transition-all cursor-pointer"
+                <Card
+                  key={institution.id}
+                  className='bg-space-dark/60 border-space-secondary/30 overflow-hidden hover:border-space-accent/50 transition-all cursor-pointer'
                   onClick={() => openInstitutionDialog(institution)}
                 >
-                  <div className="h-48 overflow-hidden">
-                    <img 
-                      src={institution.image} 
-                      alt={institution.name} 
-                      className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+                  <div className='h-48 overflow-hidden'>
+                    <img
+                      src={institution.image}
+                      alt={institution.name}
+                      className='w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500'
                     />
                   </div>
-                  <CardHeader className="pb-2">
-                    <div className="flex items-center gap-2 text-space-accent mb-1">
+                  <CardHeader className='pb-2'>
+                    <div className='flex items-center gap-2 text-space-accent mb-1'>
                       <University size={16} />
-                      <CardDescription className="text-space-accent/80 font-medium">
+                      <CardDescription className='text-space-accent/80 font-medium'>
                         {institution.shortName}
                       </CardDescription>
                     </div>
-                    <CardTitle className="text-xl font-orbitron line-clamp-2">
+                    <CardTitle className='text-xl font-orbitron line-clamp-2'>
                       {institution.name}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="pb-2">
-                    <div className="flex items-center text-space-light/70 text-sm mb-2">
-                      <MapPin size={14} className="mr-1.5" />
+                  <CardContent className='pb-2'>
+                    <div className='flex items-center text-space-light/70 text-sm mb-2'>
+                      <MapPin size={14} className='mr-1.5' />
                       <span>{institution.location}</span>
                     </div>
-                    <div className="flex items-center text-space-light/70 text-sm">
-                      <Star size={14} className="mr-1.5 text-space-accent/70" />
+                    <div className='flex items-center text-space-light/70 text-sm'>
+                      <Star size={14} className='mr-1.5 text-space-accent/70' />
                       <span>{institution.specialty}</span>
                     </div>
                   </CardContent>
-                  <CardFooter className="pt-0">
-                    <p className="text-sm text-space-light/60 line-clamp-2">
+                  <CardFooter className='pt-0'>
+                    <p className='text-sm text-space-light/60 line-clamp-2'>
                       {institution.description.substring(0, 75)}...
                     </p>
                   </CardFooter>
@@ -148,64 +146,78 @@ const Team = () => {
       {/* Institution detail dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         {selectedInstitution && (
-          <DialogContent className="bg-space-dark/95 border-space-secondary/50 max-w-3xl max-h-[80vh] overflow-y-auto">
+          <DialogContent className='bg-space-dark/95 border-space-secondary/50 max-w-3xl max-h-[80vh] overflow-y-auto'>
             <DialogHeader>
-              <DialogTitle className="text-2xl font-orbitron text-space-light">
+              <DialogTitle className='text-2xl font-orbitron text-space-light'>
                 {selectedInstitution.name}
               </DialogTitle>
-              <DialogDescription className="text-space-accent">
+              <DialogDescription className='text-space-accent'>
                 {selectedInstitution.specialty} 研究机构
               </DialogDescription>
             </DialogHeader>
-            
-            <div className="mt-4">
-              <div className="aspect-video overflow-hidden rounded-md mb-6">
-                <img 
-                  src={selectedInstitution.image} 
+
+            <div className='mt-4'>
+              <div className='aspect-video overflow-hidden rounded-md mb-6'>
+                <img
+                  src={selectedInstitution.image}
                   alt={selectedInstitution.name}
-                  className="w-full h-full object-cover" 
+                  className='w-full h-full object-cover'
                 />
               </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                <div className="flex items-center text-space-light/80">
-                  <MapPin className="mr-2 h-4 w-4 text-space-accent" />
+
+              <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mb-6'>
+                <div className='flex items-center text-space-light/80'>
+                  <MapPin className='mr-2 h-4 w-4 text-space-accent' />
                   <span>{selectedInstitution.location}</span>
                 </div>
-                <div className="flex items-center text-space-light/80">
-                  <Calendar className="mr-2 h-4 w-4 text-space-accent" />
+                <div className='flex items-center text-space-light/80'>
+                  <Calendar className='mr-2 h-4 w-4 text-space-accent' />
                   <span>成立于 {selectedInstitution.established}</span>
                 </div>
-                <div className="flex items-center text-space-light/80">
-                  <ExternalLink className="mr-2 h-4 w-4 text-space-accent" />
-                  <a 
+                <div className='flex items-center text-space-light/80'>
+                  <ExternalLink className='mr-2 h-4 w-4 text-space-accent' />
+                  <a
                     href={selectedInstitution.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-space-accent"
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='hover:text-space-accent'
                   >
                     访问官网
                   </a>
                 </div>
               </div>
-              
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold text-space-light mb-2">机构简介</h3>
-                <p className="text-space-light/80">{selectedInstitution.description}</p>
+
+              <div className='mb-6'>
+                <h3 className='text-lg font-semibold text-space-light mb-2'>
+                  机构简介
+                </h3>
+                <p className='text-space-light/80'>
+                  {selectedInstitution.description}
+                </p>
               </div>
-              
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold text-space-light mb-2">主要成就</h3>
-                <ul className="list-disc pl-5 text-space-light/80">
-                  {selectedInstitution.keyAchievements.map((achievement, index) => (
-                    <li key={index} className="mb-1">{achievement}</li>
-                  ))}
+
+              <div className='mb-6'>
+                <h3 className='text-lg font-semibold text-space-light mb-2'>
+                  主要成就
+                </h3>
+                <ul className='list-disc pl-5 text-space-light/80'>
+                  {selectedInstitution.keyAchievements.map(
+                    (achievement, index) => (
+                      <li key={index} className='mb-1'>
+                        {achievement}
+                      </li>
+                    )
+                  )}
                 </ul>
               </div>
-              
+
               <div>
-                <h3 className="text-lg font-semibold text-space-light mb-2">合作关系</h3>
-                <p className="text-space-light/80">{selectedInstitution.collaboration}</p>
+                <h3 className='text-lg font-semibold text-space-light mb-2'>
+                  合作关系
+                </h3>
+                <p className='text-space-light/80'>
+                  {selectedInstitution.collaboration}
+                </p>
               </div>
             </div>
           </DialogContent>
