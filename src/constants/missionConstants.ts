@@ -18,7 +18,12 @@ export const MISSIONS: Mission[] = [
     technology: ['长征一号火箭'],
     achievements: ['中国进入太空时代', '在轨播放《东方红》乐曲'],
     image:
-      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746219582/7a899e510fb30f2442a76d20d2dfc643ad4bd113a5f4_gavygs.webp', // NASA 存档的中国卫星照片（示例）
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746219582/7a899e510fb30f2442a76d20d2dfc643ad4bd113a5f4_gavygs.webp',
+    gallery: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746219582/7a899e510fb30f2442a76d20d2dfc643ad4bd113a5f4_gavygs.webp',
+      'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2670&q=80',
+    ],
   },
   {
     id: 2,
@@ -36,7 +41,12 @@ export const MISSIONS: Mission[] = [
     technology: ['神舟飞船', '长征-2F火箭'],
     achievements: ['中国成为世界第三个独立载人航天的国家'],
     image:
-      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224678/d009b3de9c82d158ccbfce436d430ed8bc3eb035e4a5_vaghrw.webp', // 中国航天科技集团官方图库（示例）
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224678/d009b3de9c82d158ccbfce436d430ed8bc3eb035e4a5_vaghrw.webp',
+    gallery: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224678/d009b3de9c82d158ccbfce436d430ed8bc3eb035e4a5_vaghrw.webp',
+      'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2670&q=80',
+      'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2670&q=80',
+    ],
   },
   {
     id: 3,
@@ -54,7 +64,12 @@ export const MISSIONS: Mission[] = [
     technology: ['变推力发动机', '月面巡视技术'],
     achievements: ['中国首次地外天体软着陆'],
     image:
-      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224677/8694a4c27d1ed21b0561dd93af6eddc451da3f1f_w3k8vy.webp', // 中国科学院月球与深空探测中心图库
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224677/8694a4c27d1ed21b0561dd93af6eddc451da3f1f_w3k8vy.webp',
+    gallery: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224677/8694a4c27d1ed21b0561dd93af6eddc451da3f1f_w3k8vy.webp',
+      'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2670&q=80',
+    ],
   },
   {
     id: 4,
@@ -72,7 +87,12 @@ export const MISSIONS: Mission[] = [
     technology: ['火星车', '环绕器'],
     achievements: ['亚洲首次成功火星着陆'],
     image:
-      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224677/7e3e6709c93d70cf3bc7c56db496c600baa1cd11fd33_pni8yw.webp', // CNSA 官方火星任务照片
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224677/7e3e6709c93d70cf3bc7c56db496c600baa1cd11fd33_pni8yw.webp',
+    gallery: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224677/7e3e6709c93d70cf3bc7c56db496c600baa1cd11fd33_pni8yw.webp',
+      'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2670&q=80',
+    ],
   },
   {
     id: 5,
@@ -102,7 +122,12 @@ export const MISSIONS: Mission[] = [
       '启动空间站二期扩展可行性研究',
     ],
     image:
-      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224676/1c950a7b02087bf40ad1d914bd86402c11dfa8ec618a_snqwcw.webp', // 中国空间站全构型官方图片
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224676/1c950a7b02087bf40ad1d914bd86402c11dfa8ec618a_snqwcw.webp',
+    gallery: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224676/1c950a7b02087bf40ad1d914bd86402c11dfa8ec618a_snqwcw.webp',
+      'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2670&q=80',
+    ],
   },
   {
     id: 6,
@@ -120,7 +145,12 @@ export const MISSIONS: Mission[] = [
     technology: ['月壤钻取', '月球轨道交会'],
     achievements: ['突破月背中继通信'],
     image:
-      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746219294/change6_j1veul.webp', // 探月工程官方图片（示例）
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746219294/change6_j1veul.webp',
+    gallery: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746219294/change6_j1veul.webp',
+      'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2670&q=80',
+    ],
   },
 ];
 

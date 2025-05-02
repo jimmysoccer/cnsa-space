@@ -1,3 +1,4 @@
+
 export interface Mission {
   id: number;
   title: string;
@@ -13,6 +14,7 @@ export interface Mission {
   technology: string[];
   achievements: string[];
   image: string;
+  gallery?: string[]; // Optional array of additional mission images
 }
 
 export type ViewType = 'timeline' | 'list' | 'card';
