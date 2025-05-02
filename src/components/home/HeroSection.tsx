@@ -25,7 +25,7 @@ const HeroSection = () => {
             className='flex flex-col sm:flex-row gap-4 justify-center animate-fade-in'
             style={{ animationDelay: '0.6s' }}
           >
-            <Link to={NavBarItemsObj.tasks.path} className='space-button'>
+            <Link to={NavBarItemsObj.missions.path} className='space-button'>
               天工开物·巡宇录 <ArrowRight size={18} />
             </Link>
           </div>

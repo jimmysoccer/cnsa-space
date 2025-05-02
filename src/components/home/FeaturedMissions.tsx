@@ -59,7 +59,7 @@ const FeaturedMissions = () => {
 
         <div className='text-center mt-12'>
           <Link
-            to={NavBarItemsObj.tasks.path}
+            to={NavBarItemsObj.missions.path}
             className='space-button-outline inline-flex'
           >
             查看所有任务 <ArrowRight size={18} />

@@ -36,7 +36,7 @@ const MissionCard: React.FC<MissionCardProps> = ({
         </div>
         <p className='text-space-light/80 mb-4'>{description}</p>
         <Link
-          to={NavBarItemsObj.tasks.path}
+          to={NavBarItemsObj.missions.path}
           className='text-space-accent hover:text-space-light flex items-center text-sm font-medium'
         >
           了解更多 <ArrowRight size={16} className='ml-1' />

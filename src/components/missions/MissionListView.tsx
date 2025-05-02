@@ -1,6 +1,4 @@
-
 import React, { useState } from 'react';
-import { Task } from '../../types/task';
 import {
   Table,
   TableBody,
@@ -10,23 +8,26 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Calendar } from 'lucide-react';
-import { getPriorityBadge, getStatusBadge } from '@/utils/task-status';
+import { getPriorityBadge, getStatusBadge } from '@/utils/mission-status';
 import { formatDateToYYYYMMDD } from '@/utils/date';
-import TaskDetailModal from './TaskDetailModal';
-import { Link } from 'react-router-dom';
 
-interface TaskListViewProps {
-  tasks: Task[];
+import { Link } from 'react-router-dom';
+import { Mission } from '@/types/mission';
+import MissionDetailModal from './MissionDetailModal';
+import { NavBarItemsObj } from '@/constants/navConstants';
+
+interface MissionListViewProps {
+  missions: Mission[];
 }
 
-const TaskListView: React.FC<TaskListViewProps> = ({ tasks }) => {
+const MissionListView: React.FC<MissionListViewProps> = ({ missions }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedTask, setSelectedTask] = useState<Task | null>(null);
+  const [selectedMission, setSelectedMission] = useState<Mission | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const itemsPerPage = 10;
 
-  const totalPages = Math.ceil(tasks.length / itemsPerPage);
-  const paginatedTasks = [...tasks]
+  const totalPages = Math.ceil(missions.length / itemsPerPage);
+  const paginatedMissions = [...missions]
     .sort(
       (a, b) =>
         new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
@@ -41,8 +42,8 @@ const TaskListView: React.FC<TaskListViewProps> = ({ tasks }) => {
     if (currentPage < totalPages) setCurrentPage(currentPage + 1);
   };
 
-  const handleOpenTask = (task: Task) => {
-    setSelectedTask(task);
+  const handleOpenMission = (mission: Mission) => {
+    setSelectedMission(mission);
     setDialogOpen(true);
   };
 
@@ -60,53 +61,55 @@ const TaskListView: React.FC<TaskListViewProps> = ({ tasks }) => {
             <TableHead className='text-space-accent'>分类</TableHead>
             <TableHead className='text-space-accent'>指派给</TableHead>
             <TableHead className='text-space-accent text-right'>进度</TableHead>
-            <TableHead className='text-space-accent text-center'>操作</TableHead>
+            <TableHead className='text-space-accent text-center'>
+              操作
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {paginatedTasks.map((task) => (
+          {paginatedMissions.map((mission) => (
             <TableRow
-              key={task.id}
+              key={mission.id}
               className='hover:bg-space-dark/30 border-space-accent/10 cursor-pointer'
-              onClick={() => handleOpenTask(task)}
+              onClick={() => handleOpenMission(mission)}
             >
               <TableCell className='font-orbitron'>
-                {task.title}
+                {mission.title}
                 <p className='text-xs text-space-light/60 mt-1 line-clamp-2'>
-                  {task.description}
+                  {mission.description}
                 </p>
               </TableCell>
-              <TableCell>{getStatusBadge(task.status)}</TableCell>
-              <TableCell>{getPriorityBadge(task.priority)}</TableCell>
+              <TableCell>{getStatusBadge(mission.status)}</TableCell>
+              <TableCell>{getPriorityBadge(mission.priority)}</TableCell>
               <TableCell className='whitespace-nowrap'>
                 <div className='flex items-center'>
                   <Calendar className='h-3 w-3 text-space-accent mr-1.5' />
-                  <span>{formatDateToYYYYMMDD(task.startDate)}</span>
+                  <span>{formatDateToYYYYMMDD(mission.startDate)}</span>
                 </div>
               </TableCell>
               <TableCell className='whitespace-nowrap'>
                 <div className='flex items-center'>
                   <Calendar className='h-3 w-3 text-space-accent mr-1.5' />
-                  <span>{formatDateToYYYYMMDD(task.endDate)}</span>
+                  <span>{formatDateToYYYYMMDD(mission.endDate)}</span>
                 </div>
               </TableCell>
-              <TableCell>{task.target}</TableCell>
-              <TableCell>{task.category}</TableCell>
-              <TableCell>{task.assignee}</TableCell>
+              <TableCell>{mission.target}</TableCell>
+              <TableCell>{mission.category}</TableCell>
+              <TableCell>{mission.assignee}</TableCell>
               <TableCell className='text-right'>
                 <div className='flex items-center justify-end'>
-                  <span>{task.progress}%</span>
+                  <span>{mission.progress}%</span>
                   <div className='w-16 h-1.5 bg-space-dark rounded-full overflow-hidden ml-2'>
                     <div
                       className='h-full bg-space-accent'
-                      style={{ width: `${task.progress}%` }}
+                      style={{ width: `${mission.progress}%` }}
                     ></div>
                   </div>
                 </div>
               </TableCell>
               <TableCell className='text-center'>
                 <Link
-                  to={`/tasks/${task.id}`}
+                  to={`${NavBarItemsObj.missions.path}/${mission.id}`}
                   className='px-3 py-1 text-xs bg-space-accent/20 text-space-accent rounded hover:bg-space-accent/30 transition-colors'
                   onClick={(e) => e.stopPropagation()}
                 >
@@ -137,9 +140,9 @@ const TaskListView: React.FC<TaskListViewProps> = ({ tasks }) => {
         </button>
       </div>
 
-      {/* Task details dialog */}
-      <TaskDetailModal
-        selectedTask={selectedTask}
+      {/* mission details dialog */}
+      <MissionDetailModal
+        selectedMission={selectedMission}
         dialogOpen={dialogOpen}
         setDialogOpen={setDialogOpen}
       />
@@ -147,4 +150,4 @@ const TaskListView: React.FC<TaskListViewProps> = ({ tasks }) => {
   );
 };
 
-export default TaskListView;
+export default MissionListView;

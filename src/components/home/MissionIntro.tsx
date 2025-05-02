@@ -18,7 +18,7 @@ const MissionIntro = () => {
                 我们的下一个任务"地平线探索者"即将启动。敬请期待对木星卫星的开创性探索。
               </p>
               <Link
-                to={NavBarItemsObj.tasks.path}
+                to={NavBarItemsObj.missions.path}
                 className='space-button inline-flex'
               >
                 任务详情 <Rocket size={18} />

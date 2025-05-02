@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
-import { Task } from '../../types/task';
-import TaskDetailModal from './TaskDetailModal';
-import { getStatusColor, getStatusText } from '@/utils/task-status';
+import { Mission } from '../../types/mission';
+import { getStatusColor, getStatusText } from '@/utils/mission-status';
+import MissionDetailModal from './MissionDetailModal';
 
-interface TaskTimelineViewProps {
-  tasks: Task[];
+interface MissionTimelineViewProps {
+  missions: Mission[];
 }
 
-const TaskTimelineView: React.FC<TaskTimelineViewProps> = ({ tasks }) => {
-  // Sort tasks by start date
-  const sortedTasks = [...tasks].sort(
+const MissionTimelineView: React.FC<MissionTimelineViewProps> = ({
+  missions,
+}) => {
+  // Sort missions by start date
+  const sortedMissions = [...missions].sort(
     (a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
   );
-  const [selectedTask, setselectedTask] = useState<Task>(null);
+  const [selectedMission, setSelectedMission] = useState<Mission>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
 
-  const handleOpenTask = (mission) => {
-    setselectedTask(mission);
+  const handleOpenMission = (mission) => {
+    setSelectedMission(mission);
     setDialogOpen(true);
   };
 
@@ -35,7 +37,7 @@ const TaskTimelineView: React.FC<TaskTimelineViewProps> = ({ tasks }) => {
             <div className='absolute left-0 md:left-1/2 top-0 bottom-0 w-1 bg-space-accent/30 transform md:translate-x-[-50%] hidden md:block'></div>
 
             <div className='space-y-12'>
-              {sortedTasks
+              {sortedMissions
                 .sort((a, b) => {
                   if (a.status.includes('计划') && !b.status.includes('计划'))
                     return 1;
@@ -80,7 +82,7 @@ const TaskTimelineView: React.FC<TaskTimelineViewProps> = ({ tasks }) => {
                         {mission.description}
                       </p>
                       <button
-                        onClick={() => handleOpenTask(mission)}
+                        onClick={() => handleOpenMission(mission)}
                         className='inline-flex items-center text-space-accent hover:text-space-light text-sm'
                       >
                         任务详情 <ArrowRight size={16} className='ml-1' />
@@ -94,8 +96,8 @@ const TaskTimelineView: React.FC<TaskTimelineViewProps> = ({ tasks }) => {
       </section>
 
       {/* Mission details modal */}
-      <TaskDetailModal
-        selectedTask={selectedTask}
+      <MissionDetailModal
+        selectedMission={selectedMission}
         dialogOpen={dialogOpen}
         setDialogOpen={setDialogOpen}
       />
@@ -103,4 +105,4 @@ const TaskTimelineView: React.FC<TaskTimelineViewProps> = ({ tasks }) => {
   );
 };
 
-export default TaskTimelineView;
+export default MissionTimelineView;

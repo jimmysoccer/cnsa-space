@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { AlignJustify, LayoutGrid, ListOrdered } from 'lucide-react';
-import { Task, ViewType } from '../types/task';
+import { ViewType } from '../types/mission';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import TaskTimelineView from '../components/tasks/TaskTimelineView';
-import TaskCardView from '../components/tasks/TaskCardView';
-import TaskListView from '../components/tasks/TaskListView';
-import { TASKS } from '@/constants/taskConstants';
-import { tasksHeaderBg } from '@/assets/images/image';
+import MissionTimelineView from '@/components/missions/MissionTimelineView';
+import { MISSIONS } from '@/constants/missionConstants';
+import MissionCardView from '../components/missions/MissionCardView';
+import MissionListView from '../components/missions/MissionListView';
+import { missionsHeaderBg } from '@/assets/images/image';
 
-const Tasks = () => {
+const Missions = () => {
   const [activeView, setActiveView] = useState<ViewType>('timeline');
 
   return (
@@ -17,7 +17,7 @@ const Tasks = () => {
       <section
         className='bg-space-dark py-20 md:py-28 relative'
         style={{
-          backgroundImage: tasksHeaderBg,
+          backgroundImage: missionsHeaderBg,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -36,7 +36,7 @@ const Tasks = () => {
         </div>
       </section>
 
-      {/* Task view section */}
+      {/* Mission view section */}
       <section className='bg-space-secondary/30 py-12'>
         <div className='container mx-auto px-4'>
           <Tabs
@@ -72,15 +72,15 @@ const Tasks = () => {
             </div>
 
             <TabsContent value='timeline' className='mt-0'>
-              <TaskTimelineView tasks={TASKS} />
+              <MissionTimelineView missions={MISSIONS}></MissionTimelineView>
             </TabsContent>
 
             <TabsContent value='card' className='mt-0'>
-              <TaskCardView tasks={TASKS} />
+              <MissionCardView missions={MISSIONS}></MissionCardView>
             </TabsContent>
 
             <TabsContent value='list' className='mt-0'>
-              <TaskListView tasks={TASKS} />
+              <MissionListView missions={MISSIONS}></MissionListView>
             </TabsContent>
           </Tabs>
         </div>
@@ -89,4 +89,4 @@ const Tasks = () => {
   );
 };
 
-export default Tasks;
+export default Missions;

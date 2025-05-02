@@ -1,13 +1,8 @@
-import { Task } from '@/types/task';
+import { Mission } from '@/types/mission';
 import { Clock, Flag, CheckCircle2 } from 'lucide-react';
-import {
-  Calendar,
-  ArrowUpCircle,
-  CheckCircle,
-  AlertCircle,
-} from 'lucide-react';
+import { ArrowUpCircle, CheckCircle, AlertCircle } from 'lucide-react';
 
-export const getStatusIcon = (status: Task['status']) => {
+export const getStatusIcon = (status: Mission['status']) => {
   switch (status) {
     case 'planned':
       return <Clock className='h-5 w-5 text-yellow-300' />;
@@ -22,7 +17,7 @@ export const getStatusIcon = (status: Task['status']) => {
   }
 };
 
-export const getStatusColor = (status: Task['status']) => {
+export const getStatusColor = (status: Mission['status']) => {
   switch (status) {
     case 'planned':
       return 'bg-yellow-500/20 text-yellow-300';
@@ -37,7 +32,7 @@ export const getStatusColor = (status: Task['status']) => {
   }
 };
 
-export const getStatusText = (status: Task['status']) => {
+export const getStatusText = (status: Mission['status']) => {
   switch (status) {
     case 'planned':
       return '计划中';
@@ -52,7 +47,7 @@ export const getStatusText = (status: Task['status']) => {
   }
 };
 
-export const getStatusBadge = (status: Task['status']) => {
+export const getStatusBadge = (status: Mission['status']) => {
   switch (status) {
     case 'planned':
       return (
@@ -111,7 +106,7 @@ export const getStatusBadge = (status: Task['status']) => {
   }
 };
 
-export const getPriorityBadge = (priority: Task['priority']) => {
+export const getPriorityBadge = (priority: Mission['priority']) => {
   const getColor = () => {
     switch (priority) {
       case 'high':
