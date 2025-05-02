@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
 import { AlignJustify, LayoutGrid, ListOrdered } from 'lucide-react';
-import { ViewType } from '../types/mission';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import MissionTimelineView from '@/components/missions/MissionTimelineView';
 import { MISSIONS } from '@/constants/missionConstants';
 import MissionCardView from '../components/missions/MissionCardView';
 import MissionListView from '../components/missions/MissionListView';
 import { missionsHeaderBg } from '@/assets/images/image';
+import { MissionViewType } from '@/types/mission';
+import { missionViewTypeAtom } from '@/atoms/atoms';
+import { useAtom } from 'jotai';
 
 const Missions = () => {
-  const [activeView, setActiveView] = useState<ViewType>('timeline');
+  const [activeView, setActiveView] = useAtom(missionViewTypeAtom);
 
   return (
     <div className=' pt-16'>
@@ -40,29 +41,29 @@ const Missions = () => {
       <section className='bg-space-secondary/30 py-12'>
         <div className='container mx-auto px-4'>
           <Tabs
-            defaultValue='timeline'
+            defaultValue={MissionViewType.timeline}
             value={activeView}
-            onValueChange={(value) => setActiveView(value as ViewType)}
+            onValueChange={(value) => setActiveView(value)}
             className='w-full'
           >
             <div className='flex justify-center mb-8'>
               <TabsList className='bg-space-dark/50 backdrop-blur-sm'>
                 <TabsTrigger
-                  value='timeline'
+                  value={MissionViewType.timeline}
                   className='flex items-center gap-2 data-[state=active]:bg-space-accent/20 data-[state=active]:text-space-accent'
                 >
                   <AlignJustify className='h-4 w-4' />
                   <span>时间线视图</span>
                 </TabsTrigger>
                 <TabsTrigger
-                  value='card'
+                  value={MissionViewType.card}
                   className='flex items-center gap-2 data-[state=active]:bg-space-accent/20 data-[state=active]:text-space-accent'
                 >
                   <LayoutGrid className='h-4 w-4' />
                   <span>卡片视图</span>
                 </TabsTrigger>
                 <TabsTrigger
-                  value='list'
+                  value={MissionViewType.list}
                   className='flex items-center gap-2 data-[state=active]:bg-space-accent/20 data-[state=active]:text-space-accent'
                 >
                   <ListOrdered className='h-4 w-4' />
@@ -71,15 +72,15 @@ const Missions = () => {
               </TabsList>
             </div>
 
-            <TabsContent value='timeline' className='mt-0'>
+            <TabsContent value={MissionViewType.timeline} className='mt-0'>
               <MissionTimelineView missions={MISSIONS}></MissionTimelineView>
             </TabsContent>
 
-            <TabsContent value='card' className='mt-0'>
+            <TabsContent value={MissionViewType.card} className='mt-0'>
               <MissionCardView missions={MISSIONS}></MissionCardView>
             </TabsContent>
 
-            <TabsContent value='list' className='mt-0'>
+            <TabsContent value={MissionViewType.list} className='mt-0'>
               <MissionListView missions={MISSIONS}></MissionListView>
             </TabsContent>
           </Tabs>

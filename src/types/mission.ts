@@ -16,4 +16,8 @@ export interface Mission {
   gallery?: string[]; // Optional array of additional mission images
 }
 
-export type ViewType = 'timeline' | 'list' | 'card';
+export const MissionViewType = {
+  timeline: 'timeline',
+  list: 'list',
+  card: 'card',
+};
