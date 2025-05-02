@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Task } from '../../types/task';
 import {
@@ -12,6 +13,7 @@ import { Calendar } from 'lucide-react';
 import { getPriorityBadge, getStatusBadge } from '@/utils/task-status';
 import { formatDateToYYYYMMDD } from '@/utils/date';
 import TaskDetailModal from './TaskDetailModal';
+import { Link } from 'react-router-dom';
 
 interface TaskListViewProps {
   tasks: Task[];
@@ -58,6 +60,7 @@ const TaskListView: React.FC<TaskListViewProps> = ({ tasks }) => {
             <TableHead className='text-space-accent'>分类</TableHead>
             <TableHead className='text-space-accent'>指派给</TableHead>
             <TableHead className='text-space-accent text-right'>进度</TableHead>
+            <TableHead className='text-space-accent text-center'>操作</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -101,6 +104,15 @@ const TaskListView: React.FC<TaskListViewProps> = ({ tasks }) => {
                   </div>
                 </div>
               </TableCell>
+              <TableCell className='text-center'>
+                <Link
+                  to={`/tasks/${task.id}`}
+                  className='px-3 py-1 text-xs bg-space-accent/20 text-space-accent rounded hover:bg-space-accent/30 transition-colors'
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  查看详情
+                </Link>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -133,37 +145,6 @@ const TaskListView: React.FC<TaskListViewProps> = ({ tasks }) => {
       />
     </div>
   );
-};
-
-// Helper functions for dialog status display
-const getStatusColorClass = (status: Task['status']) => {
-  switch (status) {
-    case 'planned':
-      return 'bg-yellow-500/20 text-yellow-300';
-    case 'in-progress':
-      return 'bg-green-500/20 text-green-400';
-    case 'completed':
-      return 'bg-blue-500/20 text-blue-300';
-    case 'delayed':
-      return 'bg-red-500/20 text-red-400';
-    default:
-      return 'bg-gray-500/20 text-gray-300';
-  }
-};
-
-const getStatusText = (status: Task['status']) => {
-  switch (status) {
-    case 'planned':
-      return '计划中';
-    case 'in-progress':
-      return '进行中';
-    case 'completed':
-      return '已完成';
-    case 'delayed':
-      return '已延期';
-    default:
-      return '未知状态';
-  }
 };
 
 export default TaskListView;

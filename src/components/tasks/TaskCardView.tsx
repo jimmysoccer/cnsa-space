@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Task } from '../../types/task';
 import {
@@ -15,6 +16,7 @@ import {
 } from '@/utils/task-status';
 import { formatDateToYYYYMMDD } from '@/utils/date';
 import TaskDetailModal from './TaskDetailModal';
+import { Link } from 'react-router-dom';
 
 interface TaskCardViewProps {
   tasks: Task[];
@@ -62,7 +64,7 @@ const TaskCardView: React.FC<TaskCardViewProps> = ({ tasks }) => {
         {paginatedTasks.map((task) => (
           <Card
             key={task.id}
-            className='bg-space-dark/50 backdrop-blur-sm border border-space-accent/20 hover:border-space-accent/50 transition-all duration-300 cursor-pointer'
+            className='bg-space-dark/50 backdrop-blur-sm border border-space-accent/20 hover:border-space-accent/50 transition-all duration-300 cursor-pointer relative group'
             onClick={() => handleOpenTask(task)}
           >
             <CardHeader>
@@ -127,6 +129,17 @@ const TaskCardView: React.FC<TaskCardViewProps> = ({ tasks }) => {
                 指派给: {task.assignee}
               </span>
             </CardFooter>
+            
+            {/* Add link to detailed page - appears on hover */}
+            <div className="absolute inset-0 bg-space-accent/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <Link 
+                to={`/tasks/${task.id}`} 
+                className="px-4 py-2 bg-space-accent text-white rounded-md hover:bg-space-accent/80 transition-colors"
+                onClick={(e) => e.stopPropagation()}
+              >
+                查看详情
+              </Link>
+            </div>
           </Card>
         ))}
       </div>

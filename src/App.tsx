@@ -1,3 +1,4 @@
+
 import { Toaster } from '@/components/ui/toaster';
 import { Toaster as Sonner } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -10,6 +11,7 @@ import Team from './pages/Team';
 import Technology from './pages/Technology';
 import Contact from './pages/Contact';
 import Tasks from './pages/Tasks';
+import TaskDetail from './pages/TaskDetail';
 import { NavBarItems, NavBarItemsObj } from './constants/navConstants';
 
 const queryClient = new QueryClient();
@@ -30,6 +32,7 @@ const App = () => (
             />
             <Route path={NavBarItemsObj.contact.path} element={<Contact />} />
             <Route path={NavBarItemsObj.tasks.path} element={<Tasks />} />
+            <Route path={`${NavBarItemsObj.tasks.path}/:taskId`} element={<TaskDetail />} />
             <Route path='*' element={<NotFound />} />
           </Route>
         </Routes>
