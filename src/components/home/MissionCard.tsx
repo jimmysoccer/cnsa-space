@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { NavBarItemsObj } from '@/constants/navConstants';
 
 interface MissionCardProps {
+  missionId: number;
   title: string;
   date: string;
   description: string;
@@ -12,6 +13,7 @@ interface MissionCardProps {
 }
 
 const MissionCard: React.FC<MissionCardProps> = ({
+  missionId,
   title,
   date,
   description,
@@ -36,7 +38,7 @@ const MissionCard: React.FC<MissionCardProps> = ({
         </div>
         <p className='text-space-light/80 mb-4'>{description}</p>
         <Link
-          to={NavBarItemsObj.missions.path}
+          to={`${NavBarItemsObj.missions.path}/${missionId}`}
           className='text-space-accent hover:text-space-light flex items-center text-sm font-medium'
         >
           了解更多 <ArrowRight size={16} className='ml-1' />
