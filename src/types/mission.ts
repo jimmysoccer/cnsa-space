@@ -13,6 +13,7 @@ export interface Mission {
   technology: string[];
   achievements: string[];
   image: string;
+  priority?: string; // Add priority property as optional
   gallery?: string[]; // Optional array of additional mission images
 }
 

@@ -106,3 +106,14 @@ export const getStatusBadge = (status: Mission['status']) => {
       return <span>未知状态</span>;
   }
 };
+
+// Adding the missing getPriorityBadge function
+export const getPriorityBadge = (priority: string) => {
+  return (
+    <div className='flex items-center'>
+      <span className={`text-xs px-2 py-0.5 rounded-full bg-space-accent/20 text-space-accent`}>
+        {priority}
+      </span>
+    </div>
+  );
+};

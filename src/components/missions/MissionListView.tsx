@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import {
   Table,
@@ -80,7 +81,9 @@ const MissionListView: React.FC<MissionListViewProps> = ({ missions }) => {
                 </p>
               </TableCell>
               <TableCell>{getStatusBadge(mission.status)}</TableCell>
-              <TableCell>{getPriorityBadge(mission.priority)}</TableCell>
+              <TableCell>
+                {mission.priority ? getPriorityBadge(mission.priority) : '-'}
+              </TableCell>
               <TableCell className='whitespace-nowrap'>
                 <div className='flex items-center'>
                   <Calendar className='h-3 w-3 text-space-accent mr-1.5' />
