@@ -6,7 +6,6 @@ export interface Mission {
   startDate: string;
   endDate: string;
   status: 'planned' | 'in-progress' | 'completed' | 'delayed';
-  priority: 'low' | 'medium' | 'high';
   target: string[];
   category: string;
   assignee: string;

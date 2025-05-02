@@ -10,7 +10,6 @@ import { Mission } from '@/types/mission';
 import { NavBarItemsObj } from '@/constants/navConstants';
 import { MISSIONS } from '@/constants/missionConstants';
 import {
-  getPriorityBadge,
   getStatusColor,
   getStatusText,
 } from '@/utils/mission-status';
@@ -92,7 +91,6 @@ const MissionDetail = () => {
               >
                 {getStatusText(mission.status)}
               </span>
-              {getPriorityBadge(mission.priority)}
               <div className='flex items-center text-space-light/80 mt-2 sm:mt-0'>
                 <Calendar className='h-4 w-4 mr-2 text-space-accent' />
                 <span>
@@ -203,10 +201,8 @@ const MissionDetail = () => {
                 <div className='pt-4 border-t border-space-accent/20'>
                   <div className='grid grid-cols-2 gap-4'>
                     <div className='text-center p-3 bg-space-dark/40 rounded-md'>
-                      <p className='text-space-light/60 text-xs mb-1'>优先级</p>
-                      <p className='text-space-light font-medium'>
-                        {mission.priority === 'high' ? '高' : mission.priority === 'medium' ? '中' : '低'}
-                      </p>
+                      <p className='text-space-light/60 text-xs mb-1'>当前状态</p>
+                      <p className='text-space-light font-medium'>{getStatusText(mission.status)}</p>
                     </div>
                     <div className='text-center p-3 bg-space-dark/40 rounded-md'>
                       <p className='text-space-light/60 text-xs mb-1'>技术数量</p>
@@ -217,8 +213,8 @@ const MissionDetail = () => {
                       <p className='text-space-light font-medium'>{mission.achievements.length}</p>
                     </div>
                     <div className='text-center p-3 bg-space-dark/40 rounded-md'>
-                      <p className='text-space-light/60 text-xs mb-1'>当前状态</p>
-                      <p className='text-space-light font-medium'>{getStatusText(mission.status)}</p>
+                      <p className='text-space-light/60 text-xs mb-1'>任务类别</p>
+                      <p className='text-space-light font-medium'>{mission.category}</p>
                     </div>
                   </div>
                 </div>

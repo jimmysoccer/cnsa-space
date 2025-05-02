@@ -1,3 +1,4 @@
+
 import { Mission } from '@/types/mission';
 import { Clock, Flag, CheckCircle2 } from 'lucide-react';
 import { ArrowUpCircle, CheckCircle, AlertCircle } from 'lucide-react';
@@ -104,38 +105,4 @@ export const getStatusBadge = (status: Mission['status']) => {
     default:
       return <span>未知状态</span>;
   }
-};
-
-export const getPriorityBadge = (priority: Mission['priority']) => {
-  const getColor = () => {
-    switch (priority) {
-      case 'high':
-        return 'bg-red-400/20 text-red-300';
-      case 'medium':
-        return 'bg-yellow-400/20 text-yellow-300';
-      case 'low':
-        return 'bg-green-400/20 text-green-300';
-      default:
-        return '';
-    }
-  };
-
-  const getText = () => {
-    switch (priority) {
-      case 'high':
-        return '高';
-      case 'medium':
-        return '中';
-      case 'low':
-        return '低';
-      default:
-        return '未知';
-    }
-  };
-
-  return (
-    <span className={`text-xs px-2 py-0.5 rounded-full ${getColor()}`}>
-      {getText()}
-    </span>
-  );
 };

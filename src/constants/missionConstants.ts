@@ -1,3 +1,4 @@
+
 import { Mission } from '@/types/mission';
 
 // Sample mission data
@@ -10,7 +11,6 @@ export const MISSIONS: Mission[] = [
     startDate: '1970-04-24',
     endDate: '1970-04-24',
     status: 'completed',
-    priority: 'high',
     target: ['地球轨道'],
     category: '卫星',
     assignee: '钱学森团队',
@@ -33,7 +33,6 @@ export const MISSIONS: Mission[] = [
     startDate: '2003-10-15',
     endDate: '2003-10-16',
     status: 'completed',
-    priority: 'high',
     target: ['近地轨道'],
     category: '载人航天',
     assignee: '杨利伟',
@@ -52,11 +51,10 @@ export const MISSIONS: Mission[] = [
     id: 3,
     title: '嫦娥三号（月球软着陆）',
     description:
-      '中国首个软着陆月球的探测器，携带“玉兔号”月球车，在虹湾地区开展科学探测。',
+      '中国首个软着陆月球的探测器，携带"玉兔号"月球车，在虹湾地区开展科学探测。',
     startDate: '2013-12-01',
     endDate: '2013-12-14',
     status: 'completed',
-    priority: 'high',
     target: ['月球正面-虹湾'],
     category: '月球探测',
     assignee: '孙家栋团队',
@@ -75,11 +73,10 @@ export const MISSIONS: Mission[] = [
     id: 4,
     title: '天问一号火星任务',
     description:
-      '中国首次火星探测，一次实现“绕、着、巡”，祝融号火星车在乌托邦平原开展探测。',
+      '中国首次火星探测，一次实现"绕、着、巡"，祝融号火星车在乌托邦平原开展探测。',
     startDate: '2020-07-23',
     endDate: '2021-05-15',
     status: 'completed',
-    priority: 'high',
     target: ['火星乌托邦平原'],
     category: '行星探测',
     assignee: '张荣桥团队',
@@ -102,7 +99,6 @@ export const MISSIONS: Mission[] = [
     startDate: '2021-04-29',
     endDate: '2022-12-31',
     status: 'completed',
-    priority: 'high',
     target: ['近地轨道（340-450km）'],
     category: '空间站',
     assignee: '中国载人航天工程办公室',
@@ -137,7 +133,6 @@ export const MISSIONS: Mission[] = [
     startDate: '2024-05-03',
     endDate: '2024-12-31',
     status: 'in-progress',
-    priority: 'high',
     target: ['月球背面'],
     category: '月球探测',
     assignee: '吴伟仁团队',
