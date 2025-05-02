@@ -35,7 +35,8 @@ export const MISSIONS: Mission[] = [
     progress: 100,
     technology: ['神舟飞船', '长征-2F火箭'],
     achievements: ['中国成为世界第三个独立载人航天的国家'],
-    image: 'https://img.cnsa.gov.cn/image/2021/06/16/20210616102935648.jpg', // 中国航天科技集团官方图库（示例）
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224678/d009b3de9c82d158ccbfce436d430ed8bc3eb035e4a5_vaghrw.webp', // 中国航天科技集团官方图库（示例）
   },
   {
     id: 3,
@@ -52,7 +53,8 @@ export const MISSIONS: Mission[] = [
     progress: 100,
     technology: ['变推力发动机', '月面巡视技术'],
     achievements: ['中国首次地外天体软着陆'],
-    image: 'https://moon.bao.ac.cn/uploads/2021/12/20211203102612345.jpg', // 中国科学院月球与深空探测中心图库
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224677/8694a4c27d1ed21b0561dd93af6eddc451da3f1f_w3k8vy.webp', // 中国科学院月球与深空探测中心图库
   },
   {
     id: 4,
@@ -70,24 +72,37 @@ export const MISSIONS: Mission[] = [
     technology: ['火星车', '环绕器'],
     achievements: ['亚洲首次成功火星着陆'],
     image:
-      'https://www.cnsa.gov.cn/n6759533/n6759543/202105/W020210515354345234567.jpg', // CNSA 官方火星任务照片
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224677/7e3e6709c93d70cf3bc7c56db496c600baa1cd11fd33_pni8yw.webp', // CNSA 官方火星任务照片
   },
   {
     id: 5,
-    title: '天宫空间站（在轨建造）',
+    title: '中国空间站（天宫）',
     description:
-      '中国首个长期有人驻留的空间站，用于科学实验、技术验证和国际合作。',
+      '中国自主建造的常驻太空实验室，支持长期载人驻留、多领域空间科学实验与国际合作项目。',
     startDate: '2021-04-29',
-    endDate: '2024-12-31',
-    status: 'in-progress',
+    endDate: '2022-12-31',
+    status: 'completed',
     priority: 'high',
-    target: ['近地轨道'],
+    target: ['近地轨道（340-450km）'],
     category: '空间站',
-    assignee: '周建平团队',
-    progress: 90,
-    technology: ['舱段对接', '再生生保系统'],
-    achievements: ['完成T字基本构型建造'],
-    image: 'https://cmse.gov.cn/gallery/img/2023/06/20230601123456789.jpg', // 中国载人航天工程办公室图库
+    assignee: '中国载人航天工程办公室',
+    progress: 100, // 基本构型已完成
+    technology: [
+      '舱段自主快速对接',
+      '再生式生命保障系统',
+      '柔性太阳翼（单翼发电功率18kW）',
+      '空间机械臂（10米级作业半径）',
+    ],
+    achievements: [
+      '2022年完成T字基本构型（天和核心舱+问天/梦天实验舱）',
+      '常态化驻留3人乘组（每6个月轮换）',
+      '开展100+项空间科学实验',
+      '首次实现航天员乘组在轨轮换（神舟15/16号）',
+      '国际载荷合作项目（如中欧合作伽马暴探测）',
+      '启动空间站二期扩展可行性研究',
+    ],
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224676/1c950a7b02087bf40ad1d914bd86402c11dfa8ec618a_snqwcw.webp', // 中国空间站全构型官方图片
   },
   {
     id: 6,
@@ -108,3 +123,6 @@ export const MISSIONS: Mission[] = [
       'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746219294/change6_j1veul.webp', // 探月工程官方图片（示例）
   },
 ];
+
+export const DefaultMissionImage =
+  'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746223585/2460514_wuezew.jpg';

@@ -3,6 +3,7 @@ import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { Mission } from '../../types/mission';
 import { getStatusColor, getStatusText } from '@/utils/mission-status';
 import MissionDetailModal from './MissionDetailModal';
+import { DefaultMissionImage } from '@/constants/missionConstants';
 
 interface MissionTimelineViewProps {
   missions: Mission[];
@@ -59,6 +60,19 @@ const MissionTimelineView: React.FC<MissionTimelineViewProps> = ({
                       </div>
                     </div>
                     <div className='md:w-1/2 bg-space-dark/50 backdrop-blur-sm rounded-lg p-6 border border-space-accent/20'>
+                      <img
+                        src={
+                          mission.image ? mission.image : DefaultMissionImage
+                        }
+                        alt={mission.title}
+                        className='w-full h-auto max-h-[200px] rounded-lg mb-4'
+                        loading='lazy'
+                        style={{ objectFit: 'cover' }}
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src =
+                            DefaultMissionImage;
+                        }}
+                      />
                       <h3 className='text-xl font-orbitron font-bold mb-2'>
                         {mission.title}
                       </h3>
