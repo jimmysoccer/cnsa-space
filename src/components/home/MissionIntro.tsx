@@ -4,6 +4,12 @@ import { Link } from 'react-router-dom';
 import MissionCountdown from './MissionCountdown';
 import { NavBarItemsObj } from '@/constants/navConstants';
 
+const NextMission = {
+  title: '地平线探索者',
+  description: '即将发射，探索木星的卫星。',
+  launchDate: new Date('2025-05-15T10:00:00Z'),
+};
+
 const MissionIntro = () => {
   return (
     <section className='py-20 bg-space-secondary/30'>
@@ -15,7 +21,10 @@ const MissionIntro = () => {
                 下一次任务发射
               </h2>
               <p className='text-lg text-space-light/80 mb-6'>
-                我们的下一个任务"地平线探索者"即将启动。敬请期待对木星卫星的开创性探索。
+                我们的下一个任务"{NextMission.title}"即将启动
+              </p>
+              <p className='text-lg text-space-light/80 mb-6'>
+                {NextMission.description}
               </p>
               <Link
                 to={NavBarItemsObj.missions.path}
@@ -24,7 +33,7 @@ const MissionIntro = () => {
                 任务详情 <Rocket size={18} />
               </Link>
             </div>
-            <MissionCountdown />
+            <MissionCountdown launchDate={NextMission.launchDate} />
           </div>
         </div>
       </div>

@@ -11,10 +11,14 @@ const FeaturedMissions = () => {
       <div className='container mx-auto px-4'>
         <div className='text-center mb-16'>
           <h2 className='text-3xl md:text-4xl font-orbitron font-bold mb-4'>
-            特色任务
+            特色任务：探索人类最重要的太空探索项目
           </h2>
           <p className='text-lg text-space-light/80 max-w-3xl mx-auto'>
-            探索我们最重要的太空探索项目，这些项目正在推动人类知识的边界。
+            太空探索是人类最雄心勃勃的科学事业之一，而中国航天正以惊人的速度崛起，
+            成为全球太空探索的重要力量。
+            从月球采样返回到火星探测，从空间站建设到深空探索，
+            中国的航天项目不仅推动了技术进步，更在重塑人类对宇宙的认知。
+            以下是当前和未来中国最具突破性的太空探索任务，它们正在书写人类探索太空的新篇章：
           </p>
         </div>
 
