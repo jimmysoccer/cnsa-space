@@ -3,12 +3,34 @@ import { Rocket } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MissionCountdown from './MissionCountdown';
 import { NavBarItemsObj } from '@/constants/navConstants';
+import { MISSIONS } from '@/constants/missionConstants';
 
-const NextMission = {
-  title: '地平线探索者',
-  description: '即将发射，探索木星的卫星。',
-  launchDate: new Date('2025-05-15T10:00:00Z'),
+const getNextMission = () => {
+  if (MISSIONS && MISSIONS.length > 0) {
+    const upcomingMissions = MISSIONS.filter(
+      (mission) => new Date(mission.startDate) > new Date()
+    );
+    if (upcomingMissions.length > 0) {
+      const nextMission = upcomingMissions.sort(
+        (a, b) =>
+          new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+      )[0];
+
+      return {
+        title: nextMission.title,
+        description: nextMission.description,
+        startDate: new Date(nextMission.startDate),
+      };
+    }
+  }
+  return {
+    title: '地平线探索者',
+    description: '即将发射，探索木星的卫星。',
+    startDate: new Date('2025-05-15T10:00:00Z'),
+  };
 };
+
+const NextMission = getNextMission();
 
 const MissionIntro = () => {
   return (
@@ -33,7 +55,7 @@ const MissionIntro = () => {
                 任务详情 <Rocket size={18} />
               </Link>
             </div>
-            <MissionCountdown launchDate={NextMission.launchDate} />
+            <MissionCountdown launchDate={NextMission.startDate} />
           </div>
         </div>
       </div>
