@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 
 import {
@@ -17,10 +16,11 @@ import {
 import { formatDateToYYYYMMDD } from '@/utils/date';
 
 import { Link } from 'react-router-dom';
-import { Mission, MissionStatusType } from '@/types/mission';
+import { Mission } from '@/types/mission';
 import MissionDetailModal from './MissionDetailModal';
 import { NavBarItemsObj } from '@/constants/navConstants';
 import MissionFilters from './MissionFilters';
+import { useMissionFilter } from '@/hooks/useMissionFilter';
 
 interface MissionCardViewProps {
   missions: Mission[];
@@ -30,45 +30,16 @@ const MissionCardView: React.FC<MissionCardViewProps> = ({ missions }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedMission, setSelectedMission] = useState<Mission | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [filters, setFilters] = useState({
-    status: 'all' as MissionStatusType | 'all',
-    category: 'all' as string | 'all',
-    sortOrder: 'asc' as 'asc' | 'desc',
-  });
   const itemsPerPage = 9; // 3 rows * 3 columns
 
-  // Get unique categories for filter options
-  const availableCategories = useMemo(() => {
-    const categories = new Set<string>();
-    missions.forEach(mission => categories.add(mission.category));
-    return Array.from(categories);
-  }, [missions]);
-  
-  // Apply filters to missions
-  const filteredMissions = useMemo(() => {
-    return missions.filter(mission => {
-      // Filter by status (skip if 'all')
-      if (filters.status !== 'all' && mission.status !== filters.status) {
-        return false;
-      }
-      
-      // Filter by category (skip if 'all')
-      if (filters.category !== 'all' && mission.category !== filters.category) {
-        return false;
-      }
-      
-      return true;
-    });
-  }, [missions, filters]);
-
-  // Sort and paginate missions
-  const sortedAndFilteredMissions = useMemo(() => {
-    return [...filteredMissions].sort((a, b) => {
-      const dateA = new Date(a.endDate).getTime();
-      const dateB = new Date(b.endDate).getTime();
-      return filters.sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
-    });
-  }, [filteredMissions, filters.sortOrder]);
+  // Use our custom hook for filtering logic
+  const {
+    filters,
+    setFilters,
+    availableCategories,
+    sortedAndFilteredMissions,
+    clearFilters
+  } = useMissionFilter(missions);
 
   const totalPages = Math.ceil(sortedAndFilteredMissions.length / itemsPerPage);
   // Reset to page 1 if filters change and current page is out of bounds
@@ -94,14 +65,6 @@ const MissionCardView: React.FC<MissionCardViewProps> = ({ missions }) => {
   const handleOpenMission = (mission: Mission) => {
     setSelectedMission(mission);
     setDialogOpen(true);
-  };
-  
-  const clearFilters = () => {
-    setFilters({
-      status: 'all',
-      category: 'all',
-      sortOrder: 'asc',
-    });
   };
 
   return (

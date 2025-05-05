@@ -1,11 +1,11 @@
-
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
-import { Mission, MissionStatusType } from '../../types/mission';
+import { Mission } from '../../types/mission';
 import { getStatusColor, getStatusText } from '@/utils/mission-status';
 import MissionDetailModal from './MissionDetailModal';
 import { DefaultMissionImage } from '@/constants/missionConstants';
 import MissionFilters from './MissionFilters';
+import { useMissionFilter } from '@/hooks/useMissionFilter';
 
 interface MissionTimelineViewProps {
   missions: Mission[];
@@ -16,58 +16,19 @@ const MissionTimelineView: React.FC<MissionTimelineViewProps> = ({
 }) => {
   const [selectedMission, setSelectedMission] = useState<Mission | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [filters, setFilters] = useState({
-    status: 'all' as MissionStatusType | 'all',
-    category: 'all' as string | 'all',
-    sortOrder: 'asc' as 'asc' | 'desc',
-  });
-
-  // Get unique categories for filter options
-  const availableCategories = useMemo(() => {
-    const categories = new Set<string>();
-    missions.forEach(mission => categories.add(mission.category));
-    return Array.from(categories);
-  }, [missions]);
   
-  // Apply filters to missions
-  const filteredMissions = useMemo(() => {
-    return missions.filter(mission => {
-      // Filter by status (skip if 'all')
-      if (filters.status !== 'all' && mission.status !== filters.status) {
-        return false;
-      }
-      
-      // Filter by category (skip if 'all')
-      if (filters.category !== 'all' && mission.category !== filters.category) {
-        return false;
-      }
-      
-      return true;
-    });
-  }, [missions, filters]);
-  
-  // Sort missions by end date
-  const sortedMissions = useMemo(() => {
-    return [...filteredMissions].sort(
-      (a, b) => {
-        const dateA = new Date(a.endDate).getTime();
-        const dateB = new Date(b.endDate).getTime();
-        return filters.sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
-      }
-    );
-  }, [filteredMissions, filters.sortOrder]);
+  // Use our custom hook for filtering logic
+  const {
+    filters,
+    setFilters,
+    availableCategories,
+    sortedAndFilteredMissions,
+    clearFilters
+  } = useMissionFilter(missions);
 
   const handleOpenMission = (mission: Mission) => {
     setSelectedMission(mission);
     setDialogOpen(true);
-  };
-  
-  const clearFilters = () => {
-    setFilters({
-      status: 'all',
-      category: 'all',
-      sortOrder: 'asc',
-    });
   };
 
   return (
@@ -91,13 +52,13 @@ const MissionTimelineView: React.FC<MissionTimelineViewProps> = ({
             {/* Timeline line */}
             <div className='absolute left-0 md:left-1/2 top-0 bottom-0 w-1 bg-space-accent/30 transform md:translate-x-[-50%] hidden md:block'></div>
 
-            {sortedMissions.length === 0 ? (
+            {sortedAndFilteredMissions.length === 0 ? (
               <div className='text-center py-12 bg-space-dark/50 backdrop-blur-sm rounded-lg p-6 border border-space-accent/20'>
                 <p className='text-space-light/80'>没有符合筛选条件的任务</p>
               </div>
             ) : (
               <div className='space-y-12'>
-                {sortedMissions.map((mission, index) => (
+                {sortedAndFilteredMissions.map((mission, index) => (
                   <div
                     key={mission.id}
                     className={`md:flex ${
