@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { University, ExternalLink, Calendar, MapPin, Star } from 'lucide-react';
 import { teamHeaderBg } from '@/assets/images/image';
-import { academicInstitutions } from '@/constants/institutionConstants';
 import {
   Card,
   CardContent,
@@ -17,6 +16,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
+import { aerospaceInstitutions } from '@/constants/aerospaceConstants';
 
 const Team = () => {
   const [filter, setFilter] = useState('全部');
@@ -26,14 +26,14 @@ const Team = () => {
   const specialties = [
     '全部',
     ...new Set(
-      academicInstitutions.map((institution) => institution.specialty)
+      aerospaceInstitutions.map((institution) => institution.specialty)
     ),
   ];
 
   const filteredInstitutions =
     filter === '全部'
-      ? academicInstitutions
-      : academicInstitutions.filter(
+      ? aerospaceInstitutions
+      : aerospaceInstitutions.filter(
           (institution) => institution.specialty === filter
         );
 

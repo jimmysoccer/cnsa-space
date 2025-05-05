@@ -1,0 +1,158 @@
+import { DefaultMissionImage } from './missionConstants';
+
+// 中国主要航天科研机构数据
+export const aerospaceInstitutions = [
+  {
+    id: 1,
+    name: '中国航天科技集团有限公司第五研究院',
+    shortName: '航天五院',
+    specialty: '卫星与空间飞行器',
+    location: '北京',
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746468730/%E8%88%AA%E5%A4%A9%E4%BA%94%E9%99%A2_ksfed4.webp',
+    description:
+      '中国空间技术研究院，承担我国所有卫星、飞船等空间飞行器的研制任务',
+    established: '1968年',
+    keyAchievements: [
+      '研制中国第一颗人造卫星"东方红一号"',
+      '完成嫦娥探月工程探测器系统',
+      '建成北斗全球卫星导航系统',
+      '研制天宫空间站各舱段',
+    ],
+    website: 'http://www.cast.cn',
+    collaboration: '与清华大学、哈工大等高校有联合实验室',
+  },
+  {
+    id: 2,
+    name: '中国航天科工集团有限公司第三研究院',
+    shortName: '航天三院',
+    specialty: '飞航导弹',
+    location: '北京',
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746468729/%E8%88%AA%E5%A4%A9%E4%B8%89%E9%99%A2_b8yjav.webp',
+    description: '我国飞航导弹武器系统研制生产的主体研究院',
+    established: '1961年',
+    keyAchievements: [
+      '研制中国第一型岸舰导弹"海鹰"',
+      '开发多型反舰巡航导弹',
+      '突破超音速巡航导弹技术',
+      '参与高超音速武器研发',
+    ],
+    website: 'http://www.casic.com.cn',
+    collaboration: '与北航、南航有联合人才培养项目',
+  },
+  {
+    id: 3,
+    name: '中国运载火箭技术研究院',
+    shortName: '航天一院',
+    specialty: '运载火箭',
+    location: '北京',
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746468728/%E8%88%AA%E5%A4%A9%E4%B8%80%E9%99%A2.jpg_btcpji.jpg',
+    description: '中国最大的运载火箭研制生产基地',
+    established: '1957年',
+    keyAchievements: [
+      '研制长征系列运载火箭',
+      '开发新一代无毒无污染运载火箭',
+      '突破火箭回收关键技术',
+      '实现"一箭多星"发射技术',
+    ],
+    website: 'http://www.calt.com',
+    collaboration: '与西安交大共建航天推进技术实验室',
+  },
+  {
+    id: 4,
+    name: '上海航天技术研究院',
+    shortName: '航天八院',
+    specialty: '运载火箭与战术导弹',
+    location: '上海',
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746468731/%E8%88%AA%E5%A4%A9%E5%85%AB%E9%99%A2_da763u.webp',
+    description: '我国航天科技工业的重要骨干力量',
+    established: '1961年',
+    keyAchievements: [
+      '研制长征六号新一代运载火箭',
+      '承担风云系列气象卫星研制',
+      '开发红旗系列防空导弹',
+      '参与探月工程有效载荷研制',
+    ],
+    website: 'http://www.sast.spacechina.com',
+    collaboration: '与上海交大、复旦有联合研究中心',
+  },
+  {
+    id: 5,
+    name: '中国空间技术研究院钱学森实验室',
+    shortName: '钱学森实验室',
+    specialty: '航天前沿技术',
+    location: '北京',
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746468617/pQ11-fzqvvsa2606684_eswmrm.jpg',
+    description: '我国航天领域首个国家级重点实验室',
+    established: '1993年',
+    keyAchievements: [
+      '开展空间智能控制技术研究',
+      '突破在轨服务与维护关键技术',
+      '研发新型空间推进系统',
+      '开展空间太阳能电站研究',
+    ],
+    website: 'http://www.qxslab.cn',
+    collaboration: '与中科大、国科大开展联合研究',
+  },
+  {
+    id: 6,
+    name: '中国航天空气动力技术研究院',
+    shortName: '航天十一院',
+    specialty: '空气动力学',
+    location: '北京',
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746468731/%E8%88%AA%E5%A4%A9%E5%8D%81%E4%B8%80%E9%99%A2_o8zbew.webp',
+    description: '我国最早建成的空气动力研究试验基地',
+    established: '1956年',
+    keyAchievements: [
+      '建成亚洲最大风洞群',
+      '突破高超声速气动关键技术',
+      '研发飞行器气动外形优化设计系统',
+      '参与所有国家重点型号气动设计',
+    ],
+    website: 'http://www.caaa.cn',
+    collaboration: '与中科院力学所共建联合实验室',
+  },
+  {
+    id: 7,
+    name: '中国航天系统科学与工程研究院',
+    shortName: '航天十二院',
+    specialty: '系统工程',
+    location: '北京',
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746468617/pQ11-fzqvvsa2606684_eswmrm.jpg',
+    description: '航天系统科学和体系工程领域专业研究院',
+    established: '1984年',
+    keyAchievements: [
+      '开发航天任务规划与仿真系统',
+      '建立航天系统工程方法论',
+      '开展航天发展战略研究',
+      '研发航天大数据分析平台',
+    ],
+    website: 'http://www.cases.ac.cn',
+    collaboration: '与国防科大开展系统工程联合研究',
+  },
+  {
+    id: 8,
+    name: '中国航天电子技术研究院',
+    shortName: '航天九院',
+    specialty: '航天电子',
+    location: '北京',
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746468729/%E8%88%AA%E5%A4%A9%E4%B9%9D%E9%99%A2_azxxx3.webp',
+    description: '我国航天电子领域专业研究院',
+    established: '2002年',
+    keyAchievements: [
+      '研制星载高性能计算机',
+      '开发航天专用集成电路',
+      '突破航天器智能自主控制技术',
+      '研发空间高精度传感器',
+    ],
+    website: 'http://www.cae.cn',
+    collaboration: '与浙江大学共建电子信息技术实验室',
+  },
+];
