@@ -72,11 +72,18 @@ const MissionListView: React.FC<MissionListViewProps> = ({ missions }) => {
               className='hover:bg-space-dark/30 border-space-accent/10 cursor-pointer'
               onClick={() => handleOpenMission(mission)}
             >
-              <TableCell className='font-orbitron'>
-                {mission.title}
-                <p className='text-xs text-space-light/60 mt-1 line-clamp-2'>
-                  {mission.description}
-                </p>
+              <TableCell className='font-orbitron flex items-center'>
+                <img
+                  src={mission.images[0]}
+                  alt={`${mission.title} icon`}
+                  className='h-full w-20 mr-2 rounded object-cover'
+                />
+                <div>
+                  {mission.title}
+                  <p className='text-xs text-space-light/60 mt-1 line-clamp-3'>
+                    {mission.description}
+                  </p>
+                </div>
               </TableCell>
               <TableCell>{getStatusBadge(mission.status)}</TableCell>
               <TableCell className='whitespace-nowrap'>

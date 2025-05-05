@@ -59,6 +59,11 @@ const MissionCardView: React.FC<MissionCardViewProps> = ({ missions }) => {
             onClick={() => handleOpenMission(mission)}
           >
             <CardHeader>
+              <img
+                src={mission.images[0]}
+                alt={mission.title}
+                className='w-full h-48 object-cover rounded-md border border-space-accent/20 mr-4'
+              />
               <div className='flex justify-between items-start'>
                 <CardTitle className='text-lg font-orbitron text-space-light'>
                   {mission.title}

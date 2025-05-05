@@ -137,7 +137,7 @@ export const MISSIONS: Mission[] = [
     target: ['月球背面'],
     category: '月球探测',
     assignee: '吴伟仁团队',
-    progress: 40,
+    progress: 100,
     technology: ['月壤钻取', '月球轨道交会'],
     achievements: ['突破月背中继通信'],
     images: [
