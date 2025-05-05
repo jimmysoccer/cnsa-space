@@ -18,8 +18,10 @@ export const MISSIONS: Mission[] = [
     achievements: ['中国进入太空时代', '在轨播放《东方红》乐曲'],
     images: [
       'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746219582/7a899e510fb30f2442a76d20d2dfc643ad4bd113a5f4_gavygs.webp',
-      'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
-      'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2670&q=80',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746460799/caef76094b36acaf2edd714ef78a9a1001e93901367f_dcx5md.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746460798/5882b2b7d0a20cf431ad066ffd5a5c36acaf2edd337d_tvbuq9.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746460798/7af40ad162d9f2d3572c93a222bf9d13632762d06678_bnl7ap.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746460797/3c2c4bfba1cc4d5c6d22eba6_ynnbub.webp',
     ],
   },
   {
@@ -38,8 +40,10 @@ export const MISSIONS: Mission[] = [
     achievements: ['中国成为世界第三个独立载人航天的国家'],
     images: [
       'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224678/d009b3de9c82d158ccbfce436d430ed8bc3eb035e4a5_vaghrw.webp',
-      'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2670&q=80',
-      'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2670&q=80',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746462374/29381f30e924b899a9015ab1834f0a950a7b030858aa_d504xr.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746462374/faedab64034f78f0f736509ea7661d55b319ebc4b61c_hwr0e9.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746462372/4bed2e738bd4b31c8701ad4e6a9f307f9e2f060852a6_gdmqam.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746222815/838ba61ea8d3fd1f413438bedb1b321f95cad0c8f1a3_uwqlbo.webp',
     ],
   },
   {
@@ -58,8 +62,13 @@ export const MISSIONS: Mission[] = [
     achievements: ['中国首次地外天体软着陆'],
     images: [
       'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224677/8694a4c27d1ed21b0561dd93af6eddc451da3f1f_w3k8vy.webp',
-      'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
-      'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2670&q=80',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746462353/0ff41bd5ad6eddc45ee2478d3bdbb6fd526633ba_yp1amg.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746462353/8cb1cb1349540923bef56a499058d109b3de496c_kzmabo.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746462354/79f0f736afc379310a557a78fc8ea04543a98226bb02_egvbfl.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746462355/242dd42a2834349becb038facbea15ce36d3be1f_nf8hhu.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746462356/0824ab18972bd4074943858279899e510eb309cc_xylljf.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746462357/5882b2b7d0a20cf43d07a8a074094b36acaf993d_hu9meb.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746462360/b2de9c82d158ccbf59e7f24c1bd8bc3eb1354168_excqww.webp',
     ],
   },
   {
@@ -112,8 +121,9 @@ export const MISSIONS: Mission[] = [
     ],
     images: [
       'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224676/1c950a7b02087bf40ad1d914bd86402c11dfa8ec618a_snqwcw.webp',
-      'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
-      'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2670&q=80',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746462329/0b55b319ebc4b74543a9584bc5a409178a82b901bf6c_v7whqi.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746462330/3c6d55fbb2fb43166d22333a82f4512309f790527568_fvia0u.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746462331/4d086e061d950a7b02087d2d088675d9f2d3562c6399_cr6jfa.webp',
     ],
   },
   {
@@ -123,7 +133,7 @@ export const MISSIONS: Mission[] = [
       '世界首次月球背面采样返回任务，目标南极-艾特肯盆地，研究月球早期演化历史。',
     startDate: '2024-05-03',
     endDate: '2024-06-25',
-    status: 'in-progress',
+    status: 'completed',
     target: ['月球背面'],
     category: '月球探测',
     assignee: '吴伟仁团队',
@@ -132,8 +142,12 @@ export const MISSIONS: Mission[] = [
     achievements: ['突破月背中继通信'],
     images: [
       'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746219294/change6_j1veul.webp',
-      'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
-      'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2670&q=80',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746460570/1ad5ad6eddc451da81cb7179c1a54566d01609249453_za61hp.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746460570/3801213fb80e7bec54e70ff80276ae389b504fc23d28_njnrlt.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746460570/63d9f2d3572c11dfa9ec683b4e7f75d0f703918f6428_amf7bl.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746460570/b03533fa828ba61ea8d3961b6c6c800a304e251ff3f5_cdppni.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746460570/c8177f3e6709c93d70cf684acd64efdcd100baa1fe4f_mofneq.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746460570/7af40ad162d9f2d3572c42d413b49d13632762d066cd_zrv5y3.webp',
     ],
   },
 ];
