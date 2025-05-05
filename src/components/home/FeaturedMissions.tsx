@@ -6,6 +6,9 @@ import { NavBarItemsObj } from '@/constants/navConstants';
 import { MISSIONS } from '@/constants/missionConstants';
 
 const FeaturedMissions = () => {
+  const featuredMissions = MISSIONS.filter((mission) =>
+    [4, 5, 6].includes(mission.id)
+  );
   return (
     <section className='py-20 bg-space-dark'>
       <div className='container mx-auto px-4'>
@@ -23,7 +26,7 @@ const FeaturedMissions = () => {
         </div>
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {MISSIONS.slice(-3).map((mission, index) => (
+          {featuredMissions.map((mission, index) => (
             <MissionCard
               key={index}
               missionId={mission.id}

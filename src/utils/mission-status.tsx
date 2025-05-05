@@ -1,16 +1,16 @@
-import { Mission } from '@/types/mission';
+import { Mission, MissionStatusType } from '@/types/mission';
 import { Clock, Flag, CheckCircle2 } from 'lucide-react';
 import { ArrowUpCircle, CheckCircle, AlertCircle } from 'lucide-react';
 
 export const getStatusIcon = (status: Mission['status']) => {
   switch (status) {
-    case 'planned':
+    case MissionStatusType.planned:
       return <Clock className='h-5 w-5 text-yellow-300' />;
-    case 'in-progress':
+    case MissionStatusType.inProgress:
       return <Flag className='h-5 w-5 text-green-400' />;
-    case 'completed':
+    case MissionStatusType.completed:
       return <CheckCircle2 className='h-5 w-5 text-blue-300' />;
-    case 'delayed':
+    case MissionStatusType.delayed:
       return <Clock className='h-5 w-5 text-red-400' />;
     default:
       return <Clock className='h-5 w-5' />;
@@ -19,13 +19,13 @@ export const getStatusIcon = (status: Mission['status']) => {
 
 export const getStatusColor = (status: Mission['status']) => {
   switch (status) {
-    case 'planned':
+    case MissionStatusType.planned:
       return 'bg-yellow-500/20 text-yellow-300';
-    case 'in-progress':
+    case MissionStatusType.inProgress:
       return 'bg-green-500/20 text-green-400';
-    case 'completed':
+    case MissionStatusType.completed:
       return 'bg-blue-500/20 text-blue-300';
-    case 'delayed':
+    case MissionStatusType.delayed:
       return 'bg-red-500/20 text-red-400';
     default:
       return 'bg-gray-500/20 text-gray-300';
@@ -34,13 +34,13 @@ export const getStatusColor = (status: Mission['status']) => {
 
 export const getStatusText = (status: Mission['status']) => {
   switch (status) {
-    case 'planned':
+    case MissionStatusType.planned:
       return '计划中';
-    case 'in-progress':
+    case MissionStatusType.inProgress:
       return '进行中';
-    case 'completed':
+    case MissionStatusType.completed:
       return '已完成';
-    case 'delayed':
+    case MissionStatusType.delayed:
       return '已延期';
     default:
       return '未知状态';
@@ -49,7 +49,7 @@ export const getStatusText = (status: Mission['status']) => {
 
 export const getStatusBadge = (status: Mission['status']) => {
   switch (status) {
-    case 'planned':
+    case MissionStatusType.planned:
       return (
         <div className='flex items-center whitespace-nowrap'>
           <Clock className='h-4 w-4 text-yellow-300 mr-1.5' />
@@ -62,7 +62,7 @@ export const getStatusBadge = (status: Mission['status']) => {
           </span>
         </div>
       );
-    case 'in-progress':
+    case MissionStatusType.inProgress:
       return (
         <div className='flex items-center whitespace-nowrap'>
           <ArrowUpCircle className='h-4 w-4 text-green-400 mr-1.5' />
@@ -75,7 +75,7 @@ export const getStatusBadge = (status: Mission['status']) => {
           </span>
         </div>
       );
-    case 'completed':
+    case MissionStatusType.completed:
       return (
         <div className='flex items-center whitespace-nowrap'>
           <CheckCircle className='h-4 w-4 text-blue-300 mr-1.5' />
@@ -88,7 +88,7 @@ export const getStatusBadge = (status: Mission['status']) => {
           </span>
         </div>
       );
-    case 'delayed':
+    case MissionStatusType.delayed:
       return (
         <div className='flex items-center whitespace-nowrap'>
           <AlertCircle className='h-4 w-4 text-red-400 mr-1.5' />

@@ -1,10 +1,17 @@
+export enum MissionStatusType {
+  planned = 'planned',
+  inProgress = 'inProgress',
+  completed = 'completed',
+  delayed = 'delayed',
+}
+
 export interface Mission {
   id: number;
   title: string;
   description: string;
   startDate: string;
   endDate: string;
-  status: 'planned' | 'in-progress' | 'completed' | 'delayed';
+  status: MissionStatusType;
   target: string[];
   category: string;
   assignee: string;

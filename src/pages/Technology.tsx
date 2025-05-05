@@ -1,6 +1,5 @@
-import React from 'react';
 import { Rocket, Search, Link, ArrowRight } from 'lucide-react';
-import { teamHeaderBg } from '@/assets/images/image';
+import { technologyHeaderBg } from '@/assets/images/image';
 
 const Technology = () => {
   return (
@@ -9,7 +8,7 @@ const Technology = () => {
       <section
         className='bg-space-dark py-20 md:py-28 relative'
         style={{
-          backgroundImage: teamHeaderBg,
+          backgroundImage: technologyHeaderBg,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

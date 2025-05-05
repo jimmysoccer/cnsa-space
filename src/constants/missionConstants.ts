@@ -1,7 +1,7 @@
-import { Mission } from '@/types/mission';
+import { Mission, MissionStatusType } from '@/types/mission';
 
 export const DefaultMissionImage =
-  'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746223585/2460514_wuezew.jpg';
+  'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746474294/471ca7ac-e965-4d65-8644-c5067629d0d4_qxcwld.jpg';
 
 export const MISSIONS: Mission[] = [
   {
@@ -11,7 +11,7 @@ export const MISSIONS: Mission[] = [
       '中国首颗人造地球卫星，使用长征一号火箭发射，使中国成为全球第五个独立发射卫星的国家。',
     startDate: '1970-04-24',
     endDate: '1970-04-24',
-    status: 'completed',
+    status: MissionStatusType.completed,
     target: ['地球轨道'],
     category: '卫星',
     assignee: '钱学森团队',
@@ -33,7 +33,7 @@ export const MISSIONS: Mission[] = [
       '杨利伟成为中国首位航天员，在轨飞行21小时，完成中国首次载人航天任务。',
     startDate: '2003-10-15',
     endDate: '2003-10-16',
-    status: 'completed',
+    status: MissionStatusType.completed,
     target: ['近地轨道'],
     category: '载人航天',
     assignee: '杨利伟',
@@ -55,7 +55,7 @@ export const MISSIONS: Mission[] = [
       '中国首个软着陆月球的探测器，携带"玉兔号"月球车，在虹湾地区开展科学探测。',
     startDate: '2013-12-01',
     endDate: '2013-12-14',
-    status: 'completed',
+    status: MissionStatusType.completed,
     target: ['月球正面-虹湾'],
     category: '月球探测',
     assignee: '孙家栋团队',
@@ -80,7 +80,7 @@ export const MISSIONS: Mission[] = [
       '中国首次火星探测，一次实现"绕、着、巡"，祝融号火星车在乌托邦平原开展探测。',
     startDate: '2020-07-23',
     endDate: '2021-05-15',
-    status: 'completed',
+    status: MissionStatusType.completed,
     target: ['火星乌托邦平原'],
     category: '行星探测',
     assignee: '张荣桥团队',
@@ -102,7 +102,7 @@ export const MISSIONS: Mission[] = [
       '中国自主建造的常驻太空实验室，支持长期载人驻留、多领域空间科学实验与国际合作项目。',
     startDate: '2021-04-29',
     endDate: '2022-12-31',
-    status: 'completed',
+    status: MissionStatusType.completed,
     target: ['近地轨道（340-450km）'],
     category: '空间站',
     assignee: '中国载人航天工程办公室',
@@ -135,7 +135,7 @@ export const MISSIONS: Mission[] = [
       '世界首次月球背面采样返回任务，目标南极-艾特肯盆地，研究月球早期演化历史。',
     startDate: '2024-05-03',
     endDate: '2024-06-25',
-    status: 'completed',
+    status: MissionStatusType.completed,
     target: ['月球背面'],
     category: '月球探测',
     assignee: '吴伟仁团队',
@@ -159,7 +159,7 @@ export const MISSIONS: Mission[] = [
       '中国首颗暗物质粒子探测卫星，具有世界最高能量分辨率和空间分辨率。',
     startDate: '2015-12-17',
     endDate: '2025-12-31', // 预计服役期
-    status: 'in-progress',
+    status: MissionStatusType.inProgress,
     target: ['太阳同步轨道'],
     category: '科学探测',
     assignee: '中科院紫金山天文台',
@@ -178,7 +178,7 @@ export const MISSIONS: Mission[] = [
       '世界首颗量子通信卫星，实现千公里级量子纠缠分发和量子密钥分发。',
     startDate: '2016-08-16',
     endDate: '2024-12-31', // 预计服役期
-    status: 'in-progress',
+    status: MissionStatusType.inProgress,
     target: ['太阳同步轨道'],
     category: '通信技术',
     assignee: '潘建伟团队',
@@ -198,7 +198,7 @@ export const MISSIONS: Mission[] = [
       '建成独立自主的全球卫星导航系统，提供全球定位、导航和授时服务。',
     startDate: '2017-11-05',
     endDate: '2020-06-23',
-    status: 'completed',
+    status: MissionStatusType.completed,
     target: ['中圆地球轨道', '地球静止轨道', '倾斜地球同步轨道'],
     category: '导航系统',
     assignee: '北斗卫星导航系统工程',
@@ -219,14 +219,16 @@ export const MISSIONS: Mission[] = [
       '中国现役运载能力最大的火箭，近地轨道运载能力25吨，奠定重型火箭基础。',
     startDate: '2016-11-03',
     endDate: '2016-11-03',
-    status: 'completed',
+    status: MissionStatusType.completed,
     target: ['地球转移轨道'],
     category: '运载火箭',
     assignee: '中国运载火箭技术研究院',
     progress: 100,
     technology: ['YF-77氢氧发动机', '5米直径箭体', '模块化设计'],
     achievements: ['中国进入大火箭时代', '为后续空间站建设奠定基础'],
-    images: [DefaultMissionImage],
+    images: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746471349/61c015f3512ce04ccdc418f6_1_wpuwh4.jpg',
+    ],
   },
   {
     id: 11,
@@ -234,7 +236,7 @@ export const MISSIONS: Mission[] = [
     description: '人类首个在月球背面软着陆的探测器，携带"玉兔二号"月球车。',
     startDate: '2018-12-08',
     endDate: '2019-01-03',
-    status: 'completed',
+    status: MissionStatusType.completed,
     target: ['月球背面-冯·卡门撞击坑'],
     category: '月球探测',
     assignee: '吴伟仁团队',
@@ -253,7 +255,7 @@ export const MISSIONS: Mission[] = [
     description: '中国首次地外天体采样返回任务，带回1731克月壤样本。',
     startDate: '2020-11-24',
     endDate: '2020-12-17',
-    status: 'completed',
+    status: MissionStatusType.completed,
     target: ['月球正面-风暴洋'],
     category: '月球探测',
     assignee: '孙家栋团队',
@@ -264,7 +266,9 @@ export const MISSIONS: Mission[] = [
       '带回最年轻的月球火山岩样本（约20亿年）',
       '发现月球新矿物"嫦娥石"',
     ],
-    images: [DefaultMissionImage],
+    images: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746475583/a08b87d6277f9e2f07084d43867afe24b899a901556f_l89bt0.webp',
+    ],
   },
   {
     id: 13,
@@ -272,7 +276,7 @@ export const MISSIONS: Mission[] = [
     description: '中国空间站货物运输系统，最大上行运载能力6.9吨。',
     startDate: '2017-04-20',
     endDate: '2023-05-10', // 最新一次任务时间
-    status: 'in-progress',
+    status: MissionStatusType.inProgress,
     target: ['中国空间站'],
     category: '货运飞船',
     assignee: '中国载人航天工程办公室',
@@ -288,7 +292,7 @@ export const MISSIONS: Mission[] = [
       '中国高分辨率对地观测系统，形成全天候、全天时、全球覆盖的对地观测能力。',
     startDate: '2013-04-26', // 高分一号发射
     endDate: '2022-12-15', // 最新发射
-    status: 'in-progress',
+    status: MissionStatusType.inProgress,
     target: ['地球观测'],
     category: '遥感卫星',
     assignee: '国家航天局',
