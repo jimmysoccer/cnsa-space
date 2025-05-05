@@ -17,9 +17,9 @@ const MissionTimelineView: React.FC<MissionTimelineViewProps> = ({
   const [selectedMission, setSelectedMission] = useState<Mission | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [filters, setFilters] = useState({
-    endDate: null as Date | null,
-    status: '' as MissionStatusType | '',
-    category: '' as string,
+    status: 'all' as MissionStatusType | 'all',
+    category: 'all' as string | 'all',
+    sortOrder: 'asc' as 'asc' | 'desc',
   });
 
   // Get unique categories for filter options
@@ -32,27 +32,13 @@ const MissionTimelineView: React.FC<MissionTimelineViewProps> = ({
   // Apply filters to missions
   const filteredMissions = useMemo(() => {
     return missions.filter(mission => {
-      // Filter by end date (exact match of the date)
-      if (filters.endDate) {
-        const missionDate = new Date(mission.endDate);
-        const filterDate = new Date(filters.endDate);
-        
-        if (
-          missionDate.getFullYear() !== filterDate.getFullYear() ||
-          missionDate.getMonth() !== filterDate.getMonth() ||
-          missionDate.getDate() !== filterDate.getDate()
-        ) {
-          return false;
-        }
-      }
-      
-      // Filter by status (skip if 'all' or empty string)
-      if (filters.status && filters.status !== 'all' && mission.status !== filters.status) {
+      // Filter by status (skip if 'all')
+      if (filters.status !== 'all' && mission.status !== filters.status) {
         return false;
       }
       
-      // Filter by category (skip if 'all' or empty string)
-      if (filters.category && filters.category !== 'all' && mission.category !== filters.category) {
+      // Filter by category (skip if 'all')
+      if (filters.category !== 'all' && mission.category !== filters.category) {
         return false;
       }
       
@@ -63,9 +49,13 @@ const MissionTimelineView: React.FC<MissionTimelineViewProps> = ({
   // Sort missions by end date
   const sortedMissions = useMemo(() => {
     return [...filteredMissions].sort(
-      (a, b) => new Date(a.endDate).getTime() - new Date(b.endDate).getTime()
+      (a, b) => {
+        const dateA = new Date(a.endDate).getTime();
+        const dateB = new Date(b.endDate).getTime();
+        return filters.sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
+      }
     );
-  }, [filteredMissions]);
+  }, [filteredMissions, filters.sortOrder]);
 
   const handleOpenMission = (mission: Mission) => {
     setSelectedMission(mission);
@@ -74,9 +64,9 @@ const MissionTimelineView: React.FC<MissionTimelineViewProps> = ({
   
   const clearFilters = () => {
     setFilters({
-      endDate: null,
-      status: '',
-      category: '',
+      status: 'all',
+      category: 'all',
+      sortOrder: 'asc',
     });
   };
 

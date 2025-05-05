@@ -1,3 +1,4 @@
+
 export enum MissionStatusType {
   planned = 'planned',
   inProgress = 'inProgress',
@@ -28,3 +29,6 @@ export const MissionViewType = {
   list: 'list',
   card: 'card',
 };
+
+// Type for mission filter status that includes 'all' option
+export type MissionFilterStatusType = MissionStatusType | 'all';

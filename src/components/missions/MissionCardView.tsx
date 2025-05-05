@@ -31,9 +31,9 @@ const MissionCardView: React.FC<MissionCardViewProps> = ({ missions }) => {
   const [selectedMission, setSelectedMission] = useState<Mission | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [filters, setFilters] = useState({
-    endDate: null as Date | null,
-    status: '' as MissionStatusType | '',
-    category: '' as string,
+    status: 'all' as MissionStatusType | 'all',
+    category: 'all' as string | 'all',
+    sortOrder: 'asc' as 'asc' | 'desc',
   });
   const itemsPerPage = 9; // 3 rows * 3 columns
 
@@ -47,27 +47,13 @@ const MissionCardView: React.FC<MissionCardViewProps> = ({ missions }) => {
   // Apply filters to missions
   const filteredMissions = useMemo(() => {
     return missions.filter(mission => {
-      // Filter by end date (exact match of the date)
-      if (filters.endDate) {
-        const missionDate = new Date(mission.endDate);
-        const filterDate = new Date(filters.endDate);
-        
-        if (
-          missionDate.getFullYear() !== filterDate.getFullYear() ||
-          missionDate.getMonth() !== filterDate.getMonth() ||
-          missionDate.getDate() !== filterDate.getDate()
-        ) {
-          return false;
-        }
-      }
-      
-      // Filter by status (skip if 'all' or empty string)
-      if (filters.status && filters.status !== 'all' && mission.status !== filters.status) {
+      // Filter by status (skip if 'all')
+      if (filters.status !== 'all' && mission.status !== filters.status) {
         return false;
       }
       
-      // Filter by category (skip if 'all' or empty string)
-      if (filters.category && filters.category !== 'all' && mission.category !== filters.category) {
+      // Filter by category (skip if 'all')
+      if (filters.category !== 'all' && mission.category !== filters.category) {
         return false;
       }
       
@@ -75,18 +61,27 @@ const MissionCardView: React.FC<MissionCardViewProps> = ({ missions }) => {
     });
   }, [missions, filters]);
 
-  const totalPages = Math.ceil(filteredMissions.length / itemsPerPage);
+  // Sort and paginate missions
+  const sortedAndFilteredMissions = useMemo(() => {
+    return [...filteredMissions].sort((a, b) => {
+      const dateA = new Date(a.endDate).getTime();
+      const dateB = new Date(b.endDate).getTime();
+      return filters.sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
+    });
+  }, [filteredMissions, filters.sortOrder]);
+
+  const totalPages = Math.ceil(sortedAndFilteredMissions.length / itemsPerPage);
   // Reset to page 1 if filters change and current page is out of bounds
   if (currentPage > totalPages && totalPages > 0) {
     setCurrentPage(1);
   }
   
   const paginatedMissions = useMemo(() => {
-    return [...filteredMissions].slice(
+    return sortedAndFilteredMissions.slice(
       (currentPage - 1) * itemsPerPage,
       currentPage * itemsPerPage
     );
-  }, [filteredMissions, currentPage, itemsPerPage]);
+  }, [sortedAndFilteredMissions, currentPage, itemsPerPage]);
 
   const handlePreviousPage = () => {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
@@ -103,9 +98,9 @@ const MissionCardView: React.FC<MissionCardViewProps> = ({ missions }) => {
   
   const clearFilters = () => {
     setFilters({
-      endDate: null,
-      status: '',
-      category: '',
+      status: 'all',
+      category: 'all',
+      sortOrder: 'asc',
     });
   };
 
@@ -119,7 +114,7 @@ const MissionCardView: React.FC<MissionCardViewProps> = ({ missions }) => {
         clearFilters={clearFilters}
       />
 
-      {filteredMissions.length === 0 ? (
+      {sortedAndFilteredMissions.length === 0 ? (
         <div className='text-center py-12 bg-space-dark/50 backdrop-blur-sm rounded-lg p-6 border border-space-accent/20'>
           <p className='text-space-light/80'>没有符合筛选条件的任务</p>
         </div>
@@ -215,7 +210,7 @@ const MissionCardView: React.FC<MissionCardViewProps> = ({ missions }) => {
           </div>
 
           {/* Pagination controls */}
-          <div className='flex justify-center items-center mt-4'>
+          <div className='flex justify-center items-center mt-8'>
             <button
               onClick={handlePreviousPage}
               disabled={currentPage === 1}
