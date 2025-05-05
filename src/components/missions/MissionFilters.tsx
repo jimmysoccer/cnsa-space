@@ -140,7 +140,7 @@ const MissionFilters: React.FC<MissionFiltersProps> = ({
                     <SelectValue placeholder="选择任务状态" />
                   </SelectTrigger>
                   <SelectContent className="bg-space-dark border-space-accent/30">
-                    <SelectItem value="">全部</SelectItem>
+                    <SelectItem value="all">全部</SelectItem>
                     {Object.values(MissionStatusType).map((status) => (
                       <SelectItem key={status} value={status}>
                         {getStatusText(status)}
@@ -163,7 +163,7 @@ const MissionFilters: React.FC<MissionFiltersProps> = ({
                     <SelectValue placeholder="选择任务分类" />
                   </SelectTrigger>
                   <SelectContent className="bg-space-dark border-space-accent/30">
-                    <SelectItem value="">全部</SelectItem>
+                    <SelectItem value="all">全部</SelectItem>
                     {availableCategories.map((category) => (
                       <SelectItem key={category} value={category}>
                         {category}

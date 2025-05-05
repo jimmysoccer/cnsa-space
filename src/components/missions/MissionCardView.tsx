@@ -61,13 +61,13 @@ const MissionCardView: React.FC<MissionCardViewProps> = ({ missions }) => {
         }
       }
       
-      // Filter by status
-      if (filters.status && mission.status !== filters.status) {
+      // Filter by status (skip if 'all' or empty string)
+      if (filters.status && filters.status !== 'all' && mission.status !== filters.status) {
         return false;
       }
       
-      // Filter by category
-      if (filters.category && mission.category !== filters.category) {
+      // Filter by category (skip if 'all' or empty string)
+      if (filters.category && filters.category !== 'all' && mission.category !== filters.category) {
         return false;
       }
       
