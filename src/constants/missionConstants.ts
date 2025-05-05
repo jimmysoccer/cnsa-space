@@ -1,6 +1,8 @@
 import { Mission } from '@/types/mission';
 
-// Sample mission data
+export const DefaultMissionImage =
+  'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746223585/2460514_wuezew.jpg';
+
 export const MISSIONS: Mission[] = [
   {
     id: 1,
@@ -150,7 +152,153 @@ export const MISSIONS: Mission[] = [
       'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746460570/7af40ad162d9f2d3572c42d413b49d13632762d066cd_zrv5y3.webp',
     ],
   },
+  {
+    id: 7,
+    title: '悟空号暗物质探测卫星',
+    description:
+      '中国首颗暗物质粒子探测卫星，具有世界最高能量分辨率和空间分辨率。',
+    startDate: '2015-12-17',
+    endDate: '2025-12-31', // 预计服役期
+    status: 'in-progress',
+    target: ['太阳同步轨道'],
+    category: '科学探测',
+    assignee: '中科院紫金山天文台',
+    progress: 85,
+    technology: ['高能粒子探测器', 'BGO量能器'],
+    achievements: [
+      '首次直接观测到电子宇宙射线能谱在1TeV处的拐折',
+      '获得迄今最精确的GeV-TeV电子宇宙射线能谱',
+    ],
+    images: [DefaultMissionImage],
+  },
+  {
+    id: 8,
+    title: '墨子号量子科学实验卫星',
+    description:
+      '世界首颗量子通信卫星，实现千公里级量子纠缠分发和量子密钥分发。',
+    startDate: '2016-08-16',
+    endDate: '2024-12-31', // 预计服役期
+    status: 'in-progress',
+    target: ['太阳同步轨道'],
+    category: '通信技术',
+    assignee: '潘建伟团队',
+    progress: 95,
+    technology: ['量子纠缠源', '量子通信终端'],
+    achievements: [
+      '实现1200公里量子纠缠分发（创世界纪录）',
+      '完成洲际量子密钥分发',
+      '构建天地一体化量子通信网络雏形',
+    ],
+    images: [DefaultMissionImage],
+  },
+  {
+    id: 9,
+    title: '北斗三号全球组网',
+    description:
+      '建成独立自主的全球卫星导航系统，提供全球定位、导航和授时服务。',
+    startDate: '2017-11-05',
+    endDate: '2020-06-23',
+    status: 'completed',
+    target: ['中圆地球轨道', '地球静止轨道', '倾斜地球同步轨道'],
+    category: '导航系统',
+    assignee: '北斗卫星导航系统工程',
+    progress: 100,
+    technology: ['星间链路技术', '高精度原子钟', '全球短报文通信'],
+    achievements: [
+      '建成由35颗卫星组成的全球系统',
+      '定位精度优于10米（全球）',
+      '授时精度优于20纳秒',
+      '短报文通信能力提升10倍',
+    ],
+    images: [DefaultMissionImage],
+  },
+  {
+    id: 10,
+    title: '长征五号首飞',
+    description:
+      '中国现役运载能力最大的火箭，近地轨道运载能力25吨，奠定重型火箭基础。',
+    startDate: '2016-11-03',
+    endDate: '2016-11-03',
+    status: 'completed',
+    target: ['地球转移轨道'],
+    category: '运载火箭',
+    assignee: '中国运载火箭技术研究院',
+    progress: 100,
+    technology: ['YF-77氢氧发动机', '5米直径箭体', '模块化设计'],
+    achievements: ['中国进入大火箭时代', '为后续空间站建设奠定基础'],
+    images: [DefaultMissionImage],
+  },
+  {
+    id: 11,
+    title: '嫦娥四号（月背着陆）',
+    description: '人类首个在月球背面软着陆的探测器，携带"玉兔二号"月球车。',
+    startDate: '2018-12-08',
+    endDate: '2019-01-03',
+    status: 'completed',
+    target: ['月球背面-冯·卡门撞击坑'],
+    category: '月球探测',
+    assignee: '吴伟仁团队',
+    progress: 100,
+    technology: ['鹊桥中继卫星', '低频射电天文观测'],
+    achievements: [
+      '首次实现月背软着陆',
+      '发现月球深部物质新证据',
+      '玉兔二号成为月面工作时间最长月球车',
+    ],
+    images: [DefaultMissionImage],
+  },
+  {
+    id: 12,
+    title: '嫦娥五号（月球采样返回）',
+    description: '中国首次地外天体采样返回任务，带回1731克月壤样本。',
+    startDate: '2020-11-24',
+    endDate: '2020-12-17',
+    status: 'completed',
+    target: ['月球正面-风暴洋'],
+    category: '月球探测',
+    assignee: '孙家栋团队',
+    progress: 100,
+    technology: ['月面自动采样', '月球轨道无人交会对接', '月壤密封封装'],
+    achievements: [
+      '中国首次实现地外天体采样返回',
+      '带回最年轻的月球火山岩样本（约20亿年）',
+      '发现月球新矿物"嫦娥石"',
+    ],
+    images: [DefaultMissionImage],
+  },
+  {
+    id: 13,
+    title: '天舟货运飞船',
+    description: '中国空间站货物运输系统，最大上行运载能力6.9吨。',
+    startDate: '2017-04-20',
+    endDate: '2023-05-10', // 最新一次任务时间
+    status: 'in-progress',
+    target: ['中国空间站'],
+    category: '货运飞船',
+    assignee: '中国载人航天工程办公室',
+    progress: 100,
+    technology: ['全密封/半密封货舱设计', '快速自主交会对接（6.5小时）'],
+    achievements: ['完成空间站建造阶段全部物资运输任务', '实现推进剂在轨补加'],
+    images: [DefaultMissionImage],
+  },
+  {
+    id: 14,
+    title: '高分系列卫星',
+    description:
+      '中国高分辨率对地观测系统，形成全天候、全天时、全球覆盖的对地观测能力。',
+    startDate: '2013-04-26', // 高分一号发射
+    endDate: '2022-12-15', // 最新发射
+    status: 'in-progress',
+    target: ['地球观测'],
+    category: '遥感卫星',
+    assignee: '国家航天局',
+    progress: 90,
+    technology: ['亚米级光学成像', '合成孔径雷达', '高光谱成像'],
+    achievements: [
+      '建成包含10余颗卫星的观测系统',
+      '分辨率最高达0.5米',
+      '服务农业、减灾、环保等领域',
+    ],
+    images: [DefaultMissionImage],
+  },
 ];
-
-export const DefaultMissionImage =
-  'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746223585/2460514_wuezew.jpg';
