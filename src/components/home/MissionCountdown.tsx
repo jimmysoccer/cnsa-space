@@ -46,6 +46,17 @@ const MissionCountdown: React.FC<MissionCountdownProps> = ({ launchDate }) => {
         <div className='flex items-center mb-4'>
           <Calendar className='text-space-accent mr-2' />
           <h3 className='font-orbitron text-xl'>发射倒计时</h3>
+          <h4 className='ml-2 text-sm text-space-light/70'>
+            北京时间:{' '}
+            {new Date(launchDate).toLocaleString('zh-CN', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit',
+            })}
+          </h4>
         </div>
         <div className='grid grid-cols-4 gap-2 text-center'>
           <div className='bg-space-secondary/50 rounded-lg p-4'>
