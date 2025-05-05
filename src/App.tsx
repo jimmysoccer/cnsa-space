@@ -1,3 +1,4 @@
+
 import { Toaster } from '@/components/ui/toaster';
 import { Toaster as Sonner } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -8,6 +9,7 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Team from './pages/Team';
 import Technology from './pages/Technology';
+import TechnologyDetail from './pages/TechnologyDetail';
 import Contact from './pages/Contact';
 import { NavBarItemsObj } from './constants/navConstants';
 import MissionDetail from './pages/MissionDetail';
@@ -28,6 +30,10 @@ const App = () => (
             <Route
               path={NavBarItemsObj.technology.path}
               element={<Technology />}
+            />
+            <Route
+              path={`${NavBarItemsObj.technology.path}/:techId`}
+              element={<TechnologyDetail />}
             />
             <Route path={NavBarItemsObj.contact.path} element={<Contact />} />
             <Route path={NavBarItemsObj.missions.path} element={<Missions />} />

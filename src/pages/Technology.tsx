@@ -1,5 +1,9 @@
-import { Rocket, Search, Link, ArrowRight } from 'lucide-react';
+
+import { Rocket, Search, Link as LinkIcon, ArrowRight } from 'lucide-react';
 import { technologyHeaderBg } from '@/assets/images/image';
+import { Link } from 'react-router-dom';
+import { NavBarItemsObj } from '@/constants/navConstants';
+import { TECHNOLOGIES } from '@/constants/technologyConstants';
 
 const Technology = () => {
   return (
@@ -51,10 +55,24 @@ const Technology = () => {
                       技术
                     </h4>
                     <ul className='list-disc list-inside space-y-1'>
-                      <li>离子推进引擎</li>
+                      <li>
+                        <Link 
+                          to={`${NavBarItemsObj.technology.path}/ion-propulsion`}
+                          className="hover:text-space-accent transition-colors"
+                        >
+                          离子推进引擎
+                        </Link>
+                      </li>
                       <li>核热火箭</li>
                       <li>等离子体推进器</li>
-                      <li>反物质催化系统</li>
+                      <li>
+                        <Link 
+                          to={`${NavBarItemsObj.technology.path}/quantum-vacuum-propulsion`}
+                          className="hover:text-space-accent transition-colors"
+                        >
+                          量子真空推进系统
+                        </Link>
+                      </li>
                     </ul>
                   </div>
                   <div className='border-t border-space-accent/20 pt-4'>
@@ -67,9 +85,12 @@ const Technology = () => {
                   </div>
                 </div>
                 <div className='mt-6 text-center'>
-                  <button className='inline-flex items-center text-space-accent hover:text-space-light'>
+                  <Link 
+                    to={`${NavBarItemsObj.technology.path}/ion-propulsion`}
+                    className='inline-flex items-center text-space-accent hover:text-space-light'
+                  >
                     了解更多 <ArrowRight size={16} className='ml-1' />
-                  </button>
+                  </Link>
                 </div>
               </div>
 
@@ -77,7 +98,7 @@ const Technology = () => {
               <div className='tech-card'>
                 <div className='mb-6 flex justify-center'>
                   <div className='w-16 h-16 rounded-full bg-space-accent/20 flex items-center justify-center'>
-                    <Link className='h-8 w-8 text-space-accent' />
+                    <LinkIcon className='h-8 w-8 text-space-accent' />
                   </div>
                 </div>
                 <h3 className='text-xl font-orbitron font-bold mb-4 text-center'>
@@ -90,7 +111,14 @@ const Technology = () => {
                       技术
                     </h4>
                     <ul className='list-disc list-inside space-y-1'>
-                      <li>量子纠缠发射器</li>
+                      <li>
+                        <Link 
+                          to={`${NavBarItemsObj.technology.path}/quantum-entanglement-comms`}
+                          className="hover:text-space-accent transition-colors"
+                        >
+                          量子纠缠发射器
+                        </Link>
+                      </li>
                       <li>神经网络信号处理</li>
                       <li>激光通信阵列</li>
                       <li>低延迟网关网络</li>
@@ -106,9 +134,12 @@ const Technology = () => {
                   </div>
                 </div>
                 <div className='mt-6 text-center'>
-                  <button className='inline-flex items-center text-space-accent hover:text-space-light'>
+                  <Link 
+                    to={`${NavBarItemsObj.technology.path}/quantum-entanglement-comms`}
+                    className='inline-flex items-center text-space-accent hover:text-space-light'
+                  >
                     了解更多 <ArrowRight size={16} className='ml-1' />
-                  </button>
+                  </Link>
                 </div>
               </div>
 
@@ -168,17 +199,17 @@ const Technology = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-center'>
               <div>
                 <img
-                  src='https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
-                  alt='量子真空推进系统'
+                  src={TECHNOLOGIES[0].image}
+                  alt={TECHNOLOGIES[0].name}
                   className='rounded-lg shadow-xl shadow-space-accent/10 border border-space-accent/30'
                 />
               </div>
               <div>
                 <h3 className='text-2xl font-orbitron font-bold mb-4 text-space-accent'>
-                  量子真空推进
+                  {TECHNOLOGIES[0].name}
                 </h3>
                 <p className='text-space-light/80 mb-6'>
-                  我们革命性的推进系统利用太空真空中的量子波动能量，实现前所未有的效率和加速能力，不受传统推进剂限制。
+                  {TECHNOLOGIES[0].description}
                 </p>
                 <div className='space-y-4'>
                   <div className='bg-space-secondary/40 rounded-lg p-4 border border-space-accent/20'>
@@ -186,10 +217,9 @@ const Technology = () => {
                       关键优势
                     </h4>
                     <ul className='list-disc list-inside text-space-light/80 space-y-1'>
-                      <li>持续加速无需消耗推进剂</li>
-                      <li>理论最大速度接近光速的10%</li>
-                      <li>最小化辐射特征，适合隐秘操作</li>
-                      <li>从量子场相互作用中自给自足的能量生成</li>
+                      {TECHNOLOGIES[0].pros.slice(0, 4).map((pro, index) => (
+                        <li key={index}>{pro}</li>
+                      ))}
                     </ul>
                   </div>
 
@@ -198,11 +228,13 @@ const Technology = () => {
                       开发状态
                     </h4>
                     <p className='text-space-light/80'>
-                      目前处于先进测试阶段，小型原型在真空室条件下实现0.1g加速度。全尺寸实施计划用于欧罗巴探索者任务。
+                      {TECHNOLOGIES[0].currentProgress}
                     </p>
                   </div>
                 </div>
-                <button className='space-button mt-8'>技术规格</button>
+                <Link to={`${NavBarItemsObj.technology.path}/${TECHNOLOGIES[0].id}`}>
+                  <button className='space-button mt-8'>技术规格</button>
+                </Link>
               </div>
             </div>
           </div>
