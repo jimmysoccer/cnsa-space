@@ -19,40 +19,29 @@ import { Link } from 'react-router-dom';
 import { Mission } from '@/types/mission';
 import MissionDetailModal from './MissionDetailModal';
 import { NavBarItemsObj } from '@/constants/navConstants';
-import MissionFilters from './MissionFilters';
-import { useMissionFilter } from '@/hooks/useMissionFilter';
+import { useAtomValue } from 'jotai';
+import { missionsAtom } from '@/atoms/atoms';
+import { Badge } from '../ui/badge';
 
-interface MissionCardViewProps {
-  missions: Mission[];
-}
-
-const MissionCardView: React.FC<MissionCardViewProps> = ({ missions }) => {
+const MissionCardView = () => {
+  const missions = useAtomValue(missionsAtom);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedMission, setSelectedMission] = useState<Mission | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const itemsPerPage = 9; // 3 rows * 3 columns
 
-  // Use our custom hook for filtering logic
-  const {
-    filters,
-    setFilters,
-    availableCategories,
-    sortedAndFilteredMissions,
-    clearFilters
-  } = useMissionFilter(missions);
-
-  const totalPages = Math.ceil(sortedAndFilteredMissions.length / itemsPerPage);
+  const totalPages = Math.ceil(missions.length / itemsPerPage);
   // Reset to page 1 if filters change and current page is out of bounds
   if (currentPage > totalPages && totalPages > 0) {
     setCurrentPage(1);
   }
-  
+
   const paginatedMissions = useMemo(() => {
-    return sortedAndFilteredMissions.slice(
+    return missions.slice(
       (currentPage - 1) * itemsPerPage,
       currentPage * itemsPerPage
     );
-  }, [sortedAndFilteredMissions, currentPage, itemsPerPage]);
+  }, [missions, currentPage, itemsPerPage]);
 
   const handlePreviousPage = () => {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
@@ -69,15 +58,7 @@ const MissionCardView: React.FC<MissionCardViewProps> = ({ missions }) => {
 
   return (
     <div>
-      {/* Add filters */}
-      <MissionFilters 
-        onFilterChange={setFilters}
-        availableCategories={availableCategories}
-        activeFilters={filters}
-        clearFilters={clearFilters}
-      />
-
-      {sortedAndFilteredMissions.length === 0 ? (
+      {missions.length === 0 ? (
         <div className='text-center py-12 bg-space-dark/50 backdrop-blur-sm rounded-lg p-6 border border-space-accent/20'>
           <p className='text-space-light/80'>没有符合筛选条件的任务</p>
         </div>
@@ -150,8 +131,16 @@ const MissionCardView: React.FC<MissionCardViewProps> = ({ missions }) => {
                   </div>
                 </CardContent>
                 <CardFooter className='flex justify-between pt-2 border-t border-space-accent/10'>
-                  <span className='text-xs text-space-light/60'>
-                    {mission.category}
+                  <span className='text-space-light font-medium'>
+                    {mission.category.map((cat, index) => (
+                      <Badge
+                        key={index}
+                        variant='outline'
+                        className='border-space-accent/30 text-space-light'
+                      >
+                        {cat.trim()}
+                      </Badge>
+                    ))}
                   </span>
                   <span className='text-xs text-space-light/60'>
                     指派给: {mission.assignee}

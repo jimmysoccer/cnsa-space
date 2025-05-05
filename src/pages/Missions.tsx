@@ -1,17 +1,16 @@
 import { AlignJustify, LayoutGrid, ListOrdered } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import MissionTimelineView from '@/components/missions/MissionTimelineView';
-import { MISSIONS } from '@/constants/missionConstants';
 import MissionCardView from '../components/missions/MissionCardView';
 import MissionListView from '../components/missions/MissionListView';
 import { missionsHeaderBg } from '@/assets/images/image';
 import { MissionViewType } from '@/types/mission';
 import { missionViewTypeAtom } from '@/atoms/atoms';
 import { useAtom } from 'jotai';
+import MissionFilters from '@/components/missions/MissionFilters';
 
 const Missions = () => {
   const [activeView, setActiveView] = useAtom(missionViewTypeAtom);
-
   return (
     <div className=' pt-16'>
       {/* Hero section */}
@@ -71,17 +70,21 @@ const Missions = () => {
                 </TabsTrigger>
               </TabsList>
             </div>
+            {/* Add filters */}
+            <div className='p-4'>
+              <MissionFilters />
+            </div>
 
             <TabsContent value={MissionViewType.timeline} className='mt-0'>
-              <MissionTimelineView missions={MISSIONS}></MissionTimelineView>
+              <MissionTimelineView></MissionTimelineView>
             </TabsContent>
 
             <TabsContent value={MissionViewType.card} className='mt-0'>
-              <MissionCardView missions={MISSIONS}></MissionCardView>
+              <MissionCardView></MissionCardView>
             </TabsContent>
 
             <TabsContent value={MissionViewType.list} className='mt-0'>
-              <MissionListView missions={MISSIONS}></MissionListView>
+              <MissionListView></MissionListView>
             </TabsContent>
           </Tabs>
         </div>

@@ -12,6 +12,8 @@ export const getStatusIcon = (status: Mission['status']) => {
       return <CheckCircle2 className='h-5 w-5 text-blue-300' />;
     case MissionStatusType.delayed:
       return <Clock className='h-5 w-5 text-red-400' />;
+    case MissionStatusType.all:
+      return <Clock className='h-5 w-5 text-purple-400' />;
     default:
       return <Clock className='h-5 w-5' />;
   }
@@ -27,6 +29,8 @@ export const getStatusColor = (status: Mission['status']) => {
       return 'bg-blue-500/20 text-blue-300';
     case MissionStatusType.delayed:
       return 'bg-red-500/20 text-red-400';
+    case MissionStatusType.all:
+      return 'bg-gray-500/20 text-purple-400';
     default:
       return 'bg-gray-500/20 text-gray-300';
   }
@@ -42,6 +46,8 @@ export const getStatusText = (status: Mission['status']) => {
       return '已完成';
     case MissionStatusType.delayed:
       return '已延期';
+    case MissionStatusType.all:
+      return '所有任务';
     default:
       return '未知状态';
   }
@@ -101,20 +107,20 @@ export const getStatusBadge = (status: Mission['status']) => {
           </span>
         </div>
       );
+    case MissionStatusType.all:
+      return (
+        <div className='flex items-center whitespace-nowrap'>
+          <Clock className='h-4 w-4 text-purple-400 mr-1.5' />
+          <span
+            className={`text-xs px-2 py-0.5 rounded-full ${getStatusColor(
+              status
+            )}`}
+          >
+            所有任务
+          </span>
+        </div>
+      );
     default:
       return <span>未知状态</span>;
   }
-};
-
-// Adding the missing getPriorityBadge function
-export const getPriorityBadge = (priority: string) => {
-  return (
-    <div className='flex items-center'>
-      <span
-        className={`text-xs px-2 py-0.5 rounded-full bg-space-accent/20 text-space-accent`}
-      >
-        {priority}
-      </span>
-    </div>
-  );
 };

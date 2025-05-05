@@ -170,7 +170,17 @@ const MissionDetail = () => {
                     <Folder className='h-4 w-4 mr-1 text-space-accent/70' />
                     分类
                   </h4>
-                  <p className='text-space-light'>{mission.category}</p>
+                  <div className='flex flex-wrap gap-2'>
+                    {mission.category.map((cat, index) => (
+                      <Badge
+                        key={index}
+                        variant='outline'
+                        className='border-space-accent/30 text-space-light'
+                      >
+                        {cat.trim()}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
 
                 <div>
@@ -235,7 +245,15 @@ const MissionDetail = () => {
                         任务类别
                       </p>
                       <p className='text-space-light font-medium'>
-                        {mission.category}
+                        {mission.category.map((cat, index) => (
+                          <Badge
+                            key={index}
+                            variant='outline'
+                            className='border-space-accent/30 text-space-light'
+                          >
+                            {cat.trim()}
+                          </Badge>
+                        ))}
                       </p>
                     </div>
                   </div>

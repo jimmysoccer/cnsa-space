@@ -4,27 +4,13 @@ import { Mission } from '../../types/mission';
 import { getStatusColor, getStatusText } from '@/utils/mission-status';
 import MissionDetailModal from './MissionDetailModal';
 import { DefaultMissionImage } from '@/constants/missionConstants';
-import MissionFilters from './MissionFilters';
-import { useMissionFilter } from '@/hooks/useMissionFilter';
+import { useAtomValue } from 'jotai';
+import { missionsAtom } from '@/atoms/atoms';
 
-interface MissionTimelineViewProps {
-  missions: Mission[];
-}
-
-const MissionTimelineView: React.FC<MissionTimelineViewProps> = ({
-  missions,
-}) => {
+const MissionTimelineView = () => {
+  const missions = useAtomValue(missionsAtom);
   const [selectedMission, setSelectedMission] = useState<Mission | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
-  
-  // Use our custom hook for filtering logic
-  const {
-    filters,
-    setFilters,
-    availableCategories,
-    sortedAndFilteredMissions,
-    clearFilters
-  } = useMissionFilter(missions);
 
   const handleOpenMission = (mission: Mission) => {
     setSelectedMission(mission);
@@ -33,14 +19,6 @@ const MissionTimelineView: React.FC<MissionTimelineViewProps> = ({
 
   return (
     <div className='max-w-6xl mx-auto relative'>
-      {/* Add filters */}
-      <MissionFilters 
-        onFilterChange={setFilters}
-        availableCategories={availableCategories}
-        activeFilters={filters}
-        clearFilters={clearFilters}
-      />
-
       {/* Timeline section */}
       <section className=''>
         <div className='container mx-auto px-4'>
@@ -52,13 +30,13 @@ const MissionTimelineView: React.FC<MissionTimelineViewProps> = ({
             {/* Timeline line */}
             <div className='absolute left-0 md:left-1/2 top-0 bottom-0 w-1 bg-space-accent/30 transform md:translate-x-[-50%] hidden md:block'></div>
 
-            {sortedAndFilteredMissions.length === 0 ? (
+            {missions.length === 0 ? (
               <div className='text-center py-12 bg-space-dark/50 backdrop-blur-sm rounded-lg p-6 border border-space-accent/20'>
                 <p className='text-space-light/80'>没有符合筛选条件的任务</p>
               </div>
             ) : (
               <div className='space-y-12'>
-                {sortedAndFilteredMissions.map((mission, index) => (
+                {missions.map((mission, index) => (
                   <div
                     key={mission.id}
                     className={`md:flex ${
@@ -74,7 +52,9 @@ const MissionTimelineView: React.FC<MissionTimelineViewProps> = ({
                     <div className='md:w-1/2 bg-space-dark/50 backdrop-blur-sm rounded-lg p-6 border border-space-accent/20'>
                       <img
                         src={
-                          mission.images ? mission.images[0] : DefaultMissionImage
+                          mission.images
+                            ? mission.images[0]
+                            : DefaultMissionImage
                         }
                         alt={mission.title}
                         className='w-full h-auto max-h-[200px] rounded-lg mb-4'
@@ -89,7 +69,10 @@ const MissionTimelineView: React.FC<MissionTimelineViewProps> = ({
                         {mission.title}
                       </h3>
                       <div className='flex items-center mb-4'>
-                        <Calendar size={16} className='text-space-accent mr-2' />
+                        <Calendar
+                          size={16}
+                          className='text-space-accent mr-2'
+                        />
                         <span className='text-space-light/70'>
                           {mission.endDate}
                         </span>

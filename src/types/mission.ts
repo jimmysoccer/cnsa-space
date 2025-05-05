@@ -1,5 +1,5 @@
-
 export enum MissionStatusType {
+  all = 'all',
   planned = 'planned',
   inProgress = 'inProgress',
   completed = 'completed',
@@ -14,7 +14,7 @@ export interface Mission {
   endDate: string;
   status: MissionStatusType;
   target: string[];
-  category: string;
+  category: string[];
   assignee: string;
   progress: number;
   technology: string[];
