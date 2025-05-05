@@ -1,4 +1,3 @@
-
 // Define technology type
 export interface Technology {
   id: string;
