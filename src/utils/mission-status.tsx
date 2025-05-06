@@ -2,6 +2,20 @@ import { Mission, MissionStatusType } from '@/types/mission';
 import { Clock, Flag, CheckCircle2 } from 'lucide-react';
 import { ArrowUpCircle, CheckCircle, AlertCircle } from 'lucide-react';
 
+export const getCurrentStatus = (mission: Mission) => {
+  const currentDate = new Date();
+  const startDate = new Date(mission.startDate);
+  const endDate = new Date(mission.endDate);
+
+  if (currentDate < startDate) {
+    return MissionStatusType.planned;
+  } else if (currentDate >= startDate && currentDate <= endDate) {
+    return MissionStatusType.inProgress;
+  } else if (currentDate > endDate) {
+    return MissionStatusType.completed;
+  } else return MissionStatusType.delayed;
+};
+
 export const getStatusIcon = (status: Mission['status']) => {
   switch (status) {
     case MissionStatusType.planned:

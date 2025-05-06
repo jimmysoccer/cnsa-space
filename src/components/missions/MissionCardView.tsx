@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/card';
 import { Calendar, Target } from 'lucide-react';
 import {
+  getCurrentStatus,
   getStatusColor,
   getStatusIcon,
   getStatusText,
@@ -82,13 +83,13 @@ const MissionCardView = () => {
                       {mission.title}
                     </CardTitle>
                     <div className='flex items-center'>
-                      {getStatusIcon(mission.status)}
+                      {getStatusIcon(getCurrentStatus(mission))}
                       <span
                         className={`ml-2 text-xs px-2 py-1 rounded-full ${getStatusColor(
-                          mission.status
+                          getCurrentStatus(mission)
                         )}`}
                       >
-                        {getStatusText(mission.status)}
+                        {getStatusText(getCurrentStatus(mission))}
                       </span>
                     </div>
                   </div>

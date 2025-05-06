@@ -4,7 +4,11 @@ import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { MissionStatusType } from '@/types/mission';
-import { getStatusBadge, getStatusText } from '@/utils/mission-status';
+import {
+  getCurrentStatus,
+  getStatusBadge,
+  getStatusText,
+} from '@/utils/mission-status';
 import {
   Select,
   SelectContent,
@@ -38,7 +42,7 @@ const MissionFilters = () => {
       // Filter by status (skip if MissionStatusType.all)
       if (
         filters.status !== MissionStatusType.all &&
-        mission.status !== filters.status
+        getCurrentStatus(mission) !== filters.status
       ) {
         return false;
       }

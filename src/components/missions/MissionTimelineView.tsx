@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { Mission } from '../../types/mission';
-import { getStatusColor, getStatusText } from '@/utils/mission-status';
+import {
+  getCurrentStatus,
+  getStatusColor,
+  getStatusText,
+} from '@/utils/mission-status';
 import MissionDetailModal from './MissionDetailModal';
 import { DefaultMissionImage } from '@/constants/missionConstants';
 import { useAtomValue } from 'jotai';
@@ -81,10 +85,10 @@ const MissionTimelineView = () => {
                         </span>
                         <span
                           className={`ml-3 text-xs px-2 py-1 rounded-full font-medium ${getStatusColor(
-                            mission.status
+                            getCurrentStatus(mission)
                           )}`}
                         >
-                          {getStatusText(mission.status)}
+                          {getStatusText(getCurrentStatus(mission))}
                         </span>
                       </div>
                       <p className='text-space-light/80 mb-4'>

@@ -8,7 +8,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Calendar } from 'lucide-react';
-import { getStatusBadge } from '@/utils/mission-status';
+import { getCurrentStatus, getStatusBadge } from '@/utils/mission-status';
 import { formatDateToYYYYMMDD } from '@/utils/date';
 
 import { Link } from 'react-router-dom';
@@ -97,7 +97,9 @@ const MissionListView = () => {
                       </p>
                     </div>
                   </TableCell>
-                  <TableCell>{getStatusBadge(mission.status)}</TableCell>
+                  <TableCell>
+                    {getStatusBadge(getCurrentStatus(mission))}
+                  </TableCell>
                   <TableCell className='whitespace-nowrap'>
                     <div className='flex items-center'>
                       <Calendar className='h-3 w-3 text-space-accent mr-1.5' />
