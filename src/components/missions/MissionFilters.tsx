@@ -56,8 +56,8 @@ const MissionFilters = () => {
 
     // Sort filtered missions
     const sortedAndFilteredMissions = [...filteredMissions].sort((a, b) => {
-      const dateA = new Date(a.endDate).getTime();
-      const dateB = new Date(b.endDate).getTime();
+      const dateA = new Date(a.startDate).getTime();
+      const dateB = new Date(b.startDate).getTime();
       return filters.sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
     });
 

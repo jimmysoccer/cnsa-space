@@ -102,8 +102,9 @@ const MissionCardView = () => {
                     <div className='flex items-center'>
                       <Calendar className='h-4 w-4 text-space-accent mr-2' />
                       <span className='text-xs text-space-light/70'>
-                        {formatDateToYYYYMMDD(mission.startDate)} -{' '}
-                        {formatDateToYYYYMMDD(mission.endDate)}
+                        {`${formatDateToYYYYMMDD(
+                          mission.startDate
+                        )} - ${formatDateToYYYYMMDD(mission.endDate)}`}
                       </span>
                     </div>
 

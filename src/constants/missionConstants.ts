@@ -305,4 +305,34 @@ export const MISSIONS: Mission[] = [
     ],
     images: [DefaultMissionImage],
   },
+  {
+    id: 15,
+    title: '天问二号（小行星采样返回）',
+    description:
+      '中国首次小行星采样返回任务，目标为近地小行星2016 HO3（Kamoʻoalewa）',
+    startDate: '2025-05-30', // 计划发射时间（待官方确认）
+    endDate: '2030-12-31', // 返回时间预计2030年
+    status: MissionStatusType.planned, // 或 "active" 视任务阶段调整
+    target: ['小行星2016 HO3（Kamoʻoalewa）', '主带彗星311P'],
+    category: ['小行星探测', '彗星探测'],
+    assignee: '张荣桥团队', // 天问系列总设计师
+    progress: 0, // 发射前为0，升空后按阶段更新
+    technology: [
+      '小行星智能附着采样',
+      '多天体引力借力飞行',
+      '微重力环境下密封封装',
+      '彗星近距离观测',
+    ],
+    achievements: [
+      // 预期成果（待实际任务更新）
+      '中国首次小行星样本返回',
+      '探索地球共轨天体的起源',
+      '实现"一箭双探"（小行星+彗星）',
+    ],
+    images: [
+      DefaultMissionImage, // 需替换为实际图片URL
+    ],
+    // 可选扩展字段
+    note: '任务分两阶段：2025年采样小行星，2030年探访彗星311P后返回地球',
+  },
 ];

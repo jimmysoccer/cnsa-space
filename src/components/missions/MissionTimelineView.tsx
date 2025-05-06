@@ -6,6 +6,7 @@ import MissionDetailModal from './MissionDetailModal';
 import { DefaultMissionImage } from '@/constants/missionConstants';
 import { useAtomValue } from 'jotai';
 import { missionsAtom } from '@/atoms/atoms';
+import { formatDateToYYYYMMDD } from '@/utils/date';
 
 const MissionTimelineView = () => {
   const missions = useAtomValue(missionsAtom);
@@ -74,7 +75,9 @@ const MissionTimelineView = () => {
                           className='text-space-accent mr-2'
                         />
                         <span className='text-space-light/70'>
-                          {mission.endDate}
+                          {`${formatDateToYYYYMMDD(
+                            mission.startDate
+                          )} - ${formatDateToYYYYMMDD(mission.endDate)}`}
                         </span>
                         <span
                           className={`ml-3 text-xs px-2 py-1 rounded-full font-medium ${getStatusColor(

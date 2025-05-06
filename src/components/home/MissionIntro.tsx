@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import MissionCountdown from './MissionCountdown';
 import { NavBarItemsObj } from '@/constants/navConstants';
 import { MISSIONS } from '@/constants/missionConstants';
+import MissionCard from './MissionCard';
 
 const getNextMission = () => {
   if (MISSIONS && MISSIONS.length > 0) {
@@ -15,19 +16,10 @@ const getNextMission = () => {
         (a, b) =>
           new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
       )[0];
-
-      return {
-        title: nextMission.title,
-        description: nextMission.description,
-        startDate: new Date(nextMission.startDate),
-      };
+      return nextMission;
     }
   }
-  return {
-    title: '地平线探索者',
-    description: '即将发射，探索木星的卫星。',
-    startDate: new Date('2025-05-15T10:00:00Z'),
-  };
+  return NextMission[NextMission.length - 1];
 };
 
 const NextMission = getNextMission();
@@ -42,18 +34,10 @@ const MissionIntro = () => {
               <h2 className='text-3xl md:text-4xl font-orbitron font-bold mb-4'>
                 下一次任务发射
               </h2>
-              <p className='text-lg text-space-light/80 mb-6'>
-                我们的下一个任务"{NextMission.title}"即将启动
-              </p>
-              <p className='text-lg text-space-light/80 mb-6'>
-                {NextMission.description}
-              </p>
-              <Link
-                to={NavBarItemsObj.missions.path}
-                className='space-button inline-flex'
-              >
-                任务详情 <Rocket size={18} />
-              </Link>
+              <MissionCard
+                key={'MissionIntroCounutdownCard'}
+                mission={NextMission}
+              />
             </div>
             <MissionCountdown launchDate={NextMission.startDate} />
           </div>
