@@ -330,7 +330,9 @@ export const MISSIONS: Mission[] = [
       '实现"一箭双探"（小行星+彗星）',
     ],
     images: [
-      DefaultMissionImage, // 需替换为实际图片URL
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746654172/4b90f603738da9773912f0ea1b08ef198618377a45e2_s2vzen.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746654172/42166d224f4a20a446237cc33c0b8f22720e0cf37a27_ioxk5n.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746654172/21a4462309f7905298220a3aa0aac0ca7bcb0a467f27_oar7bk.webp',
     ],
     // 可选扩展字段
     note: '任务分两阶段：2025年采样小行星，2030年探访彗星311P后返回地球',
