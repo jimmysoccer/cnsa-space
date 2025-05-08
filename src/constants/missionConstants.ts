@@ -195,7 +195,14 @@ export const MISSIONS: Mission[] = [
       '完成洲际量子密钥分发',
       '构建天地一体化量子通信网络雏形',
     ],
-    images: [DefaultMissionImage],
+    images: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746731232/bba1cd11728b4710b912e355409bd4fdfc0392458557_qlskgy.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746731232/7acb0a46f21fbe096b63471610351b338744ebf80721_zfgya9.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746731232/35a85edf8db1cb134954020ba601414e9258d109ddd4_eoia8p.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746731232/37d12f2eb9389b504fc2254dfe60f2dde71190efc02c_jxyyyl.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746731232/18d8bc3eb13533fa828bbd30d386ea1f4134970aed2a_e2c4nu.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746731232/2fdda3cc7cd98d1001e9df005a6aaf0e7bec54e73afe_wulhtm.webp',
+    ],
   },
   {
     id: 9,
@@ -260,7 +267,11 @@ export const MISSIONS: Mission[] = [
       '发现月球深部物质新证据',
       '玉兔二号成为月面工作时间最长月球车',
     ],
-    images: [DefaultMissionImage],
+    images: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746731237/5243fbf2b2119313b07e7d33f0721bd7912397dd2757_c9wqcy.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746731244/4ec2d5628535e5dde7119fd81695b0efce1b9d16c423_fcsyvo.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746731237/2fdda3cc7cd98d1001e9f5b8b475af0e7bec55e73aad_q8thjc.webp',
+    ],
   },
   {
     id: 12,
@@ -296,7 +307,14 @@ export const MISSIONS: Mission[] = [
     progress: 100,
     technology: ['全密封/半密封货舱设计', '快速自主交会对接（6.5小时）'],
     achievements: ['完成空间站建造阶段全部物资运输任务', '实现推进剂在轨补加'],
-    images: [DefaultMissionImage],
+    images: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746731235/d62a6059252dd42a2834c02246624cb5c9ea14ce12ba_g5hsrh.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746731234/0823dd54564e9258d109b0df14c8c658ccbf6c81e0e2_fu2p5b.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746731234/0e2442a7d933c895d1430968fc4b64f082025aafaad2_fuok48.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746731236/e850352ac65c10385343e01a9f498413b07ecb8023e9_uv2kie.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746731235/f9dcd100baa1cd11728b38fd944adffcc3cec2fd87ec_ujj1a6.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746731235/7a899e510fb30f2442a778dde5cdc643ad4bd013a5ef_pujspy.webp',
+    ],
   },
   {
     id: 14,
