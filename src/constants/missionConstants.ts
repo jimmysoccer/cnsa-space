@@ -169,7 +169,13 @@ export const MISSIONS: Mission[] = [
       '首次直接观测到电子宇宙射线能谱在1TeV处的拐折',
       '获得迄今最精确的GeV-TeV电子宇宙射线能谱',
     ],
-    images: [DefaultMissionImage],
+    images: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746730072/cc11728b4710b912c8fcd13c5ea5eb039245d78884e3_m50qiq.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746730072/a5c27d1ed21b0ef41bd5bb62789346da81cb39db90ca_l6opad.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746730071/83025aafa40f4bfbfbed97949e176ff0f736aec3b2e1_jyrkrk.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746730071/622762d0f703918fa0ec700ecc65319759ee3c6d6ee4_uiwcll.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746730072/dcc451da81cb39dbb6fd76964d4e1e24ab18962b9ae1_kn1rrv.webp',
+    ],
   },
   {
     id: 8,
@@ -210,7 +216,14 @@ export const MISSIONS: Mission[] = [
       '授时精度优于20纳秒',
       '短报文通信能力提升10倍',
     ],
-    images: [DefaultMissionImage],
+    images: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746730061/2f738bd4b31c8701a18bdd178734892f0708293851a4_drgwwu.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746730062/d0526df04da65193a50f5245_bxxl8b.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746730063/8435e5dde71190ef76c6fa1dda428a16fdfaae51cae2_kxnoul.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746730062/3c6d55fbb2fb43166d22ff934eea512309f791527581_x5u1gh.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746730063/d62a6059252dd42a2834366234694cb5c9ea14ce12e2_wspnkf.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746730063/359b033b5bb5c9ea15ce312ae26ba1003af33b8715e2_dzlyqt.webp',
+    ],
   },
   {
     id: 10,
@@ -296,14 +309,17 @@ export const MISSIONS: Mission[] = [
     target: ['地球观测'],
     category: ['遥感卫星'],
     assignee: '国家航天局',
-    progress: 90,
+    progress: 100,
     technology: ['亚米级光学成像', '合成孔径雷达', '高光谱成像'],
     achievements: [
       '建成包含10余颗卫星的观测系统',
       '分辨率最高达0.5米',
       '服务农业、减灾、环保等领域',
     ],
-    images: [DefaultMissionImage],
+    images: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746729787/b90e7bec54e736d12f2e361f420758c2d5628535c3d6_wntaa5.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746729787/HK_WCN_%E7%81%A3%E4%BB%94%E5%8C%97_Wan_Chai_North_%E9%A6%99%E6%B8%AF%E6%9C%83%E5%B1%95_HKCEC_%E5%89%B5%E7%A7%91%E5%8D%9A%E8%A6%BD_InnoTech_Expo_HKSAR_%E8%88%AA%E5%A4%A9%E5%99%A8_outer_spacecraft_%E9%AB%98%E5%88%86%E4%B8%83%E8%99%9F_%E8%A1%9B%E6%98%9F_Gaofen_Six_December_2022_Px3_03_uox0hq.jpg',
+    ],
   },
   {
     id: 15,
