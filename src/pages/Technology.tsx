@@ -92,65 +92,6 @@ const Technology = () => {
           </div>
         </div>
       </section>
-
-      {/* Research Areas */}
-      <section className='bg-space-secondary/30 py-16'>
-        <div className='container mx-auto px-4'>
-          <h2 className='text-3xl font-orbitron font-bold mb-12 text-center'>
-            研究领域
-          </h2>
-
-          <div className='max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-            <div className='bg-space-dark/70 backdrop-blur-sm rounded-lg p-6 border border-space-accent/20'>
-              <h3 className='font-orbitron text-xl mb-4'>人工重力</h3>
-              <p className='text-space-light/80 mb-4'>
-                研究在长期太空任务中产生人工重力的实用方法，防止肌肉和骨骼退化。
-              </p>
-              <div className='h-1 w-1/3 bg-space-accent/70 rounded-full'></div>
-            </div>
-
-            <div className='bg-space-dark/70 backdrop-blur-sm rounded-lg p-6 border border-space-accent/20'>
-              <h3 className='font-orbitron text-xl mb-4'>辐射屏蔽</h3>
-              <p className='text-space-light/80 mb-4'>
-                开发先进材料和电磁场，保护宇航员免受有害宇宙和太阳辐射。
-              </p>
-              <div className='h-1 w-1/3 bg-space-accent/70 rounded-full'></div>
-            </div>
-
-            <div className='bg-space-dark/70 backdrop-blur-sm rounded-lg p-6 border border-space-accent/20'>
-              <h3 className='font-orbitron text-xl mb-4'>量子计算</h3>
-              <p className='text-space-light/80 mb-4'>
-                应用量子计算解决复杂轨道力学计算并实时优化任务轨迹。
-              </p>
-              <div className='h-1 w-1/3 bg-space-accent/70 rounded-full'></div>
-            </div>
-
-            <div className='bg-space-dark/70 backdrop-blur-sm rounded-lg p-6 border border-space-accent/20'>
-              <h3 className='font-orbitron text-xl mb-4'>地球改造</h3>
-              <p className='text-space-light/80 mb-4'>
-                使其他世界适合人类定居的行星工程理论和实践方法。
-              </p>
-              <div className='h-1 w-1/3 bg-space-accent/70 rounded-full'></div>
-            </div>
-
-            <div className='bg-space-dark/70 backdrop-blur-sm rounded-lg p-6 border border-space-accent/20'>
-              <h3 className='font-orbitron text-xl mb-4'>低温休眠</h3>
-              <p className='text-space-light/80 mb-4'>
-                研究安全地将人类置于长期行星际或潜在星际任务的休眠状态。
-              </p>
-              <div className='h-1 w-1/3 bg-space-accent/70 rounded-full'></div>
-            </div>
-
-            <div className='bg-space-dark/70 backdrop-blur-sm rounded-lg p-6 border border-space-accent/20'>
-              <h3 className='font-orbitron text-xl mb-4'>小行星采矿</h3>
-              <p className='text-space-light/80 mb-4'>
-                从近地小行星提取有价值的矿物和资源以支持太空制造和殖民的技术。
-              </p>
-              <div className='h-1 w-1/3 bg-space-accent/70 rounded-full'></div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
