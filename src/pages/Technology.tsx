@@ -3,6 +3,7 @@ import { technologyHeaderBg } from '@/assets/images/image';
 import { Link } from 'react-router-dom';
 import { NavBarItemsObj } from '@/constants/navConstants';
 import { TECHNOLOGIES } from '@/constants/technologyConstants';
+import TechnologyCarousel from '@/components/technology/TechnologyCarousel';
 
 const Technology = () => {
   return (
@@ -30,67 +31,10 @@ const Technology = () => {
         </div>
       </section>
 
-      {/* Technology Overview */}
+      {/* Technology Overview with Carousel */}
       <section className='bg-space-secondary/30 py-16'>
         <div className='container mx-auto px-4'>
-          <div className='max-w-6xl mx-auto'>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-              {TECHNOLOGIES.map((tech) => (
-                <div className='tech-card'>
-                  <div className='mb-6 flex justify-center'>
-                    <div className='w-16 h-16 rounded-full bg-space-accent/20 flex items-center justify-center'>
-                      <Rocket className='h-8 w-8 text-space-accent' />
-                    </div>
-                  </div>
-                  <h3 className='text-xl font-orbitron font-bold mb-4 text-center'>
-                    {tech.name}
-                  </h3>
-                  <div className='space-y-4 text-space-light/80'>
-                    <p>{tech.description}</p>
-                    <div className='border-t border-space-accent/20 pt-4'>
-                      <h4 className='font-orbitron text-space-accent mb-2 text-sm uppercase'>
-                        技术
-                      </h4>
-                      <ul className='list-disc list-inside space-y-1'>
-                        <li>
-                          <Link
-                            to={`${NavBarItemsObj.technology.path}/ion-propulsion`}
-                            className='hover:text-space-accent transition-colors'
-                          >
-                            离子推进引擎
-                          </Link>
-                        </li>
-                        <li>核热火箭</li>
-                        <li>等离子体推进器</li>
-                        <li>
-                          <Link
-                            to={`${NavBarItemsObj.technology.path}/quantum-vacuum-propulsion`}
-                            className='hover:text-space-accent transition-colors'
-                          >
-                            量子真空推进系统
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className='border-t border-space-accent/20 pt-4'>
-                      <h4 className='font-orbitron text-space-accent mb-2 text-sm uppercase'>
-                        当前应用
-                      </h4>
-                      <p>{tech.currentApplications}</p>
-                    </div>
-                  </div>
-                  <div className='mt-6 text-center'>
-                    <Link
-                      to={`${NavBarItemsObj.technology.path}/${tech.id}`}
-                      className='inline-flex items-center text-space-accent hover:text-space-light'
-                    >
-                      了解更多 <ArrowRight size={16} className='ml-1' />
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <TechnologyCarousel technologies={TECHNOLOGIES} />
         </div>
       </section>
 
