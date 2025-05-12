@@ -1,12 +1,13 @@
 
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ChevronLeft, Star, AlertCircle, Check, X, Lightbulb, TrendingUp, History } from 'lucide-react';
+import { ChevronLeft, Star, AlertCircle, Check, X, Lightbulb, TrendingUp, History, Image } from 'lucide-react';
 import { getTechnologyById } from '@/constants/technologyConstants';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { NavBarItemsObj } from '@/constants/navConstants';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const TechnologyDetail = () => {
   const { techId } = useParams<{ techId: string }>();
@@ -64,6 +65,37 @@ const TechnologyDetail = () => {
             <p className="text-xl text-space-light/80 leading-relaxed">
               {technology.description}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Image */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <Card className="overflow-hidden border border-space-accent/20 bg-space-dark/70 backdrop-blur-sm">
+              <CardContent className="p-0">
+                <AspectRatio ratio={16/9} className="bg-space-secondary/50">
+                  {technology.image ? (
+                    <img 
+                      src={technology.image} 
+                      alt={technology.name} 
+                      className="object-cover w-full h-full rounded-lg"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <Image className="h-16 w-16 text-space-accent/50" />
+                      <span className="sr-only">No image available</span>
+                    </div>
+                  )}
+                </AspectRatio>
+                <div className="p-4">
+                  <p className="text-space-light/70 text-sm italic text-center">
+                    {technology.name} - 先进航天技术
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
