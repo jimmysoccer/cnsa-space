@@ -9,14 +9,7 @@ import {
 import { Technology } from '@/types/technology';
 import { Link } from 'react-router-dom';
 import { NavBarItemsObj } from '@/constants/navConstants';
-import { Rocket, ArrowRight } from 'lucide-react';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
+import { Rocket, ArrowRight, Check, X } from 'lucide-react';
 import { TECHNOLOGY_CATEGORIES } from '@/constants/technologyConstants';
 
 interface TechnologyCarouselProps {
@@ -26,43 +19,36 @@ interface TechnologyCarouselProps {
 const TechnologyCarousel: React.FC<TechnologyCarouselProps> = ({
   technologies,
 }) => {
-  const [category, setCategory] = useState<string>('all');
+  const [category, setCategory] = useState<string>('全部');
 
   const filteredTechnologies =
-    category === 'all'
+    category === '全部'
       ? technologies
       : technologies.filter((tech) => tech.category === category);
 
-  const handleCategoryChange = (value: string) => {
-    setCategory(value);
-  };
-
   return (
     <div className='max-w-6xl mx-auto'>
-      <div className='flex justify-between items-center mb-8'>
-        <h2 className='text-3xl font-orbitron font-bold'>技术概览</h2>
-        <div className='flex items-center'>
-          <Select value={category} onValueChange={handleCategoryChange}>
-            <SelectTrigger className='w-[180px] bg-space-dark/70 border-space-accent/30'>
-              <SelectValue placeholder='选择类别' />
-            </SelectTrigger>
-            <SelectContent className='bg-space-dark border-space-accent/30'>
-              <SelectItem value='all'>全部类别</SelectItem>
-              {TECHNOLOGY_CATEGORIES.map((cat) => (
-                <SelectItem key={cat} value={cat}>
-                  {cat}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+      <div className='mb-8 flex flex-wrap justify-center gap-2'>
+        {TECHNOLOGY_CATEGORIES.map((tech) => (
+          <button
+            key={tech}
+            onClick={() => setCategory(tech)}
+            className={`px-4 py-2 rounded-full font-orbitron text-sm transition-all ${
+              category === tech
+                ? 'bg-space-accent text-white'
+                : 'bg-space-dark/60 text-space-light/70 hover:text-space-light'
+            }`}
+          >
+            {tech}
+          </button>
+        ))}
       </div>
 
       {filteredTechnologies.length > 0 ? (
         <Carousel className='w-full'>
           <CarouselContent>
             {filteredTechnologies.map((tech) => (
-              <CarouselItem key={tech.id} className='md:basis-1/3 p-2'>
+              <CarouselItem key={tech.id} className='md:basis-1/3 p-5'>
                 <div className='tech-card bg-space-dark/70 backdrop-blur-sm rounded-lg p-6 border border-space-accent/20 h-full flex flex-col'>
                   <div className='mb-6 flex justify-center'>
                     <div className='w-16 h-16 rounded-full bg-space-accent/20 flex items-center justify-center'>
@@ -75,12 +61,28 @@ const TechnologyCarousel: React.FC<TechnologyCarouselProps> = ({
                   <div className='space-y-4 text-space-light/80 flex-grow'>
                     <p>{tech.description}</p>
                     <div className='border-t border-space-accent/20 pt-4'>
-                      <h4 className='font-orbitron text-space-accent mb-2 text-sm uppercase'>
+                      <h4 className='font-orbitron text-green-400 mb-2 text-sm uppercase'>
                         优势
                       </h4>
                       <ul className='list-disc list-inside space-y-1'>
                         {tech.pros.map((pro, index) => (
-                          <li key={index}>{pro}</li>
+                          <li key={index} className='flex items-start'>
+                            <Check className='h-5 w-5 text-green-400 mr-2 mt-0.5 flex-shrink-0'></Check>
+                            <span className='text-space-light/80'>{pro}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className='border-t border-space-accent/20 pt-4'>
+                      <h4 className='font-orbitron text-red-400 mb-2 text-sm uppercase'>
+                        挑战
+                      </h4>
+                      <ul className='list-disc list-inside space-y-1'>
+                        {tech.cons.map((con, index) => (
+                          <li key={index} className='flex items-start'>
+                            <X className='h-5 w-5 text-red-400 mr-2 mt-0.5 flex-shrink-0'></X>
+                            <span className='text-space-light/80'>{con}</span>
+                          </li>
                         ))}
                       </ul>
                     </div>
@@ -90,7 +92,10 @@ const TechnologyCarousel: React.FC<TechnologyCarouselProps> = ({
                       </h4>
                       <ul className='list-disc list-inside space-y-1'>
                         {tech.currentApplications.map((pro, index) => (
-                          <li key={index}>{pro}</li>
+                          <li key={index} className='flex items-start'>
+                            <Rocket className='h-5 w-5 text-space-accent mr-2 mt-0.5 flex-shrink-0'></Rocket>
+                            <span className='text-space-light/80'>{pro}</span>
+                          </li>
                         ))}
                       </ul>
                     </div>

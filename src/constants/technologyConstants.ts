@@ -3,6 +3,29 @@ import { DefaultMissionImage } from './missionConstants';
 
 export const TECHNOLOGIES: Technology[] = [
   {
+    id: 'lunar-ascent',
+    name: '月面自动起飞系统',
+    description:
+      '嫦娥五号实现的月面无人自动点火起飞技术，突破月球无导航天气环境挑战。',
+    history: '2020年嫦娥五号首次实现地外天体起飞，将样品送回地球。',
+    currentProgress: '起飞初始定位精度达0.1°',
+    currentApplications: [
+      '月球采样返回',
+      '未来月球基地物资运输',
+      '火星起飞技术验证',
+    ],
+    futureImprovements: [
+      '多目标轨道入轨',
+      '重复使用技术',
+      '载人月面起飞安全系统',
+    ],
+    pros: ['自主姿态建立', '高精度惯性导航', '极端环境适应性'],
+    cons: ['无法地面测控支持', '羽流效应不可预测', '推进剂余量风险'],
+    image:
+      'https://img.spaceflightfans.cn/upload/img/202012/1606982400_lunar-ascent.jpg',
+    category: '深空技术',
+  },
+  {
     id: 'udmh-n2o4-propellant',
     name: '偏二甲肼/四氧化二氮推进剂',
     description:
@@ -37,8 +60,7 @@ export const TECHNOLOGIES: Technology[] = [
     ],
     pros: ['高比冲', '环保无毒', '大推力'],
     cons: ['液氢操作复杂', '发动机结构复杂', '研制难度大'],
-    image:
-      'https://img.spaceflightfans.cn/upload/img/201611/1479367594_1946.jpg',
+    image: DefaultMissionImage,
     category: '推进系统',
   },
   {
@@ -66,7 +88,7 @@ export const TECHNOLOGIES: Technology[] = [
     ],
     cons: ['推力较小（约80mN）', '依赖太阳能供电', '存在羽流污染风险'],
     image:
-      'https://img.spaceflightfans.cn/upload/img/202105/1622016000_hall-thruster.jpg',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1747258770/HallThruster_r0hx17.png',
     category: '推进系统',
   },
   {
@@ -214,29 +236,6 @@ export const TECHNOLOGIES: Technology[] = [
     category: '能源系统',
   },
   {
-    id: 'lunar-ascent',
-    name: '月面自动起飞系统',
-    description:
-      '嫦娥五号实现的月面无人自动点火起飞技术，突破月球无导航天气环境挑战。',
-    history: '2020年嫦娥五号首次实现地外天体起飞，将样品送回地球。',
-    currentProgress: '起飞初始定位精度达0.1°',
-    currentApplications: [
-      '月球采样返回',
-      '未来月球基地物资运输',
-      '火星起飞技术验证',
-    ],
-    futureImprovements: [
-      '多目标轨道入轨',
-      '重复使用技术',
-      '载人月面起飞安全系统',
-    ],
-    pros: ['自主姿态建立', '高精度惯性导航', '极端环境适应性'],
-    cons: ['无法地面测控支持', '羽流效应不可预测', '推进剂余量风险'],
-    image:
-      'https://img.spaceflightfans.cn/upload/img/202012/1606982400_lunar-ascent.jpg',
-    category: '深空技术',
-  },
-  {
     id: 'eclss',
     name: '环境控制与生命保障系统',
     description:
@@ -269,6 +268,7 @@ export const getTechnologiesByCategory = (category: string): Technology[] => {
 };
 
 // All technology categories
-export const TECHNOLOGY_CATEGORIES = Array.from(
-  new Set(TECHNOLOGIES.map((tech) => tech.category))
-);
+export const TECHNOLOGY_CATEGORIES = Array.from([
+  '全部',
+  ...new Set(TECHNOLOGIES.map((tech) => tech.category)),
+]);

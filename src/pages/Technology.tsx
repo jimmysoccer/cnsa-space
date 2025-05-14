@@ -1,11 +1,13 @@
-import { Rocket, Search, Link as LinkIcon, ArrowRight } from 'lucide-react';
 import { technologyHeaderBg } from '@/assets/images/image';
 import { Link } from 'react-router-dom';
 import { NavBarItemsObj } from '@/constants/navConstants';
 import { TECHNOLOGIES } from '@/constants/technologyConstants';
 import TechnologyCarousel from '@/components/technology/TechnologyCarousel';
+import { Check } from 'lucide-react';
 
 const Technology = () => {
+  const featuredTechnology =
+    TECHNOLOGIES.find((a) => a.name.includes('霍尔')) ?? TECHNOLOGIES[0];
   return (
     <div className='min-h-screen pt-16'>
       {/* Hero section */}
@@ -32,7 +34,7 @@ const Technology = () => {
       </section>
 
       {/* Technology Overview with Carousel */}
-      <section className='bg-space-secondary/30 py-16'>
+      <section className='bg-space-secondary/30 py-10'>
         <div className='container mx-auto px-4'>
           <TechnologyCarousel technologies={TECHNOLOGIES} />
         </div>
@@ -49,26 +51,29 @@ const Technology = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-center'>
               <div>
                 <img
-                  src={TECHNOLOGIES[0].image}
-                  alt={TECHNOLOGIES[0].name}
+                  src={featuredTechnology.image}
+                  alt={featuredTechnology.name}
                   className='rounded-lg shadow-xl shadow-space-accent/10 border border-space-accent/30'
                 />
               </div>
               <div>
                 <h3 className='text-2xl font-orbitron font-bold mb-4 text-space-accent'>
-                  {TECHNOLOGIES[0].name}
+                  {featuredTechnology.name}
                 </h3>
                 <p className='text-space-light/80 mb-6'>
-                  {TECHNOLOGIES[0].description}
+                  {featuredTechnology.description}
                 </p>
                 <div className='space-y-4'>
                   <div className='bg-space-secondary/40 rounded-lg p-4 border border-space-accent/20'>
-                    <h4 className='font-orbitron text-space-light mb-2'>
+                    <h4 className='font-orbitron text-green-400 mb-2'>
                       关键优势
                     </h4>
                     <ul className='list-disc list-inside text-space-light/80 space-y-1'>
-                      {TECHNOLOGIES[0].pros.slice(0, 4).map((pro, index) => (
-                        <li key={index}>{pro}</li>
+                      {featuredTechnology.pros.slice(0, 4).map((pro, index) => (
+                        <li key={index} className='flex items-start'>
+                          <Check className='h-5 w-5 text-green-400 mr-2 mt-0.5 flex-shrink-0'></Check>
+                          <span className='text-space-light/80'>{pro}</span>
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -78,12 +83,13 @@ const Technology = () => {
                       开发状态
                     </h4>
                     <p className='text-space-light/80'>
-                      {TECHNOLOGIES[0].currentProgress}
+                      {featuredTechnology.currentProgress}
                     </p>
                   </div>
                 </div>
                 <Link
-                  to={`${NavBarItemsObj.technology.path}/${TECHNOLOGIES[0].id}`}
+                  className='inline-block w-auto'
+                  to={`${NavBarItemsObj.technology.path}/${featuredTechnology.id}`}
                 >
                   <button className='space-button mt-8'>技术规格</button>
                 </Link>

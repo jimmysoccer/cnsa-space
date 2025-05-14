@@ -60,7 +60,9 @@ const Navbar = () => {
                   className={`px-3 py-2 rounded-md font-orbitron text-sm transition-all duration-300 ${
                     location.pathname === link.path ||
                     (link.path === '/missions' &&
-                      location.pathname.startsWith('/missions/'))
+                      location.pathname.startsWith('/missions/')) ||
+                    (link.path === '/technology' &&
+                      location.pathname.startsWith('/technology/'))
                       ? 'text-space-accent font-semibold'
                       : 'text-space-light hover:text-space-accent'
                   }`}
