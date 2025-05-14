@@ -23,6 +23,7 @@ import { NavBarItemsObj } from '@/constants/navConstants';
 import { useAtomValue } from 'jotai';
 import { missionsAtom } from '@/atoms/atoms';
 import { Badge } from '../ui/badge';
+import { DefaultMissionImage } from '@/constants/missionConstants';
 
 const MissionCardView = () => {
   const missions = useAtomValue(missionsAtom);
@@ -76,6 +77,9 @@ const MissionCardView = () => {
                   <img
                     src={mission.images[0]}
                     alt={mission.title}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = DefaultMissionImage;
+                    }}
                     className='w-full h-48 object-cover rounded-md border border-space-accent/20 mr-4'
                   />
                   <div className='flex justify-between items-start'>
