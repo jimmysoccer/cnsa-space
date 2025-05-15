@@ -17,7 +17,6 @@ import MissionDetailModal from './MissionDetailModal';
 import { NavBarItemsObj } from '@/constants/navConstants';
 import { useAtomValue } from 'jotai';
 import { missionsAtom } from '@/atoms/atoms';
-import { DefaultMissionImage } from '@/constants/missionConstants';
 
 const MissionListView = () => {
   const missions = useAtomValue(missionsAtom);
@@ -89,10 +88,6 @@ const MissionListView = () => {
                     <img
                       src={mission.images[0]}
                       alt={`${mission.title} icon`}
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src =
-                          DefaultMissionImage;
-                      }}
                       className='h-full w-20 mr-2 rounded object-cover'
                     />
                     <div>

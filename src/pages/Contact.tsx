@@ -184,9 +184,9 @@ const Contact = () => {
                     <div>
                       <h3 className='text-lg font-orbitron mb-1'>我们的地址</h3>
                       <p className='text-space-light/80'>
-                        XXXXX
+                        宇宙大道1234号，科研园区
                         <br />
-                        XXXX
+                        休斯顿，德克萨斯州 78701
                       </p>
                     </div>
                   </div>
@@ -203,8 +203,17 @@ const Contact = () => {
                         href='mailto:contact@astrox.example'
                         className='text-space-light/80 hover:text-space-accent transition-colors'
                       >
-                        jimmysoccer0927@gmail.com
+                        contact@astrox.example
                       </a>
+                      <p className='text-space-light/60 text-sm mt-1'>
+                        媒体咨询:{' '}
+                        <a
+                          href='mailto:press@astrox.example'
+                          className='hover:text-space-accent transition-colors'
+                        >
+                          press@astrox.example
+                        </a>
+                      </p>
                     </div>
                   </div>
 
@@ -216,7 +225,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className='text-lg font-orbitron mb-1'>电话</h3>
-                      <p className='text-space-light/80'>+1 (XXX) XXX-XXXX</p>
+                      <p className='text-space-light/80'>+1 (555) 123-4567</p>
                       <p className='text-space-light/60 text-sm mt-1'>
                         周一至周五，上午9:00至下午5:00（美东时间）
                       </p>
@@ -243,7 +252,7 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      {/* <section className='bg-space-dark py-20'>
+      <section className='bg-space-dark py-20'>
         <div className='container mx-auto px-4'>
           <div className='max-w-4xl mx-auto'>
             <h2 className='text-3xl font-orbitron font-bold mb-12 text-center'>
@@ -289,7 +298,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 };
