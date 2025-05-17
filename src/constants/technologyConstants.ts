@@ -1,5 +1,7 @@
 import { Technology } from '@/types/technology';
-import { DefaultMissionImage } from './missionConstants';
+
+export const DefaultTechnologyImage =
+  'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746474294/471ca7ac-e965-4d65-8644-c5067629d0d4_qxcwld.jpg';
 
 export const TECHNOLOGIES: Technology[] = [
   {
@@ -22,7 +24,7 @@ export const TECHNOLOGIES: Technology[] = [
     pros: ['自主姿态建立', '高精度惯性导航', '极端环境适应性'],
     cons: ['无法地面测控支持', '羽流效应不可预测', '推进剂余量风险'],
     image:
-      'https://img.spaceflightfans.cn/upload/img/202012/1606982400_lunar-ascent.jpg',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746219294/change6_j1veul.webp',
     category: '深空技术',
   },
   {
@@ -41,7 +43,8 @@ export const TECHNOLOGIES: Technology[] = [
     futureImprovements: ['完全淘汰计划', '推进剂处理环保技术'],
     pros: ['技术成熟可靠', '常温储存', '自燃特性简化点火系统'],
     cons: ['剧毒和高腐蚀性', '环境污染风险', '操作安全要求高'],
-    image: DefaultMissionImage,
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746462354/79f0f736afc379310a557a78fc8ea04543a98226bb02_egvbfl.webp',
     category: '推进系统',
   },
   {
@@ -60,7 +63,8 @@ export const TECHNOLOGIES: Technology[] = [
     ],
     pros: ['高比冲', '环保无毒', '大推力'],
     cons: ['液氢操作复杂', '发动机结构复杂', '研制难度大'],
-    image: DefaultMissionImage,
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746471349/61c015f3512ce04ccdc418f6_1_wpuwh4.jpg',
     category: '推进系统',
   },
   {
@@ -109,8 +113,7 @@ export const TECHNOLOGIES: Technology[] = [
     ],
     pros: ['大幅降低单星发射成本', '提高发射效率', '灵活应对星座部署需求'],
     cons: ['轨道设计复杂', '卫星分离风险增加', '运载能力要求高'],
-    image:
-      'https://img.spaceflightfans.cn/upload/img/202202/1644825600_1946.jpg',
+    image: 'das',
     category: '发射技术',
   },
   {
@@ -123,8 +126,7 @@ export const TECHNOLOGIES: Technology[] = [
     futureImprovements: ['通用化发射平台', '多弹种兼容', '发射后快速再装填'],
     pros: ['减少发射平台热损伤', '提高发射隐蔽性', '简化发射装置设计'],
     cons: ['弹射机构复杂', '初始弹道控制难度大', '系统可靠性要求高'],
-    image:
-      'https://img.spaceflightfans.cn/upload/img/201909/1569830400_1946.jpg',
+    image: 'das',
     category: '发射技术',
   },
   {
@@ -141,8 +143,7 @@ export const TECHNOLOGIES: Technology[] = [
     futureImprovements: ['新一代载人飞船', '商业载人航天', '发射逃逸系统优化'],
     pros: ['高可靠性设计', '完善应急救生系统', '人性化发射流程'],
     cons: ['系统复杂度高', '发射成本高昂', '质量要求极其严格'],
-    image:
-      'https://img.spaceflightfans.cn/upload/img/202106/1623744000_1946.jpg',
+    image: 'adsdas',
     category: '发射技术',
   },
   {
@@ -164,8 +165,7 @@ export const TECHNOLOGIES: Technology[] = [
     ],
     pros: ['中国最大运载空间', '低冲击分离技术', '流线型气动设计'],
     cons: ['增加火箭死重', '空气动力学复杂', '制造成本高'],
-    image:
-      'https://img.spaceflightfans.cn/upload/img/202104/1617206400_cz5b-fairing.jpg',
+    image: 'sad',
     category: '箭体技术',
   },
   {
@@ -179,7 +179,7 @@ export const TECHNOLOGIES: Technology[] = [
     pros: ['支持长期空间设施运营', '实现航天器组合飞行', '提高任务灵活性'],
     cons: ['轨道控制精度要求极高', '对接机构复杂精密', '风险控制难度大'],
     image:
-      'https://img.spaceflightfans.cn/upload/img/202110/1633622400_1946.jpg',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746462330/0df3d7ca7bcb0a46f21fbfcf4235e1246b600d3301b5_b9aela.webp',
     category: '在轨操作',
   },
   {
@@ -198,8 +198,7 @@ export const TECHNOLOGIES: Technology[] = [
     futureImprovements: ['AI自主决策能力', '力反馈精细操作', '多机械臂协同'],
     pros: ['最大伸展长度15米', '末端速度0.1m/s精准控制', '可自主爬行转移'],
     cons: ['能源消耗较大', '极端温度影响精度', '故障维修难度高'],
-    image:
-      'https://img.spaceflightfans.cn/upload/img/202107/1625068800_robotic-arm.jpg',
+    image: 'dsad',
     category: '在轨操作',
   },
   {
@@ -213,8 +212,7 @@ export const TECHNOLOGIES: Technology[] = [
     futureImprovements: ['自适应开伞控制', '多模式组合缓冲', '海上溅落适应性'],
     pros: ['着陆过载<4g', '支持重复使用', '适应多种地形'],
     cons: ['系统复杂度高', '伞绳缠绕风险', '受气象条件影响'],
-    image:
-      'https://img.spaceflightfans.cn/upload/img/202009/1600963200_landing-system.jpg',
+    image: 'zxc',
     category: '返回技术',
   },
   {
@@ -231,8 +229,7 @@ export const TECHNOLOGIES: Technology[] = [
     ],
     pros: ['重量较传统太阳翼轻30%', '可重复收展', '耐原子氧腐蚀'],
     cons: ['微流星防护难度大', '长期折叠可能产生疲劳', '初期成本较高'],
-    image:
-      'https://img.spaceflightfans.cn/upload/img/202106/1623772800_solar-array.jpg',
+    image: 'wqeasd',
     category: '能源系统',
   },
   {
@@ -250,8 +247,7 @@ export const TECHNOLOGIES: Technology[] = [
     ],
     pros: ['减少地面补给需求', '维持健康舱内环境', '支持长期驻留'],
     cons: ['系统能耗较高', '微生物控制挑战', '维护操作复杂'],
-    image:
-      'https://img.spaceflightfans.cn/upload/img/202108/1627833600_eclss.jpg',
+    image: 'dsad',
     category: '载人系统',
   },
 ];

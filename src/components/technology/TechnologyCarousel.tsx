@@ -10,7 +10,10 @@ import { Technology } from '@/types/technology';
 import { Link } from 'react-router-dom';
 import { NavBarItemsObj } from '@/constants/navConstants';
 import { Rocket, ArrowRight, Check, X } from 'lucide-react';
-import { TECHNOLOGY_CATEGORIES } from '@/constants/technologyConstants';
+import {
+  DefaultTechnologyImage,
+  TECHNOLOGY_CATEGORIES,
+} from '@/constants/technologyConstants';
 
 interface TechnologyCarouselProps {
   technologies: Technology[];
@@ -51,9 +54,15 @@ const TechnologyCarousel: React.FC<TechnologyCarouselProps> = ({
               <CarouselItem key={tech.id} className='md:basis-1/3 p-5'>
                 <div className='tech-card bg-space-dark/70 backdrop-blur-sm rounded-lg p-6 border border-space-accent/20 h-full flex flex-col'>
                   <div className='mb-6 flex justify-center'>
-                    <div className='w-16 h-16 rounded-full bg-space-accent/20 flex items-center justify-center'>
-                      <Rocket className='h-8 w-8 text-space-accent' />
-                    </div>
+                    <img
+                      src={tech.image}
+                      className='h-auto max-h-[200px] object-contain rounded'
+                      alt={`${tech.name} icon`}
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src =
+                          DefaultTechnologyImage;
+                      }}
+                    ></img>
                   </div>
                   <h3 className='text-xl font-orbitron font-bold mb-4 text-center'>
                     {tech.name}

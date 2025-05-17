@@ -11,7 +11,10 @@ import {
   History,
   Image,
 } from 'lucide-react';
-import { getTechnologyById } from '@/constants/technologyConstants';
+import {
+  DefaultTechnologyImage,
+  getTechnologyById,
+} from '@/constants/technologyConstants';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -94,7 +97,11 @@ const TechnologyDetail = () => {
                     <img
                       src={technology.image}
                       alt={technology.name}
-                      className='object-cover w-full h-full rounded-lg'
+                      className='object-contain w-full h-full rounded-lg'
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src =
+                          DefaultTechnologyImage;
+                      }}
                     />
                   ) : (
                     <div className='w-full h-full flex items-center justify-center'>
