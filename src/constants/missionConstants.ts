@@ -395,8 +395,8 @@ export const MISSIONS: Mission[] = [
       '发现永久阴影坑挥发物成分',
     ],
     images: [
-      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746654172/lunar_south_pole_mission.webp',
-      DefaultMissionImage,
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746460570/b03533fa828ba61ea8d3961b6c6c800a304e251ff3f5_cdppni.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746219294/change6_j1veul.webp',
     ],
   },
   {
@@ -480,7 +480,7 @@ export const MISSIONS: Mission[] = [
   },
   {
     id: 20,
-    title: '火星采样返回',
+    title: '天问三号(火星采样返回)',
     description:
       '通过"轨道器-着陆器-上升器"组合，实现中国首次火星土壤样本回收，单程样本量≥500克。',
     startDate: '2038-07-01',
@@ -500,6 +500,8 @@ export const MISSIONS: Mission[] = [
       '分析火星古气候证据',
       '验证地火往返运输系统',
     ],
-    images: [DefaultMissionImage],
+    images: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1748007464/Ehe90pNStsFCd8EXrTn8XRKDwyUevo8RB8cwU4sUnC8Dt1587931450392compressflag_jvlaxp.webp',
+    ],
   },
 ];
