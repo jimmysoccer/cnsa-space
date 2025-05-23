@@ -113,7 +113,8 @@ export const TECHNOLOGIES: Technology[] = [
     ],
     pros: ['大幅降低单星发射成本', '提高发射效率', '灵活应对星座部署需求'],
     cons: ['轨道设计复杂', '卫星分离风险增加', '运载能力要求高'],
-    image: 'das',
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1747967903/b17eca8065380cd791239360ed1dba345982b3b72bbf_vs0qqm.webp',
     category: '发射技术',
   },
   {
