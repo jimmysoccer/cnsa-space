@@ -422,7 +422,9 @@ export const MISSIONS: Mission[] = [
       '实现暗物质分布三维测绘',
     ],
     images: [
-      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746654172/chinese_space_telescope.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1748916468/9345d688d43f8794a4c2ae22364219f41bd5ad6e8c3f_bms6jl.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1748916469/7aec54e736d12f2eb9381e6dab9bc2628535e5ddc23e_e12oka.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1748916468/3ac79f3df8dcd100baa10b3c96d25010b912c8fc812e_wj5kin.webp',
     ],
     note: '每半年与空间站对接进行补给和维护',
   },

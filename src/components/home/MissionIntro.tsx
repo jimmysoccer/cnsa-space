@@ -32,7 +32,7 @@ const MissionIntro = () => {
           <div className='flex flex-col md:flex-row items-center justify-between'>
             <div className='mb-10 md:mb-0 md:w-1/2'>
               <h2 className='text-3xl md:text-4xl font-orbitron font-bold mb-4'>
-                下一次任务发射
+                下一次重大任务发射
               </h2>
               <MissionCard
                 key={'MissionIntroCounutdownCard'}
