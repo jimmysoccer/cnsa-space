@@ -451,7 +451,10 @@ export const MISSIONS: Mission[] = [
       '采集月球深部物质样本',
       '验证月面原位资源利用技术',
     ],
-    images: [DefaultMissionImage],
+    images: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1749000788/Chinese_next-generation_crewed_spacecraft_mockup_-_NMC_l8ggzn.jpg',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1749000788/Chinese_crewed_lunar_lander_mockup_01_-_NMC_phslvc.jpg',
+    ],
   },
   {
     id: 19,
@@ -476,7 +479,8 @@ export const MISSIONS: Mission[] = [
       '验证地球威胁天体处置流程',
     ],
     images: [
-      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746654172/asteroid_defense.webp',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1749000646/983a809392394536bfc3c42062505b9d_lernfj.gif',
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1749000645/320_cl1dfl.png',
     ],
     note: '与欧空局Hera任务共享监测数据',
   },
