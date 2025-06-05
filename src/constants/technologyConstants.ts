@@ -145,7 +145,8 @@ export const TECHNOLOGIES: Technology[] = [
     futureImprovements: ['新一代载人飞船', '商业载人航天', '发射逃逸系统优化'],
     pros: ['高可靠性设计', '完善应急救生系统', '人性化发射流程'],
     cons: ['系统复杂度高', '发射成本高昂', '质量要求极其严格'],
-    image: 'adsdas',
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746224678/d009b3de9c82d158ccbfce436d430ed8bc3eb035e4a5_vaghrw.webp',
     category: '发射技术',
   },
   {
