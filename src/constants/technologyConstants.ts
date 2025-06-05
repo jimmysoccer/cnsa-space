@@ -127,7 +127,8 @@ export const TECHNOLOGIES: Technology[] = [
     futureImprovements: ['通用化发射平台', '多弹种兼容', '发射后快速再装填'],
     pros: ['减少发射平台热损伤', '提高发射隐蔽性', '简化发射装置设计'],
     cons: ['弹射机构复杂', '初始弹道控制难度大', '系统可靠性要求高'],
-    image: 'das',
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1749093554/42a98226cffc1e176a67482b3e434a0d728de937_mcktp5.webp',
     category: '发射技术',
   },
   {
