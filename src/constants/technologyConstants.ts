@@ -168,7 +168,8 @@ export const TECHNOLOGIES: Technology[] = [
     ],
     pros: ['中国最大运载空间', '低冲击分离技术', '流线型气动设计'],
     cons: ['增加火箭死重', '空气动力学复杂', '制造成本高'],
-    image: 'sad',
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1746468617/pQ11-fzqvvsa2606684_eswmrm.jpg',
     category: '箭体技术',
   },
   {
@@ -201,7 +202,8 @@ export const TECHNOLOGIES: Technology[] = [
     futureImprovements: ['AI自主决策能力', '力反馈精细操作', '多机械臂协同'],
     pros: ['最大伸展长度15米', '末端速度0.1m/s精准控制', '可自主爬行转移'],
     cons: ['能源消耗较大', '极端温度影响精度', '故障维修难度高'],
-    image: 'dsad',
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1750268866/d86276db43354c32a121e5c43d62e2d7_oc58vi.jpg',
     category: '在轨操作',
   },
   {
