@@ -217,7 +217,8 @@ export const TECHNOLOGIES: Technology[] = [
     futureImprovements: ['自适应开伞控制', '多模式组合缓冲', '海上溅落适应性'],
     pros: ['着陆过载<4g', '支持重复使用', '适应多种地形'],
     cons: ['系统复杂度高', '伞绳缠绕风险', '受气象条件影响'],
-    image: 'zxc',
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1750374137/u_900324702_2650761767_fm_253_fmt_auto_app_120_f_JPEG_h0lzxs.webp',
     category: '返回技术',
   },
   {
