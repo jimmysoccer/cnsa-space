@@ -235,7 +235,8 @@ export const TECHNOLOGIES: Technology[] = [
     ],
     pros: ['重量较传统太阳翼轻30%', '可重复收展', '耐原子氧腐蚀'],
     cons: ['微流星防护难度大', '长期折叠可能产生疲劳', '初期成本较高'],
-    image: 'wqeasd',
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1750464333/d1a20cf431adcbef5b237635b844dbd2a2cc9fec_zd74jx.jpg',
     category: '能源系统',
   },
   {
@@ -253,7 +254,8 @@ export const TECHNOLOGIES: Technology[] = [
     ],
     pros: ['减少地面补给需求', '维持健康舱内环境', '支持长期驻留'],
     cons: ['系统能耗较高', '微生物控制挑战', '维护操作复杂'],
-    image: 'dsad',
+    image:
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1750464500/downloaded-image_extd02.jpg',
     category: '载人系统',
   },
 ];
