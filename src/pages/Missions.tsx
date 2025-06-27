@@ -8,6 +8,7 @@ import { MissionViewType } from '@/types/mission';
 import { missionViewTypeAtom } from '@/atoms/atoms';
 import { useAtom } from 'jotai';
 import MissionFilters from '@/components/missions/MissionFilters';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 const Missions = () => {
   const [activeView, setActiveView] = useAtom(missionViewTypeAtom);
@@ -77,6 +78,7 @@ const Missions = () => {
 
             <TabsContent value={MissionViewType.timeline} className='mt-0'>
               <MissionTimelineView></MissionTimelineView>
+              <ScrollToTopButton />
             </TabsContent>
 
             <TabsContent value={MissionViewType.card} className='mt-0'>
