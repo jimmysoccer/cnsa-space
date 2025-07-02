@@ -350,7 +350,7 @@ export const MISSIONS: Mission[] = [
     target: ['小行星2016 HO3（Kamoʻoalewa）', '主带彗星311P'],
     category: ['小行星探测', '彗星探测'],
     assignee: '张荣桥团队', // 天问系列总设计师
-    progress: 0, // 发射前为0，升空后按阶段更新
+    progress: 5, // 发射前为0，升空后按阶段更新
     technology: [
       '小行星智能附着采样',
       '多天体引力借力飞行',
