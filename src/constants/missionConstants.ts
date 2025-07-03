@@ -510,4 +510,34 @@ export const MISSIONS: Mission[] = [
       'https://res.cloudinary.com/ds4h9nepa/image/upload/v1748007464/Ehe90pNStsFCd8EXrTn8XRKDwyUevo8RB8cwU4sUnC8Dt1587931450392compressflag_jvlaxp.webp',
     ],
   },
+  {
+    id: 21,
+    title: '长征九号首飞',
+    description:
+      '中国首款可重复使用重型运载火箭，近地轨道运载能力150吨（一次性使用）/80吨（可回收），地月转移轨道运载能力50吨，将支撑载人登月、火星采样返回等国家重大航天工程',
+    startDate: '2033-12-01',
+    endDate: '2033-12-31',
+    status: MissionStatusType.planned,
+    target: ['近地轨道', '地月转移轨道'],
+    category: ['运载火箭', '重型火箭'],
+    assignee: '中国运载火箭技术研究院（CALT）',
+    progress: 18, // 当前处于关键技术攻关阶段
+    technology: [
+      '10米直径箭体（铝合金-复合材料混合结构）',
+      '480吨级液氧煤油发动机（YF-130，海平面推力4800kN）',
+      '200吨级液氢液氧发动机（YF-90，真空比冲452s）',
+      '可重复使用一级（着陆精度±30米）',
+      '智能故障诊断系统（自主应急能力≥90%）',
+    ],
+    achievements: [
+      '中国运载能力最大火箭（超越长征五号5倍）',
+      '单次发射可运送2个月球着陆器舱段',
+      '支撑2035年前载人登月目标',
+      '推动不锈钢燃料贮箱等20项新材料突破',
+    ],
+    images: [
+      'https://res.cloudinary.com/ds4h9nepa/image/upload/v1751581067/Long_March_9_mockup_at_ZHAL_aq8pay.jpg',
+    ],
+    note: '采用"模块化设计+部分复用"技术路线，后续将发展完全可重复使用型号（预计2040年）',
+  },
 ];
