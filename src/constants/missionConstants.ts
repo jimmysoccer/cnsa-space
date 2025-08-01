@@ -521,7 +521,7 @@ export const MISSIONS: Mission[] = [
     target: ['近地轨道', '地月转移轨道'],
     category: ['运载火箭', '重型火箭'],
     assignee: '中国运载火箭技术研究院（CALT）',
-    progress: 18, // 当前处于关键技术攻关阶段
+    progress: 20, // 当前处于关键技术攻关阶段
     technology: [
       '10米直径箭体（铝合金-复合材料混合结构）',
       '480吨级液氧煤油发动机（YF-130，海平面推力4800kN）',
